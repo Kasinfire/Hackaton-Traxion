@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Health Agent - Traxión</title>
+    <link rel="stylesheet" href="css/contacto_areas_style.css">
+</head>
+<body>
+    <header class="topbar">
+            <div>
+            <img class="logo" src="https://traxion.global/hubfs/traxion-global-sitio-mar24/Nuevos%20Logos%20REDIMENSI%C3%93N/Logos%20TRAXION%20-%20No%20tilde/SVG-500x150_17-TRAXION%20ESP%20GRIS.svg" alt=Logo">
+        </div>
+        <div class="topbar__logo">
+            <h1>Customer Health Agent</h1>
+            <span class="badge badge--brand">EJE 2 - TRAXIÓN</span>
+        </div>
+     
+        <div class="topbar__filters">
+            <a href="./index.html">
+                <button class="btn btn--pill active">Volver</button>
+            </a>
+        </div>
+          
+    </header>
+  <div class="container">
+
+  <!-- FORMULARIO -->
+  <div class="card">
+    <h2>Contacto por Área</h2>
+
+    <label>Nombre</label>
+    <input type="text" placeholder="Tu nombre">
+
+    <label>Correo electrónico</label>
+    <input type="email" placeholder="ejemplo@empresa.com">
+
+    <label>Área</label>
+    <select id="areaSelect">
+        <option value="" selected disabled>— Elija un área —</option>
+        <option value="Transporte">Transporte</option>
+        <option value="Logística">Logística</option>
+        <option value="Tecnología">Tecnología y monitoreo</option>
+        <option value="Atención al cliente">Atención al cliente</option>
+        <option value="Almacén">Almacén</option>
+    </select>
+
+    <label>Mensaje</label>
+    <textarea placeholder="Escribe tu mensaje..."></textarea>
+
+    <label>Nivel de urgencia</label>
+    <div class="urgency-group">
+      <label class="chip low">
+        <input type="radio" name="urgency" value="baja" checked>
+        Baja
+      </label>
+      <label class="chip medium">
+        <input type="radio" name="urgency" value="media">
+        Media
+      </label>
+      <label class="chip high">
+        <input type="radio" name="urgency" value="alta">
+        Alta
+      </label>
+      <label class="chip critical">
+        <input type="radio" name="urgency" value="critica">
+        Crítica
+      </label>
+    </div>
+
+    <button class="btn-primary">Enviar mensaje</button>
+  </div>
+
+  <!-- OPCIONES DE CONTACTO -->
+  <div class="card">
+    <h2>Otras formas de contacto</h2>
+    <p style="font-size:13px;color:#666;margin-bottom:15px;">
+      Para solicitudes urgentes, utiliza directamente los canales rápidos como llamada o WhatsApp.
+    </p>
+     <div id="contactInfo">
+        <div class="contact-option">
+      <h4>Correo electrónico</h4>
+      <p>contacto@empresa.com</p>
+    </div>
+
+    <div class="contact-option">
+      <h4>Llamada telefónica</h4>
+      <p>+52 55 1234 5678</p>
+    </div>
+
+    <div class="contact-option">
+      <h4>WhatsApp</h4>
+      <p>Disponible 24/7</p>
+    </div>
+
+    <div class="contact-option">
+      <h4>Página web</h4>
+      <p>
+        <a class="link" href="#">www.empresa.com/contacto</a>
+      </p>
+    </div>
+    </div>
+    
+
+    <button class="btn-secondary">Abrir portal web</button>
+  </div>
+
+</div>
+<script src="js/contacto_areas.js"></script>
+</body>
+</html>

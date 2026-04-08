@@ -17,17 +17,88 @@ const clientes = [
     manager: "Luis Torres",
 
     services: [
-      { name: "Rutas Centro", desc: "Distribución diaria a tiendas en CDMX y zona metropolitana.", area: "Transporte", expected: "01-Dic", real: "03-Dic", realClass: "severity-high", sl: "75%", slClass: "severity-high text-center", nps: "3/10", npsClass: "severity-high text-center" },
-      { name: "Entrega Retail", desc: "Entrega a tiendas de conveniencia y retail.", area: "Transporte", expected: "02-Dic", real: "04-Dic", realClass: "severity-high", sl: "80%", slClass: "severity-mid text-center", nps: "4/10", npsClass: "severity-high text-center" },
-      { name: "Control Stock", desc: "Validación de inventario en CEDIS.", area: "Almacén", expected: "01-Dic", real: "02-Dic", realClass: "severity-mid", sl: "88%", slClass: "severity-mid text-center", nps: "6/10", npsClass: "severity-mid text-center" },
-      { name: "Planif. Rutas", desc: "Coordinación de ventanas de entrega.", area: "Coordinación", expected: "01-Dic", real: "03-Dic", realClass: "severity-high", sl: "72%", slClass: "severity-high text-center", nps: "3/10", npsClass: "severity-high text-center" },
-      { name: "Atención Incidencias", desc: "Seguimiento a incidencias operativas.", area: "Atención", expected: "01-Dic", real: "02-Dic", realClass: "severity-high", sl: "85%", slClass: "severity-high text-center", nps: "4/10", npsClass: "severity-high text-center" }
-    ],
+  {
+    name: "Rutas Centro CDMX",
+    desc: "Distribución a tiendas urbanas con alta congestión.",
+    area: "Transporte",
+    expected: "01-Dic",
+    real: "03-Dic",
+    realClass: "severity-high",
+    sl: "72%",
+    slClass: "severity-high text-center",
+    nps: "3/10",
+    npsClass: "severity-high text-center"
+  },
+  {
+    name: "Entrega CEDIS Norte",
+    desc: "Abastecimiento a centros de distribución regionales.",
+    area: "Transporte",
+    expected: "02-Dic",
+    real: "04-Dic",
+    realClass: "severity-high",
+    sl: "78%",
+    slClass: "severity-high text-center",
+    nps: "4/10",
+    npsClass: "severity-high text-center"
+  },
+  {
+    name: "Control Inventario",
+    desc: "Validación de stock previo a embarque.",
+    area: "Almacén",
+    expected: "01-Dic",
+    real: "02-Dic",
+    realClass: "severity-mid",
+    sl: "85%",
+    slClass: "severity-mid text-center",
+    nps: "5/10",
+    npsClass: "severity-mid text-center"
+  },
+  {
+    name: "Planeación Rutas",
+    desc: "Asignación de ventanas y rutas.",
+    area: "Coordinación",
+    expected: "01-Dic",
+    real: "03-Dic",
+    realClass: "severity-high",
+    sl: "70%",
+    slClass: "severity-high text-center",
+    nps: "3/10",
+    npsClass: "severity-high text-center"
+  },
+  {
+    name: "Atención Incidencias",
+    desc: "Gestión de reclamos de tienda.",
+    area: "Atención",
+    expected: "01-Dic",
+    real: "02-Dic",
+    realClass: "severity-high",
+    sl: "78%",
+    slClass: "severity-mid text-center",
+    nps: "4/10",
+    npsClass: "severity-high text-center"
+  }
+],
 
-    complaints: [
-      { title: "Retrasos en rutas CDMX", desc: "Demoras de 2–3 horas en rutas clave.", area: "Transporte", date: "12 Dic 2025", severity: "HIGH", severityClass: "badge--danger-light", status: "OPEN", statusClass: "badge--danger-light" },
-      { title: "Faltantes en pedidos", desc: "Diferencias en inventario entregado.", area: "Almacén", date: "05 Dic 2025", severity: "HIGH", severityClass: "badge--danger-light", status: "IN PROGRESS", statusClass: "badge--warning-light" }
-    ]
+complaints: [
+  { title:"Retrasos en CDMX",desc:"Demoras constantes en rutas urbanas.",area:"Transporte",date:"12 Dic 2025",severity:"ALTO",severityClass:"badge--danger-light",status:"ABIERTO",statusClass:"badge--danger-light"},
+  { title:"Saturación CEDIS",desc:"Recepción excedida en ventanas.",area:"Transporte",date:"11 Dic 2025",severity:"ALTO",severityClass:"badge--danger-light",status:"ABIERTO",statusClass:"badge--danger-light"},
+  { title:"Faltantes pedidos",desc:"Diferencias en surtido.",area:"Almacén",date:"10 Dic 2025",severity:"ALTO",severityClass:"badge--danger-light",status:"ABIERTO",statusClass:"badge--danger-light"},
+  { title:"Errores picking",desc:"Errores en preparación.",area:"Almacén",date:"09 Dic 2025",severity:"ALTO",severityClass:"badge--danger-light",status:"EN PROGRESO",statusClass:"badge--warning-light"},
+  { title:"Planeación deficiente",desc:"Asignación tardía de rutas.",area:"Coordinación",date:"08 Dic 2025",severity:"ALTO",severityClass:"badge--danger-light",status:"ABIERTO",statusClass:"badge--danger-light"},
+  { title:"Cambios última hora",desc:"Reprogramaciones frecuentes.",area:"Coordinación",date:"07 Dic 2025",severity:"ALTO",severityClass:"badge--danger-light",status:"ABIERTO",statusClass:"badge--danger-light"},
+  { title:"Respuesta lenta",desc:"Atención tardía a incidencias.",area:"Atención",date:"06 Dic 2025",severity:"ALTO",severityClass:"badge--danger-light",status:"ABIERTO",statusClass:"badge--danger-light"},
+  { title:"Falta visibilidad",desc:"Poca trazabilidad en pedidos.",area:"Tecnología",date:"05 Dic 2025",severity:"ALTO",severityClass:"badge--danger-light",status:"ABIERTO",statusClass:"badge--danger-light"},
+  { title:"Unidades insuficientes",desc:"Falta de flota disponible.",area:"Transporte",date:"04 Dic 2025",severity:"ALTO",severityClass:"badge--danger-light",status:"ABIERTO",statusClass:"badge--danger-light"},
+  { title:"Demoras descarga",desc:"Retrasos en recepción.",area:"Transporte",date:"03 Dic 2025",severity:"ALTO",severityClass:"badge--danger-light",status:"ABIERTO",statusClass:"badge--danger-light"},
+  { title:"Inventario incorrecto",desc:"Descuadres frecuentes.",area:"Almacén",date:"02 Dic 2025",severity:"ALTO",severityClass:"badge--danger-light",status:"ABIERTO",statusClass:"badge--danger-light"},
+  { title:"Errores SKU",desc:"Productos mal etiquetados.",area:"Almacén",date:"01 Dic 2025",severity:"ALTO",severityClass:"badge--danger-light",status:"ABIERTO",statusClass:"badge--danger-light"},
+  { title:"Falta coordinación",desc:"Desalineación entre áreas.",area:"Coordinación",date:"30 Nov 2025",severity:"ALTO",severityClass:"badge--danger-light",status:"ABIERTO",statusClass:"badge--danger-light"},
+  { title:"Ventanas incumplidas",desc:"Entregas fuera de horario.",area:"Coordinación",date:"29 Nov 2025",severity:"ALTO",severityClass:"badge--danger-light",status:"ABIERTO",statusClass:"badge--danger-light"},
+  { title:"Escalaciones sin cierre",desc:"Casos abiertos sin resolución.",area:"Atención",date:"28 Nov 2025",severity:"ALTO",severityClass:"badge--danger-light",status:"ABIERTO",statusClass:"badge--danger-light"},
+  { title:"Comunicación deficiente",desc:"Falta de seguimiento claro.",area:"Atención",date:"27 Nov 2025",severity:"ALTO",severityClass:"badge--danger-light",status:"ABIERTO",statusClass:"badge--danger-light"},
+  { title:"Incumplimiento SLA",desc:"Servicios fuera de estándar.",area:"Transporte",date:"26 Nov 2025",severity:"ALTO",severityClass:"badge--danger-light",status:"ABIERTO",statusClass:"badge--danger-light"},
+  { title:"Retrasos recurrentes",desc:"Problema estructural.",area:"Transporte",date:"25 Nov 2025",severity:"ALTO",severityClass:"badge--danger-light",status:"ABIERTO",statusClass:"badge--danger-light"}
+]
   },
 
   // 🔴 GM
@@ -47,16 +118,84 @@ const clientes = [
     manager: "Carlos Méndez",
 
     services: [
-      { name: "Transporte Planta", desc: "Traslado de autopartes.", area: "Transporte", expected: "01-Dic", real: "02-Dic", realClass: "severity-mid", sl: "89%", slClass: "severity-mid text-center", nps: "7/10", npsClass: "severity-mid text-center" },
-      { name: "Distribución Regional", desc: "Entrega a distribuidores.", area: "Transporte", expected: "02-Dic", real: "02-Dic", realClass: "severity-low", sl: "91%", slClass: "severity-low text-center", nps: "7/10", npsClass: "severity-mid text-center" },
-      { name: "Control Almacén", desc: "Gestión de inventario.", area: "Almacén", expected: "01-Dic", real: "01-Dic", realClass: "severity-low", sl: "92%", slClass: "severity-low text-center", nps: "7/10", npsClass: "severity-mid text-center" },
-      { name: "Coord. Producción", desc: "Sincronización con líneas.", area: "Coordinación", expected: "01-Dic", real: "02-Dic", realClass: "severity-mid", sl: "90%", slClass: "severity-mid text-center", nps: "7/10", npsClass: "severity-mid text-center" },
-      { name: "Soporte Planta", desc: "Atención incidencias.", area: "Atención", expected: "01-Dic", real: "01-Dic", realClass: "severity-low", sl: "90%", slClass: "severity-mid text-center", nps: "7/10", npsClass: "severity-mid text-center" }
-    ],
+  {
+    name:"Transporte Planta",
+    desc:"Entrega de autopartes just-in-time.",
+    area:"Transporte",
+    expected:"01-Dic",
+    real:"02-Dic",
+    realClass:"severity-mid",
+    sl:"88%",
+    slClass:"severity-mid text-center",
+    nps:"7/10",
+    npsClass:"severity-mid text-center"
+  },
+  {
+    name:"Distribución Regional",
+    desc:"Entrega a distribuidores.",
+    area:"Transporte",
+    expected:"02-Dic",
+    real:"02-Dic",
+    realClass:"severity-low",
+    sl:"91%",
+    slClass:"severity-low text-center",
+    nps:"7/10",
+    npsClass:"severity-mid text-center"
+  }
+],
 
-    complaints: [
-      { title: "Falta de operadores", desc: "Escasez de personal operativo.", area: "Transporte", date: "10 Dic 2025", severity: "HIGH", severityClass: "badge--danger-light", status: "OPEN", statusClass: "badge--danger-light" }
-    ]
+complaints: [
+  {
+    title:"Falta de operadores",
+    desc:"Escasez de choferes certificados en planta.",
+    area:"Transporte",
+    date:"10 Dic 2025",
+    severity:"ALTO",
+    severityClass:"badge--danger-light",
+    status:"ABIERTO",
+    statusClass:"badge--danger-light"
+  },
+  {
+    title:"Retrasos en entregas JIT",
+    desc:"Afectación a líneas de producción.",
+    area:"Transporte",
+    date:"09 Dic 2025",
+    severity:"ALTO",
+    severityClass:"badge--danger-light",
+    status:"ABIERTO",
+    statusClass:"badge--danger-light"
+  },
+  {
+    title:"Capacidad limitada",
+    desc:"Falta de unidades en horas pico.",
+    area:"Transporte",
+    date:"08 Dic 2025",
+    severity:"ALTO",
+    severityClass:"badge--danger-light",
+    status:"ABIERTO",
+    statusClass:"badge--danger-light"
+  },
+  {
+    title:"Desalineación producción-logística",
+    desc:"Fallas en sincronización de embarques.",
+    area:"Coordinación",
+    date:"07 Dic 2025",
+    severity:"MEDIO",
+    severityClass:"badge--warning-light",
+    status:"EN PROGRESO",
+    statusClass:"badge--warning-light"
+  },
+  {
+    title:"Incidencias sin seguimiento",
+    desc:"Casos abiertos sin cierre oportuno.",
+    area:"Atención",
+    date:"06 Dic 2025",
+    severity:"MEDIO",
+    severityClass:"badge--warning-light",
+    status:"ABIERTO",
+    statusClass:"badge--danger-light"
+  }
+]
   },
 
   // 🟡 AMAZON
@@ -76,16 +215,46 @@ const clientes = [
     manager: "Fernanda Ruiz",
 
     services: [
-      { name: "Última Milla", desc: "Entrega a clientes finales.", area: "Transporte", expected: "01-Dic", real: "02-Dic", realClass: "severity-mid", sl: "91%", slClass: "severity-mid text-center", nps: "6/10", npsClass: "severity-mid text-center" },
-      { name: "Distribución Hub", desc: "Movimiento entre hubs.", area: "Transporte", expected: "02-Dic", real: "02-Dic", realClass: "severity-low", sl: "92%", slClass: "severity-mid text-center", nps: "6/10", npsClass: "severity-mid text-center" },
-      { name: "Gestión Inventario", desc: "Control en FC.", area: "Almacén", expected: "01-Dic", real: "02-Dic", realClass: "severity-mid", sl: "93%", slClass: "severity-low text-center", nps: "6/10", npsClass: "severity-mid text-center" },
-      { name: "Planeación Demanda", desc: "Forecast de pedidos.", area: "Coordinación", expected: "01-Dic", real: "02-Dic", realClass: "severity-mid", sl: "92%", slClass: "severity-mid text-center", nps: "6/10", npsClass: "severity-mid text-center" },
-      { name: "Soporte Cliente", desc: "Atención post entrega.", area: "Atención", expected: "01-Dic", real: "01-Dic", realClass: "severity-low", sl: "94%", slClass: "severity-low text-center", nps: "6/10", npsClass: "severity-mid text-center" }
-    ],
+  {
+    name:"Última Milla",
+    desc:"Entrega a cliente final en zonas urbanas.",
+    area:"Transporte",
+    expected:"01-Dic",
+    real:"02-Dic",
+    realClass:"severity-mid",
+    sl:"90%",
+    slClass:"severity-mid text-center",
+    nps:"6/10",
+    npsClass:"severity-mid text-center"
+  },
+  {
+    name:"Fulfillment",
+    desc:"Preparación de pedidos en FC.",
+    area:"Almacén",
+    expected:"01-Dic",
+    real:"02-Dic",
+    realClass:"severity-mid",
+    sl:"92%",
+    slClass:"severity-mid text-center",
+    nps:"6/10",
+    npsClass:"severity-mid text-center"
+  }
+],
 
-    complaints: [
-      { title: "Alta demanda", desc: "Saturación operativa por volumen.", area: "Transporte", date: "12 Dic 2025", severity: "HIGH", severityClass: "badge--danger-light", status: "OPEN", statusClass: "badge--danger-light" }
-    ]
+complaints: [
+  {title:"Saturación última milla",desc:"Alta demanda en zonas urbanas.",area:"Transporte",date:"12 Dic 2025",severity:"ALTO",severityClass:"badge--danger-light",status:"ABIERTO",statusClass:"badge--danger-light"},
+  {title:"Retrasos en entregas",desc:"Volumen superior a capacidad.",area:"Transporte",date:"11 Dic 2025",severity:"ALTO",severityClass:"badge--danger-light",status:"ABIERTO",statusClass:"badge--danger-light"},
+  {title:"Falta de repartidores",desc:"Cobertura insuficiente.",area:"Transporte",date:"10 Dic 2025",severity:"ALTO",severityClass:"badge--danger-light",status:"ABIERTO",statusClass:"badge--danger-light"},
+  {title:"Errores en picking",desc:"Productos incorrectos enviados.",area:"Almacén",date:"09 Dic 2025",severity:"ALTO",severityClass:"badge--danger-light",status:"EN PROGRESO",statusClass:"badge--warning-light"},
+  {title:"Demoras en preparación",desc:"Retraso en centros fulfillment.",area:"Almacén",date:"08 Dic 2025",severity:"MEDIO",severityClass:"badge--warning-light",status:"ABIERTO",statusClass:"badge--danger-light"},
+  {title:"Inventario desactualizado",desc:"Stock no sincronizado.",area:"Almacén",date:"07 Dic 2025",severity:"MEDIO",severityClass:"badge--warning-light",status:"ABIERTO",statusClass:"badge--danger-light"},
+  {title:"Forecast inexacto",desc:"Planeación de demanda incorrecta.",area:"Coordinación",date:"06 Dic 2025",severity:"ALTO",severityClass:"badge--danger-light",status:"ABIERTO",statusClass:"badge--danger-light"},
+  {title:"Reprogramaciones frecuentes",desc:"Cambios en rutas.",area:"Coordinación",date:"05 Dic 2025",severity:"MEDIO",severityClass:"badge--warning-light",status:"ABIERTO",statusClass:"badge--danger-light"},
+  {title:"Falta visibilidad pedidos",desc:"Tracking limitado.",area:"Tecnología",date:"04 Dic 2025",severity:"MEDIO",severityClass:"badge--warning-light",status:"ABIERTO",statusClass:"badge--danger-light"},
+  {title:"Errores tracking",desc:"Datos incorrectos en sistema.",area:"Tecnología",date:"03 Dic 2025",severity:"BAJO",severityClass:"badge--success-light",status:"ABIERTO",statusClass:"badge--danger-light"},
+  {title:"Soporte lento",desc:"Tiempos largos de respuesta.",area:"Atención",date:"02 Dic 2025",severity:"MEDIO",severityClass:"badge--warning-light",status:"ABIERTO",statusClass:"badge--danger-light"},
+  {title:"Escalaciones abiertas",desc:"Casos sin resolución.",area:"Atención",date:"01 Dic 2025",severity:"MEDIO",severityClass:"badge--warning-light",status:"ABIERTO",statusClass:"badge--danger-light"}
+]
   },
 
   {
@@ -104,16 +273,32 @@ const clientes = [
     manager: "Roberto Díaz",
 
     services: [
-      { name: "Distribución Nacional", desc: "Entrega a centros de consumo.", area: "Transporte", expected: "01-Dic", real: "01-Dic", realClass: "severity-low", sl: "98%", slClass: "severity-low text-center", nps: "9/10", npsClass: "severity-low text-center" },
-      { name: "Inventario Regional", desc: "Gestión de stock.", area: "Almacén", expected: "02-Dic", real: "02-Dic", realClass: "severity-low", sl: "98%", slClass: "severity-low text-center", nps: "9/10", npsClass: "severity-low text-center" },
-      { name: "Coord. Entregas", desc: "Planificación rutas.", area: "Coordinación", expected: "01-Dic", real: "01-Dic", realClass: "severity-low", sl: "97%", slClass: "severity-low text-center", nps: "9/10", npsClass: "severity-low text-center" },
-      { name: "Tracking", desc: "Seguimiento pedidos.", area: "Tecnología", expected: "01-Dic", real: "01-Dic", realClass: "severity-low", sl: "99%", slClass: "severity-low text-center", nps: "9/10", npsClass: "severity-low text-center" },
-      { name: "Atención Cliente", desc: "Gestión incidencias.", area: "Atención", expected: "01-Dic", real: "01-Dic", realClass: "severity-low", sl: "98%", slClass: "severity-low text-center", nps: "9/10", npsClass: "severity-low text-center" }
-    ],
+  {
+    name:"Distribución Nacional",
+    desc:"Entrega a centros de consumo.",
+    area:"Transporte",
+    expected:"01-Dic",
+    real:"01-Dic",
+    realClass:"severity-low",
+    sl:"98%",
+    slClass:"severity-low text-center",
+    nps:"9/10",
+    npsClass:"severity-low text-center"
+  }
+],
 
-    complaints: [
-      { title: "Ajuste estacional", desc: "Cambio en demanda.", area: "Coordinación", date: "10 Dic 2025", severity: "LOW", severityClass: "badge--success-light", status: "OPEN", statusClass: "badge--danger-light" }
-    ]
+complaints: [
+  {
+    title:"Ajuste estacional",
+    desc:"Variación en demanda por temporada.",
+    area:"Coordinación",
+    date:"10 Dic 2025",
+    severity:"BAJO",
+    severityClass:"badge--success-light",
+    status:"ABIERTO",
+    statusClass:"badge--danger-light"
+  }
+]
   },
 
   // 🟢 MERCADO LIBRE
@@ -141,8 +326,37 @@ const clientes = [
     ],
 
     complaints: [
-      { title: "Ajuste rutas", desc: "Cambios en rutas nuevas.", area: "Transporte", date: "10 Dic 2025", severity: "LOW", severityClass: "badge--success-light", status: "OPEN", statusClass: "badge--danger-light" }
-    ]
+  {
+    title:"Ajuste rutas nuevas",
+    desc:"Optimización de rutas en expansión.",
+    area:"Transporte",
+    date:"10 Dic 2025",
+    severity:"BAJO",
+    severityClass:"badge--success-light",
+    status:"ABIERTO",
+    statusClass:"badge--danger-light"
+  },
+  {
+    title:"Configuración tracking",
+    desc:"Errores menores en monitoreo.",
+    area:"Tecnología",
+    date:"09 Dic 2025",
+    severity:"BAJO",
+    severityClass:"badge--success-light",
+    status:"ABIERTO",
+    statusClass:"badge--danger-light"
+  },
+  {
+    title:"Consulta de sellers",
+    desc:"Dudas operativas de vendedores.",
+    area:"Atención",
+    date:"08 Dic 2025",
+    severity:"BAJO",
+    severityClass:"badge--success-light",
+    status:"ABIERTO",
+    statusClass:"badge--danger-light"
+  }
+]
   },
 
   {
