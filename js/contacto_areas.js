@@ -1,90 +1,116 @@
-const button = document.querySelector('.btn-primary');
-button.addEventListener('click', function() {
-  const selected = document.querySelector('input[name="urgency"]:checked').value;
+/* =========================================
+   CONTACTO POR ÁREA - LÓGICA
+   ========================================= */
 
-  if (selected === 'critica') {
-    showAlert('🚨 Caso CRÍTICO enviado. Atención inmediata requerida.', 'critical');
-    updateBadge();
-  } else if (selected === 'alta') {
-    showAlert('⚠️ Caso de alta prioridad enviado.', 'high');
-  } else {
-    showAlert('✅ Mensaje enviado correctamente.', 'normal');
-  }
+// --- CHIPS: resaltar el seleccionado visualmente ---
+const chips = document.querySelectorAll('.chip');
+
+chips.forEach(chip => {
+  // Marcar el que ya viene checked (baja)
+  const radio = chip.querySelector('input[type="radio"]');
+  if (radio.checked) chip.classList.add('selected');
+
+  chip.addEventListener('click', () => {
+    chips.forEach(c => c.classList.remove('selected'));
+    chip.classList.add('selected');
+  });
 });
 
-function showAlert(message, type) {
-  const alert = document.createElement('div');
-  alert.innerText = message;
-  alert.style.position = 'fixed';
-  alert.style.bottom = '20px';
-  alert.style.right = '20px';
-  alert.style.padding = '14px 18px';
-  alert.style.borderRadius = '10px';
-  alert.style.color = 'white';
-  alert.style.fontWeight = 'bold';
-  alert.style.boxShadow = '0 4px 10px rgba(0,0,0,0.2)';
-
-  if (type === 'critical') alert.style.background = '#d93025';
-  else if (type === 'high') alert.style.background = '#f29900';
-  else alert.style.background = '#2ea44f';
-
-  document.body.appendChild(alert);
-
-  setTimeout(() => alert.remove(), 4000);
-}
-
-// Badge simulado tipo dashboard
-function updateBadge() {
-  let badge = document.getElementById('criticalBadge');
-  if (!badge) {
-    badge = document.createElement('div');
-    badge.id = 'criticalBadge';
-    badge.innerText = '1 CRÍTICO';
-    badge.style.position = 'fixed';
-    badge.style.top = '20px';
-    badge.style.right = '20px';
-    badge.style.background = '#d93025';
-    badge.style.color = 'white';
-    badge.style.padding = '10px 16px';
-    badge.style.borderRadius = '20px';
-    badge.style.fontWeight = 'bold';
-    badge.style.boxShadow = '0 4px 10px rgba(0,0,0,0.2)';
-    document.body.appendChild(badge);
-  } else {
-    let count = parseInt(badge.innerText) || 1;
-    count++;
-    badge.innerText = count + ' CRÍTICOS';
-  }
-}
-
-/* TIPOS DE CONTACTOS */
-const areaSelect = document.getElementById('areaSelect');
+// --- CONTACTOS POR ÁREA ---
+const areaSelect  = document.getElementById('areaSelect');
 const contactInfo = document.getElementById('contactInfo');
 
 const contacts = {
-  "Transporte": `
-    <div class="contact-option"><h4>Correo Transporte</h4><p>transporte@empresa.com</p></div>
-    <div class="contact-option"><h4>Teléfono</h4><p>+52 55 1111 2222</p></div>
-  `,
-  "Logística": `
-    <div class="contact-option"><h4>Correo Logística</h4><p>logistica@empresa.com</p></div>
-    <div class="contact-option"><h4>Teléfono</h4><p>+52 55 3333 4444</p></div>
-  `,
-  "Tecnología": `
-    <div class="contact-option"><h4>Soporte Técnico</h4><p>soporte@empresa.com</p></div>
-    <div class="contact-option"><h4>Teléfono</h4><p>+52 55 5555 6666</p></div>
-  `,
-  "Atención al cliente": `
-    <div class="contact-option"><h4>Atención al cliente</h4><p>atencion@empresa.com</p></div>
-    <div class="contact-option"><h4>Teléfono</h4><p>+52 55 7777 8888</p></div>
-  `,
-  "Almacén": `
-  <div class="contact-option"><h4>Correo Almacén</h4><p>almacen@empresa.com</p></div>
-  <div class="contact-option"><h4>Teléfono</h4><p>+52 55 9999 0000</p></div>
-`
+  "Transporte": [
+    { icon: '✉️', title: 'Correo Transporte',   value: 'transporte@traxion.com' },
+    { icon: '📞', title: 'Teléfono',             value: '+52 55 1111 2222' }
+  ],
+  "Logística": [
+    { icon: '✉️', title: 'Correo Logística',     value: 'logistica@traxion.com' },
+    { icon: '📞', title: 'Teléfono',             value: '+52 55 3333 4444' }
+  ],
+  "Tecnología": [
+    { icon: '✉️', title: 'Soporte Técnico',      value: 'soporte@traxion.com' },
+    { icon: '📞', title: 'Teléfono',             value: '+52 55 5555 6666' }
+  ],
+  "Atención al cliente": [
+    { icon: '✉️', title: 'Atención al cliente',  value: 'atencion@traxion.com' },
+    { icon: '📞', title: 'Teléfono',             value: '+52 55 7777 8888' }
+  ],
+  "Almacén": [
+    { icon: '✉️', title: 'Correo Almacén',       value: 'almacen@traxion.com' },
+    { icon: '📞', title: 'Teléfono',             value: '+52 55 9999 0000' }
+  ]
 };
 
 areaSelect.addEventListener('change', () => {
   const selected = areaSelect.value;
-  contactInfo.innerHTML = contacts[selected] || '';
+  const items = contacts[selected];
+
+  if (!items) return;
+
+  contactInfo.innerHTML = items.map(item => `
+    <div class="contact-option">
+      <div class="contact-option__icon">${item.icon}</div>
+      <div>
+        <h4 class="contact-option__title">${item.title}</h4>
+        <p class="contact-option__value">${item.value}</p>
+      </div>
+    </div>
+  `).join('');
 });
+
+// --- ENVÍO DEL FORMULARIO ---
+document.getElementById('btnEnviar').addEventListener('click', () => {
+  const nombre   = document.getElementById('inputNombre').value.trim();
+  const correo   = document.getElementById('inputCorreo').value.trim();
+  const area     = areaSelect.value;
+  const mensaje  = document.getElementById('inputMensaje').value.trim();
+  const urgency  = document.querySelector('input[name="urgency"]:checked').value;
+
+  // Validación básica
+  if (!nombre || !correo || !area || !mensaje) {
+    showToast('⚠️ Por favor completa todos los campos.', '#d98a1e');
+    return;
+  }
+
+  // Acción según urgencia
+  if (urgency === 'critica') {
+    showToast('🚨 Caso CRÍTICO enviado. Atención inmediata requerida.', '#d93025');
+    updateCriticalBadge();
+  } else if (urgency === 'alta') {
+    showToast('⚠️ Caso de alta prioridad enviado.', '#f29900');
+  } else {
+    showToast('✅ Mensaje enviado correctamente.', '#2ea44f');
+  }
+});
+
+// --- TOAST ---
+function showToast(message, color) {
+  // Remover toast previo si existe
+  const prev = document.querySelector('.toast');
+  if (prev) prev.remove();
+
+  const toast = document.createElement('div');
+  toast.className = 'toast';
+  toast.innerText = message;
+  toast.style.background = color;
+  document.body.appendChild(toast);
+
+  setTimeout(() => toast.remove(), 4000);
+}
+
+// --- BADGE DE CRÍTICOS ---
+function updateCriticalBadge() {
+  let badge = document.querySelector('.critical-badge');
+
+  if (!badge) {
+    badge = document.createElement('div');
+    badge.className = 'critical-badge';
+    badge.innerText = '1 CRÍTICO';
+    document.body.appendChild(badge);
+  } else {
+    const count = (parseInt(badge.innerText) || 1) + 1;
+    badge.innerText = count + ' CRÍTICOS';
+  }
+}
