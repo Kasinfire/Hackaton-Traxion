@@ -1,12 +1,27 @@
+/* =========================================
+   PERFIL CLIENTE - ESTILOS ESPECÍFICOS
+   (Requiere styles.css cargado primero)
+   ========================================= */
+
+/* --- HEADER DEL PERFIL --- */
 .profile-header {
     background-color: var(--brand-dark);
     color: white;
     padding: 3rem 2rem;
     text-align: center;
 }
-.profile-title { font-size: 2.2rem; font-weight: 700; margin-bottom: 0.5rem; }
-.profile-meta { color: #aaa; font-size: 0.95rem; margin-bottom: 1.5rem; }
+.profile-title {
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+.profile-meta {
+    color: #aaa;
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+}
 
+/* --- INFO GRID (datos del cliente) --- */
 .info-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -15,14 +30,28 @@
     margin: 0 auto 2rem;
 }
 .info-item {
-    background: rgba(255,255,255,0.1);
+    background: rgba(255, 255, 255, 0.1);
     padding: 1rem;
     border-radius: 8px;
     border: 1px solid #444;
 }
-.info-label { font-size: 0.7rem; color: #888; text-transform: uppercase; margin-bottom: 0.3rem; }
-.info-value { font-size: 1rem; font-weight: 600; }
+.info-label {
+    font-size: 0.7rem;
+    color: #888;
+    text-transform: uppercase;
+    margin-bottom: 0.3rem;
+}
+.info-value {
+    font-size: 1rem;
+    font-weight: 600;
+}
 
+/* --- KPIs del perfil --- */
+.profile-kpis {
+    margin-bottom: 2rem;
+}
+
+/* --- SECCIONES DE DATOS --- */
 .data-section {
     background: var(--bg-card);
     border-radius: 12px;
@@ -35,25 +64,142 @@
     font-size: 1.1rem;
     font-weight: 600;
     margin-bottom: 1rem;
-    padding-bottom: 0.5rem;
+    padding-bottom: 0.75rem;
     border-bottom: 1px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
 }
 
-/* Tabla simple */
-.data-table { width: 100%; border-collapse: collapse; }
-.data-table th { text-align: left; padding: 0.8rem; font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; border-bottom: 1px solid var(--border-color); }
-.data-table td { padding: 1rem 0.8rem; font-size: 0.85rem; border-bottom: 1px solid #f0f0f0; }
+/* --- WRAPPER para scroll horizontal en mobile --- */
+.table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
 
+/* --- TABLA BASE --- */
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 600px; /* Evita aplastamiento en pantallas pequeñas */
+}
+
+.data-table th,
+.data-table td {
+    padding: 0.85rem 0.9rem;
+    border-bottom: 1px solid #f0f0f0;
+    text-align: left;
+    font-size: 0.875rem;
+    vertical-align: middle;
+}
+
+.data-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.data-table tbody tr:hover {
+    background-color: #fafafa;
+}
+
+.data-table th {
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    border-bottom: 2px solid var(--border-color);
+    background-color: #fafafa;
+}
+
+/* --- Tabla Servicios — anchos de columna --- */
+.table-servicios th:nth-child(1),
+.table-servicios td:nth-child(1) { width: 16%; }
+
+.table-servicios th:nth-child(2),
+.table-servicios td:nth-child(2) { width: 34%; }
+
+.table-servicios th:nth-child(3),
+.table-servicios td:nth-child(3) { width: 13%; }
+
+.table-servicios th:nth-child(4),
+.table-servicios td:nth-child(4) { width: 10%; }
+
+.table-servicios th:nth-child(5),
+.table-servicios td:nth-child(5) { width: 10%; }
+
+.table-servicios th:nth-child(6),
+.table-servicios td:nth-child(6) { width: 9%; }
+
+.table-servicios th:nth-child(7),
+.table-servicios td:nth-child(7) { width: 8%; }
+
+/* --- Tabla Quejas — anchos de columna --- */
+.table-quejas th:nth-child(1),
+.table-quejas td:nth-child(1) { width: 22%; }
+
+.table-quejas th:nth-child(2),
+.table-quejas td:nth-child(2) { width: 38%; }
+
+.table-quejas th:nth-child(3),
+.table-quejas td:nth-child(3) { width: 13%; }
+
+.table-quejas th:nth-child(4),
+.table-quejas td:nth-child(4) { width: 12%; }
+
+.table-quejas th:nth-child(5),
+.table-quejas td:nth-child(5) { width: 8%; }
+
+.table-quejas th:nth-child(6),
+.table-quejas td:nth-child(6) { width: 7%; }
+
+/* Centrar columnas numéricas/badge */
+.text-center { text-align: center !important; }
+
+/* --- Clases de severidad --- */
 .severity-high { color: var(--danger); font-weight: 600; }
-.severity-mid { color: var(--warning); font-weight: 600; }
+.severity-mid  { color: var(--warning); font-weight: 600; }
 
-/* Clases utilitarias que reemplazan los estilos en línea */
+/* --- Utilitarios --- */
 .risk-alto-text { color: #ff6b6b; }
-.btn--large { padding: 1rem 2rem; font-size: 1rem; border-radius: 30px; text-decoration: none; display: inline-block; }
-.dashboard--profile { max-width: 1000px; margin: 0 auto; }
-.table-footer-note { text-align: center; margin-top: 1rem; font-size: 0.8rem; color: var(--text-muted); }
 
+.btn--large {
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    border-radius: 30px;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.dashboard--profile {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.table-footer-note {
+    text-align: center;
+    margin-top: 1rem;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+/* --- RESPONSIVE --- */
 @media (max-width: 768px) {
-    .info-grid { grid-template-columns: repeat(2, 1fr); }
-    .data-table { display: block; overflow-x: auto; white-space: nowrap; }
+    .info-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .dashboard--profile {
+        padding: 1rem;
+    }
+    /* La tabla hace scroll horizontal gracias a .table-wrapper */
+}
+
+@media (max-width: 480px) {
+    .info-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+    .profile-title {
+        font-size: 1.6rem;
+    }
 }
