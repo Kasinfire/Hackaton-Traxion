@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Perfil Cliente - Walmart México</title>
+    <title>Perfil Cliente - Traxión</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/perfil-cliente-styless.css">
@@ -30,60 +30,58 @@
     </header>
 
     <div class="profile-header">
-        <h1 class="profile-title">Walmart México</h1>
-        <p class="profile-meta">Retail · Última Milla · 150 Unidades</p>
+        <h1 class="profile-title" id="client-name">Cargando...</h1>
+        <p class="profile-meta" id="client-meta">...</p>
 
         <div class="info-grid">
             <div class="info-item">
                 <p class="info-label">Sector</p>
-                <p class="info-value">Retail</p>
+                <p class="info-value" id="client-sector">-</p>
             </div>
             <div class="info-item">
                 <p class="info-label">Cliente desde</p>
-                <p class="info-value">Marzo 2021</p>
+                <p class="info-value" id="client-since">-</p>
             </div>
             <div class="info-item">
                 <p class="info-label">Key Account Manager</p>
-                <p class="info-value">Ana García</p>
+                <p class="info-value" id="client-kam">-</p>
             </div>
             <div class="info-item">
                 <p class="info-label">Nivel de Riesgo Actual</p>
-                <p class="info-value risk-alto-text">ALTO</p>
+                <p class="info-value" id="client-risk">-</p>
             </div>
         </div>
 
-        <a href="diagnostico.html" class="btn btn--primary btn--large">Analizar Riesgo con IA →</a>
+        <a href="#" id="btn-analizar" class="btn btn--primary btn--large">Analizar Riesgo con IA →</a>
     </div>
 
     <main class="dashboard dashboard--profile">
 
-        <!-- KPIs resumidos (consistentes con index.html) -->
         <section class="kpi-summary profile-kpis">
             <div class="kpi-card">
                 <p class="kpi-card__title">OTIF</p>
-                <p class="kpi-card__value text-danger">82%</p>
+                <p class="kpi-card__value" id="kpi-otif">-</p>
                 <p class="kpi-card__subtitle">Meta: ≥ 95%</p>
             </div>
             <div class="kpi-card">
                 <p class="kpi-card__title">Puntualidad</p>
-                <p class="kpi-card__value text-danger">75%</p>
+                <p class="kpi-card__value" id="kpi-puntualidad">-</p>
                 <p class="kpi-card__subtitle">Meta: ≥ 92%</p>
             </div>
             <div class="kpi-card">
                 <p class="kpi-card__title">NPS</p>
-                <p class="kpi-card__value text-danger">4<span style="font-size:1rem;font-weight:400;color:#bbb">/10</span></p>
+                <p class="kpi-card__value" id="kpi-nps">-</p>
                 <p class="kpi-card__subtitle">Meta: ≥ 8</p>
             </div>
             <div class="kpi-card">
                 <p class="kpi-card__title">Quejas Abiertas</p>
-                <p class="kpi-card__value text-danger">18</p>
+                <p class="kpi-card__value" id="kpi-quejas">-</p>
                 <p class="kpi-card__subtitle">Límite aceptable: ≤ 2</p>
             </div>
         </section>
 
-        <!-- Tabla de Servicios -->
         <section class="data-section">
-            <h2 class="section-title">Servicios Operativos (Última Milla)</h2>
+            <h2 class="section-title">Servicios Operativos</h2>
             <div class="table-wrapper">
                 <table class="data-table table-servicios">
                     <thead>
@@ -97,60 +95,14 @@
                             <th>NPS</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr>
-                            <td><strong>Rutas Centro</strong></td>
-                            <td>Distribución diaria a tiendas en CDMX y zona metropolitana.</td>
-                            <td>Transporte</td>
-                            <td>01-Dic</td>
-                            <td class="severity-high">03-Dic</td>
-                            <td class="severity-high text-center">75%</td>
-                            <td class="severity-high text-center">3/10</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Entrega Retail</strong></td>
-                            <td>Entrega de productos en puntos de venta pequeños y conveniencia.</td>
-                            <td>Transporte</td>
-                            <td>02-Dic</td>
-                            <td class="severity-high">04-Dic</td>
-                            <td class="severity-high text-center">80%</td>
-                            <td class="severity-high text-center">4/10</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Control Stock</strong></td>
-                            <td>Validación de inventario y conciliación de pedidos en rampa.</td>
-                            <td>Almacén</td>
-                            <td>01-Dic</td>
-                            <td class="severity-mid">02-Dic</td>
-                            <td class="severity-mid text-center">88%</td>
-                            <td class="severity-mid text-center">6/10</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Planif. Rutas</strong></td>
-                            <td>Coordinación de horarios y ventanas de entrega con el cliente.</td>
-                            <td>Coordinación</td>
-                            <td>01-Dic</td>
-                            <td class="severity-high">03-Dic</td>
-                            <td class="severity-high text-center">72%</td>
-                            <td class="severity-high text-center">3/10</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Atención Incidencias</strong></td>
-                            <td>Seguimiento a reportes de clientes y resolución de problemas.</td>
-                            <td>Atención</td>
-                            <td>01-Dic</td>
-                            <td class="severity-mid">02-Dic</td>
-                            <td class="severity-high text-center">85%</td>
-                            <td class="severity-high text-center">4/10</td>
-                        </tr>
-                    </tbody>
+                    <tbody id="services-tbody">
+                        </tbody>
                 </table>
             </div>
         </section>
 
-        <!-- Tabla de Quejas -->
         <section class="data-section">
-            <h2 class="section-title">Registro de Quejas Abiertas <span class="badge badge--danger-light" style="font-size:0.75rem;vertical-align:middle;">18 totales</span></h2>
+            <h2 class="section-title">Registro de Quejas Abiertas <span class="badge badge--danger-light" style="font-size:0.75rem;vertical-align:middle;" id="complaints-total"></span></h2>
             <div class="table-wrapper">
                 <table class="data-table table-quejas">
                     <thead>
@@ -163,54 +115,15 @@
                             <th>Estado</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr>
-                            <td><strong>Retrasos en rutas CDMX</strong></td>
-                            <td>Retrasos recurrentes de más de 2–3 horas en rutas críticas afectando entregas a cadenas grandes.</td>
-                            <td>Transporte</td>
-                            <td>12 Dic 2025</td>
-                            <td class="text-center"><span class="badge badge--danger-light">HIGH</span></td>
-                            <td class="text-center"><span class="badge badge--danger-light">OPEN</span></td>
-                        </tr>
-                        <tr>
-                            <td><strong>Faltantes en pedidos</strong></td>
-                            <td>Diferencias entre pedidos enviados y recibidos, generando reclamaciones frecuentes.</td>
-                            <td>Almacén</td>
-                            <td>05 Dic 2025</td>
-                            <td class="text-center"><span class="badge badge--danger-light">HIGH</span></td>
-                            <td class="text-center"><span class="badge badge--warning-light">IN PROGRESS</span></td>
-                        </tr>
-                        <tr>
-                            <td><strong>Comunicación inconsistente</strong></td>
-                            <td>Cambios de horario no comunicados oportunamente a clientes finales.</td>
-                            <td>Coordinación</td>
-                            <td>28 Nov 2025</td>
-                            <td class="text-center"><span class="badge badge--warning-light">MEDIUM</span></td>
-                            <td class="text-center"><span class="badge badge--danger-light">OPEN</span></td>
-                        </tr>
-                        <tr>
-                            <td><strong>Mercancía rechazada en tienda</strong></td>
-                            <td>Entregas fuera de ventana de recibo provocan rechazo de mercancía en punto de venta.</td>
-                            <td>Transporte</td>
-                            <td>20 Nov 2025</td>
-                            <td class="text-center"><span class="badge badge--danger-light">HIGH</span></td>
-                            <td class="text-center"><span class="badge badge--danger-light">OPEN</span></td>
-                        </tr>
-                        <tr>
-                            <td><strong>Cuello de botella en CEDIS</strong></td>
-                            <td>Demoras superiores a 4 horas en la carga dentro del CEDIS impactan puntualidad de despacho.</td>
-                            <td>Almacén</td>
-                            <td>15 Nov 2025</td>
-                            <td class="text-center"><span class="badge badge--danger-light">HIGH</span></td>
-                            <td class="text-center"><span class="badge badge--warning-light">IN PROGRESS</span></td>
-                        </tr>
-                    </tbody>
+                    <tbody id="complaints-tbody">
+                        </tbody>
                 </table>
             </div>
-            <p class="table-footer-note">Mostrando los 5 tickets más críticos y recientes. Las 13 quejas restantes están en revisión por Coordinación.</p>
+            <p class="table-footer-note" id="complaints-note"></p>
         </section>
 
     </main>
 
+    <script src="js/perfil-cliente.js"></script>
 </body>
 </html>
