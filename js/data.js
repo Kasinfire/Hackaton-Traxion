@@ -208,7 +208,7 @@ complaints: [
     otif: "92%",
     puntual: "91%",
     nps: "6/10",
-    quejas: "12",
+    quejas: "3",
     tendencia: "↓ Alta demanda",
     diagnostico: "diagnostico-Amazon.html",
     since: "2021",
@@ -257,17 +257,16 @@ complaints: [
 ]
   },
 
-  // 🟢 HEINEKEN
   {
     id: "heineken",
     nombre: "Heineken México",
     meta: "Consumo · Distribución",
     nivel: "BAJO",
     tipo: "warning",
-    otif: "98%",
-    puntual: "97%",
-    nps: "9/10",
-    quejas: "1",
+    otif: "91%",
+    puntual: "93%",
+    nps: "7/10",
+    quejas: "4",
     tendencia: "↓ Estacionalidad",
     diagnostico: "diagnostico-Heineken.html",
     since: "2020",
