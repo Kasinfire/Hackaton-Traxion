@@ -168,3 +168,27 @@ button {
 .chip:hover {
   opacity: 0.85;
 }
+
+/* Base de los chips */
+.chip span {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 13px;
+  border: 1px solid transparent;
+  transition: all 0.2s;
+}
+
+/* Colores por tipo */
+.low span { background-color: #e6f4ea; color: #2ea44f; }
+.medium span { background-color: #fff4e5; color: #d98c1f; }
+.high span { background-color: #fdecea; color: #d93025; }
+.critical span { background-color: #d93025; color: white; }
+
+/* Color activo al seleccionar */
+.low input:checked + span { background-color: #2ea44f; color: white; }
+.medium input:checked + span { background-color: #d98c1f; color: white; }
+.high input:checked + span { background-color: #d93025; color: white; }
+.critical input:checked + span { background-color: #b71c1c; color: white; }
