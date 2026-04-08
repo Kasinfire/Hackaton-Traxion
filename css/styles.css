@@ -46,6 +46,10 @@ body { background-color: var(--bg-app); color: var(--text-main); }
 /* =========================================
    3. DASHBOARD Y LAYOUT
    ========================================= */
+.logo{
+    height: 50px;
+}
+
 .dashboard { max-width: 1280px; margin: 0 auto; padding: 2rem; }
 
 .kpi-summary {
