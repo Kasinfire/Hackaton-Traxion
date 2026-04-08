@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil Cliente - Walmart México</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css"> <link rel="stylesheet" href="css/perfil-cliente-styless.css"> ```
+</head>
+<body>
+
+    <header class="topbar">
+        <div>
+            <img class="logo" src="https://traxion.global/hubfs/traxion-global-sitio-mar24/Nuevos%20Logos%20REDIMENSI%C3%93N/Logos%20TRAXION%20-%20No%20tilde/SVG-500x150_17-TRAXION%20ESP%20GRIS.svg" alt="Logo">
+        </div>
+        <div class="topbar__logo">
+            <h1>Customer Health Agent</h1>
+            <span class="badge badge--brand">EJE 2 - TRAXIÓN</span>
+        </div>
+        <div class="topbar__filters">
+            <a href="index.html" class="btn btn--pill" style="text-decoration: none; display: flex; align-items: center; gap: 6px;">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                    <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                </svg>
+                Inicio
+            </a>
+        </div>
+    </header>
+
+    <div class="profile-header">
+        <h1 class="profile-title">Walmart México</h1>
+        <p class="profile-meta">Retail · Última Milla · 150 Unidades</p>
+        
+        <div class="info-grid">
+            <div class="info-item">
+                <p class="info-label">Sector</p>
+                <p class="info-value">Retail / Autoservicio</p>
+            </div>
+            <div class="info-item">
+                <p class="info-label">Cliente desde</p>
+                <p class="info-value">Marzo 2021</p>
+            </div>
+            <div class="info-item">
+                <p class="info-label">Key Account Manager</p>
+                <p class="info-value">Ana García</p>
+            </div>
+            <div class="info-item">
+                <p class="info-label">Nivel de Riesgo Actual</p>
+                <p class="info-value risk-alto-text">ALTO</p>
+            </div>
+        </div>
+        
+        <a href="diagnostico.html" class="btn btn--primary btn--large">Analizar Riesgo con IA →</a>
+    </div>
+
+    <main class="dashboard dashboard--profile">
+        
+        <section class="data-section">
+            <h2 class="section-title">Servicios Operativos (Última Milla)</h2>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Servicio</th>
+                        <th>Descripción</th>
+                        <th>Área</th>
+                        <th>Nivel de Servicio (OTIF)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Rutas CEDIS Norte</strong></td>
+                        <td>Distribución diaria a tiendas en CDMX y zona metropolitana.</td>
+                        <td>Transporte</td>
+                        <td class="severity-high">78% ↓</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Entrega Retail Bajío</strong></td>
+                        <td>Entrega de productos en puntos de venta pequeños y tiendas de conveniencia.</td>
+                        <td>Transporte</td>
+                        <td class="severity-mid">85% ↓</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Control Stock CEDIS</strong></td>
+                        <td>Validación de inventario y conciliación de pedidos en rampa.</td>
+                        <td>Almacén</td>
+                        <td>91%</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Planificación Rutas</strong></td>
+                        <td>Coordinación de horarios y ventanas de entrega con el cliente.</td>
+                        <td>Coordinación</td>
+                        <td class="severity-high">82% ↓</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section class="data-section">
+            <h2 class="section-title">Registro de Quejas Abiertas (18 totales)</h2>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Título de Queja</th>
+                        <th>Descripción del Incidente</th>
+                        <th>Severidad</th>
+                        <th>Fecha</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Retrasos en rutas CDMX</strong></td>
+                        <td>Retrasos recurrentes de más de 4 horas en rutas críticas afectando entregas a tiendas.</td>
+                        <td><span class="badge badge--danger-light">HIGH</span></td>
+                        <td>12 Dic 2025</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Faltantes en pedidos de rampa</strong></td>
+                        <td>Diferencias entre pedidos enviados y recibidos, generando rechazos en puerta.</td>
+                        <td><span class="badge badge--danger-light">HIGH</span></td>
+                        <td>05 Dic 2025</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Comunicación inconsistente</strong></td>
+                        <td>Cambios de horario por fallas mecánicas no comunicados oportunamente a las tiendas.</td>
+                        <td><span class="badge badge--warning-light">MEDIUM</span></td>
+                        <td>28 Nov 2025</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p class="table-footer-note">Mostrando los 3 tickets más recientes. Las 15 quejas restantes están en revisión por Coordinación.</p>
+        </section>
+
+    </main>
+
+</body>
+</html>
