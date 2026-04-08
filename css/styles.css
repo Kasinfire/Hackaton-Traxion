@@ -1,0 +1,230 @@
+/* =========================================
+   1. VARIABLES Y COLORES
+   ========================================= */
+:root {
+    --bg-app: #fdfaf6;
+    --bg-card: #ffffff;
+    --text-main: #1a1a1a;
+    --text-muted: #888888;
+    --danger: #d9381e;
+    --danger-light: #fbeae8;
+    --warning: #d98a1e;
+    --warning-light: #fbf0e1;
+    --success: #28a745;
+    --success-light: #e8f5e9;
+    --brand-dark: #1e1e1e;
+    --brand-orange: #d95a1e;
+    --border-color: #e0e0e0;
+    --shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+body { background-color: var(--bg-app); color: var(--text-main); }
+
+/* =========================================
+   2. TOPBAR
+   ========================================= */
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 10rem;
+    background-color: var(--brand-dark);
+    color: white;
+    flex-wrap: wrap;     
+    gap: 0.75rem;        
+    position: sticky;    /* Le dice al navegador que se "pegue" al hacer scroll */
+    top: 0;              /* Se pega exactamente en el tope (0 pixeles) de la pantalla */
+    z-index: 1000;       /* Asegura que la barra siempre pase por encima de las tarjetas y no por detrás */
+}
+.topbar__logo { display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; }
+.topbar__logo h1 { font-size: 1.5rem; font-weight: 700; letter-spacing: -0.5px; }
+.topbar__subtitle { color: #aaa; font-size: 0.85rem; margin-left: 1rem; }
+
+.topbar__filters { display: flex; gap: 0.5rem; flex-wrap: wrap; } /* ← flex-wrap NUEVO */
+
+/* =========================================
+   3. DASHBOARD Y LAYOUT
+   ========================================= */
+.dashboard { max-width: 1280px; margin: 0 auto; padding: 2rem; }
+
+.kpi-summary {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.clients__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    border-top: 1px solid var(--border-color);
+    padding-top: 1.5rem;
+    flex-wrap: wrap;   
+    gap: 0.75rem;      
+}
+.clients__header h2 { font-size: 1.2rem; font-weight: 600; }
+
+.clients__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+}
+
+/* =========================================
+   4. TARJETAS (CARDS)
+   ========================================= */
+.kpi-card, .client-card {
+    background-color: var(--bg-card);
+    border-radius: 12px;
+    padding: 1.2rem;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border-color);
+}
+
+.kpi-card { display: flex; flex-direction: column; gap: 0.5rem; }
+.kpi-card__title { font-size: 0.75rem; font-weight: 700; color: var(--text-muted); letter-spacing: 0.5px; }
+.kpi-card__value { font-size: 2rem; font-weight: 600; }
+.kpi-card__subtitle { font-size: 0.85rem; color: var(--text-muted); }
+
+.client-card {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+    padding: 24px;
+}
+
+.card--danger { border-top: 4px solid var(--danger); }
+.card--warning { border-top: 4px solid var(--warning); }
+.card--success { border-top: 4px solid var(--success); }
+
+.client-card__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+    gap: 0.5rem;         
+}
+
+.client-card__name { font-size: 1.1rem; font-weight: 600; margin-bottom: 0.2rem; }
+.client-card__meta { font-size: 0.8rem; color: var(--text-muted); }
+
+.client-card__metrics {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.75rem;
+}
+
+.metric { display: flex; flex-direction: column; align-items: center; gap: 0.2rem; }
+.metric__value { font-weight: 600; font-size: 1.1rem; }
+.metric__label { font-size: 0.7rem; color: var(--text-muted); text-transform: uppercase; }
+
+.client-card__trend { margin-bottom: 1rem; }
+.badge-trend { font-size: 0.8rem; font-weight: 500; }
+
+/* =========================================
+   5. BOTONES Y ETIQUETAS
+   ========================================= */
+.badge {
+    padding: 0.25rem 0.6rem;
+    border-radius: 12px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    white-space: nowrap;  
+    flex-shrink: 0;       
+}
+.badge--brand { background-color: var(--brand-orange); color: white; border-radius: 20px; }
+.badge--danger-light { background-color: var(--danger-light); color: var(--danger); }
+.badge--warning-light { background-color: var(--warning-light); color: var(--warning); }
+.badge--success-light { background-color: var(--success-light); color: var(--success); }
+
+.btn--pill {
+    padding: 0.4rem 1rem;
+    border-radius: 20px;
+    background: transparent;
+    border: 1px solid #444;
+    color: #ccc;
+    cursor: pointer;
+    font-size: 0.85rem;
+    white-space: nowrap;
+}
+.btn--pill.active { border-color: white; color: white; }
+
+.client-card__actions {
+    display: flex;
+    gap: 10px;
+    margin-top: auto;
+    padding-top: 1rem;
+}
+
+.btn--outline-full {
+    flex: 1;
+    padding: 0.7rem 0.5rem;
+    font-size: 0.85rem;
+    font-weight: 500;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    color: var(--text-main);
+    background-color: #f9f9f9;
+    transition: all 0.2s ease;
+    display: inline-block;
+    white-space: nowrap;
+}
+.btn--outline-full:hover { background-color: #eeeeee; border-color: #bbbbbb; color: #000; }
+.btn--primary { background-color: #000 !important; color: #fff !important; border-color: #000 !important; }
+.btn--primary:hover { background-color: #333 !important; color: #fff !important; box-shadow: 0 4px 8px rgba(0,0,0,0.2); }
+
+.search-bar {
+    padding: 0.6rem 1rem;
+    border-radius: 30px;
+    border: 1px solid var(--border-color);
+    width: 300px;
+    font-size: 0.9rem;
+    outline: none;
+    background-color: #ffffff;
+    transition: all 0.3s ease;
+}
+.search-bar:focus {
+    border-color: var(--border-color);
+    box-shadow: 0 0 0 4px rgba(221,177,157,0.1);
+    width: 350px;
+}
+
+.text-danger { color: var(--danger); }
+.text-warning { color: var(--warning); }
+.text-success { color: var(--success); }
+.text-main { color: var(--text-main); }
+
+/* =========================================
+   6. RESPONSIVE  ← TODO NUEVO
+   ========================================= */
+@media (max-width: 1100px) {
+    .topbar { padding: 1rem 2rem; }
+}
+
+@media (max-width: 900px) {
+    .kpi-summary { grid-template-columns: repeat(2, 1fr); }
+    .clients__grid { grid-template-columns: repeat(2, 1fr); }
+    .search-bar { width: 220px; }
+    .search-bar:focus { width: 240px; }
+}
+
+@media (max-width: 600px) {
+    .topbar { padding: 0.75rem 1rem; }
+    .topbar__logo h1 { font-size: 1.1rem; }
+    .dashboard { padding: 1rem; }
+    .kpi-summary { grid-template-columns: repeat(2, 1fr); gap: 0.75rem; }
+    .kpi-card__value { font-size: 1.6rem; }
+    .clients__grid { grid-template-columns: 1fr; }
+    .clients__header { flex-direction: column; align-items: flex-start; }
+    .search-bar { width: 100%; }
+    .search-bar:focus { width: 100%; }
+    .client-card { padding: 16px; }
+    .btn--outline-full { font-size: 0.78rem; padding: 0.6rem 0.4rem; }
+}

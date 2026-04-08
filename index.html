@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Health Agent - Traxión</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+    <header class="topbar">
+        <div class="topbar__logo">
+            <h1>Customer Health Agent</h1>
+            <span class="badge badge--brand">EJE 2 - TRAXIÓN</span>
+        </div>
+        <div class="topbar__filters">
+            <button class="btn btn--pill active">Todos</button>
+            <button class="btn btn--pill">Alto riesgo</button>
+            <button class="btn btn--pill">Deterior</button>
+        </div>
+    </header>
+
+    <main class="dashboard">
+        
+        <section class="kpi-summary">
+            <div class="kpi-card">
+                <p class="kpi-card__title">CLIENTES EN RIESGO</p>
+                <p class="kpi-card__value text-danger">2</p>
+                <p class="kpi-card__subtitle">de 52 cuentas activas</p>
+            </div>
+            <div class="kpi-card">
+                <p class="kpi-card__title">NS% PROMEDIO</p>
+                <p class="kpi-card__value">93.2%</p>
+                <p class="kpi-card__subtitle text-warning">↓ 1.1% vs mes anterior</p>
+            </div>
+            <div class="kpi-card">
+                <p class="kpi-card__title">NPS PROMEDIO</p>
+                <p class="kpi-card__value"><span class="text-main">7.2</span>/10</p>
+                <p class="kpi-card__subtitle">Meta: 8.5</p>
+            </div>
+            <div class="kpi-card">
+                <p class="kpi-card__title">CLIENTES MEJORANDO</p>
+                <p class="kpi-card__value text-success">2</p>
+                <p class="kpi-card__subtitle">En tendencia positiva</p>
+            </div>
+        </section>
+
+        <section class="clients">
+            <div class="clients__header">
+                <h2>Cuentas Clave Monitoreadas</h2>
+                <div class="search-container">
+                    <input type="text" class="search-bar" placeholder="🔍 Buscar cliente">
+                </div>
+            </div>
+
+            <div class="clients__grid">
+                
+                <article class="client-card card--danger">
+                    <div class="client-card__header">
+                        <div class="client-card__info">
+                            <h3 class="client-card__name">Walmart de México</h3>
+                            <p class="client-card__meta">Retail · Última Milla · 150 Unidades</p>
+                        </div>
+                        <span class="badge badge--danger-light">ALTO</span>
+                    </div>
+                    <div class="client-card__metrics">
+                        <div class="metric"><span class="metric__value text-danger">82%</span><span class="metric__label">OTIF</span></div>
+                        <div class="metric"><span class="metric__value text-danger">75%</span><span class="metric__label">Puntual</span></div>
+                        <div class="metric"><span class="metric__value text-danger">4/10</span><span class="metric__label">NPS</span></div>
+                        <div class="metric"><span class="metric__value text-danger">18</span><span class="metric__label">Quejas</span></div>
+                    </div>
+                    <div class="client-card__trend"><span class="text-danger badge-trend">↓ Crítico: Demoras en CEDIS</span></div>
+                    <div class="client-card__actions">
+                        <a href="perfil-cliente.html?id=walmart" class="btn btn--outline-full">Perfil Cliente</a>
+                        <a href="diagnostico.html" class="btn btn--outline-full btn--primary">Analizar con IA →</a>
+                    </div>
+                </article>
+
+                <article class="client-card card--danger">
+                    <div class="client-card__header">
+                        <div class="client-card__info">
+                            <h3 class="client-card__name">General Motors</h3>
+                            <p class="client-card__meta">Automotriz · Egoba</p>
+                        </div>
+                        <span class="badge badge--danger-light">ALTO</span>
+                    </div>
+                    <div class="client-card__metrics">
+                        <div class="metric"><span class="metric__value text-danger">90%</span><span class="metric__label">OTIF</span></div>
+                        <div class="metric"><span class="metric__value text-danger">88%</span><span class="metric__label">Puntual</span></div>
+                        <div class="metric"><span class="metric__value text-danger">7/10</span><span class="metric__label">NPS</span></div>
+                        <div class="metric"><span class="metric__value text-danger">5</span><span class="metric__label">Quejas</span></div>
+                    </div>
+                    <div class="client-card__trend"><span class="text-danger badge-trend">↓ Alerta: Falta operadores</span></div>
+                    <div class="client-card__actions">
+                        <a href="perfil-cliente.html?id=gm" class="btn btn--outline-full">Perfil Cliente</a>
+                        <a href="diagnostico-General-Motors.html" class="btn btn--outline-full btn--primary">Analizar con IA →</a>
+                    </div>
+                </article>
+
+                <article class="client-card card--warning">
+                    <div class="client-card__header">
+                        <div class="client-card__info">
+                            <h3 class="client-card__name">Amazon México</h3>
+                            <p class="client-card__meta">E-commerce · Redpack</p>
+                        </div>
+                        <span class="badge badge--warning-light">MEDIO</span>
+                    </div>
+                    <div class="client-card__metrics">
+                        <div class="metric"><span class="metric__value text-warning">92%</span><span class="metric__label">OTIF</span></div>
+                        <div class="metric"><span class="metric__value text-warning">91%</span><span class="metric__label">Puntual</span></div>
+                        <div class="metric"><span class="metric__value text-warning">6/10</span><span class="metric__label">NPS</span></div>
+                        <div class="metric"><span class="metric__value text-warning">12</span><span class="metric__label">Quejas</span></div>
+                    </div>
+                    <div class="client-card__trend"><span class="text-warning badge-trend">↓ Alta demanda</span></div>
+                    <div class="client-card__actions">
+                        <a href="perfil-cliente.html?id=amazon" class="btn btn--outline-full">Perfil Cliente</a>
+                        <a href="diagnostico-Amazon.html" class="btn btn--outline-full btn--primary">Analizar con IA →</a>
+                    </div>
+                </article>
+
+                <article class="client-card card--warning">
+                    <div class="client-card__header">
+                        <div class="client-card__info">
+                            <h3 class="client-card__name">Heineken México</h3>
+                            <p class="client-card__meta">Consumo · Distribución</p>
+                        </div>
+                        <span class="badge badge--warning-light">BAJO</span>
+                    </div>
+                    <div class="client-card__metrics">
+                        <div class="metric"><span class="metric__value text-warning">98%</span><span class="metric__label">OTIF</span></div>
+                        <div class="metric"><span class="metric__value text-warning">97%</span><span class="metric__label">Puntual</span></div>
+                        <div class="metric"><span class="metric__value text-warning">9/10</span><span class="metric__label">NPS</span></div>
+                        <div class="metric"><span class="metric__value text-warning">1</span><span class="metric__label">Quejas</span></div>
+                    </div>
+                    <div class="client-card__trend"><span class="text-warning badge-trend">↓ Estacionalidad</span></div>
+                    <div class="client-card__actions">
+                        <a href="perfil-cliente.html?id=heineken" class="btn btn--outline-full">Perfil Cliente</a>
+                        <a href="diagnostico-Heineken.html" class="btn btn--outline-full btn--primary">Analizar con IA →</a>
+                    </div>
+                </article>
+
+                <article class="client-card card--success">
+                    <div class="client-card__header">
+                        <div class="client-card__info">
+                            <h3 class="client-card__name">Mercado Libre</h3>
+                            <p class="client-card__meta">E-commerce · 3PL</p>
+                        </div>
+                        <span class="badge badge--success-light">BAJO</span>
+                    </div>
+                    <div class="client-card__metrics">
+                        <div class="metric"><span class="metric__value text-main">96%</span><span class="metric__label">OTIF</span></div>
+                        <div class="metric"><span class="metric__value text-main">95%</span><span class="metric__label">Puntual</span></div>
+                        <div class="metric"><span class="metric__value text-main">8/10</span><span class="metric__label">NPS</span></div>
+                        <div class="metric"><span class="metric__value text-main">3</span><span class="metric__label">Quejas</span></div>
+                    </div>
+                    <div class="client-card__trend"><span class="text-success badge-trend">↑ Nuevas rutas</span></div>
+                    <div class="client-card__actions">
+                        <a href="perfil-cliente.html?id=meli" class="btn btn--outline-full">Perfil Cliente</a>
+                        <a href="diagnostico-Mercado-Libre.html" class="btn btn--outline-full btn--primary">Analizar con IA →</a>
+                    </div>
+                </article>
+
+                <article class="client-card card--success">
+                    <div class="client-card__header">
+                        <div class="client-card__info">
+                            <h3 class="client-card__name">Nestlé México</h3>
+                            <p class="client-card__meta">Alimentos · Refrigerados</p>
+                        </div>
+                        <span class="badge badge--success-light">BAJO</span>
+                    </div>
+                    <div class="client-card__metrics">
+                        <div class="metric"><span class="metric__value text-main">99%</span><span class="metric__label">OTIF</span></div>
+                        <div class="metric"><span class="metric__value text-main">98%</span><span class="metric__label">Puntual</span></div>
+                        <div class="metric"><span class="metric__value text-main">9/10</span><span class="metric__label">NPS</span></div>
+                        <div class="metric"><span class="metric__value text-main">0</span><span class="metric__label">Quejas</span></div>
+                    </div>
+                    <div class="client-card__trend"><span class="text-success badge-trend">↑ Operación óptima</span></div>
+                    <div class="client-card__actions">
+                        <a href="perfil-cliente.html?id=nestle" class="btn btn--outline-full">Perfil Cliente</a>
+                        <a href="diagnostico-Nestle.html" class="btn btn--outline-full btn--primary">Analizar con IA →</a>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+    </main>
+</body>
+</html>

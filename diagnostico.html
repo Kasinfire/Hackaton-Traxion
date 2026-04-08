@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diagnóstico Walmart - Traxión</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/diagnostico-styles.css">
+</head>
+
+<body>
+
+    <header class="topbar">
+        <div class="topbar__logo">
+            <h1>Customer Health Agent</h1>
+            <span class="badge badge--brand">EJE 2 - TRAXIÓN</span>
+        </div>
+        <div class="topbar__filters">
+            <a href="index.html" class="btn btn--pill" style="text-decoration: none; display: flex; align-items: center; gap: 6px;">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                    <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                </svg>
+                Inicio
+            </a>
+            <button class="btn btn--pill active" style="display: flex; align-items: center; gap: 6px;">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="23 4 23 10 17 10"></polyline>
+                    <polyline points="1 20 1 14 7 14"></polyline>
+                    <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path>
+                </svg>
+                Re-run Analysis
+            </button>
+        </div>
+    </header>
+
+    <div class="hero">
+        <h1 class="hero__title">Walmart México</h1>
+        <p class="hero__meta">Retail · Última Milla · 150 Unidades</p>
+        <div class="hero__tags">
+            <span class="hero__tag">Sector Retail</span>
+            <span class="hero__tag">Operación: Última Milla</span>
+        </div>
+    </div>
+
+    <div class="body-wrap">
+
+        <div class="semaforo-sidebar">
+            <div class="semaforo">
+                <div class="semaforo__luz red on"></div>
+                <div class="semaforo__luz yellow"></div>
+                <div class="semaforo__luz green"></div>
+            </div>
+            <p class="semaforo__label">Nivel de Riesgo</p>
+            <p class="semaforo__risk high">ALTO</p>
+        </div>
+
+        <main class="main">
+
+            <section class="kpi-row">
+                <div class="kpi-card">
+                    <p class="kpi-card__title">OTIF (Nivel de Servicio)</p>
+                    <p class="kpi-card__value danger">82.0%</p>
+                    <div class="progress-bar-bg"><div class="progress-bar-fill danger" style="width:82%"></div></div>
+                    <p class="kpi-card__meta">Meta: ≥ 95%</p>
+                </div>
+                <div class="kpi-card">
+                    <p class="kpi-card__title">Puntualidad</p>
+                    <p class="kpi-card__value danger">75.0%</p>
+                    <div class="progress-bar-bg"><div class="progress-bar-fill danger" style="width:75%"></div></div>
+                    <p class="kpi-card__meta">Meta: ≥ 92%</p>
+                </div>
+                <div class="kpi-card">
+                    <p class="kpi-card__title">NPS</p>
+                    <p class="kpi-card__value danger">4<span class="kpi-sub">/10</span></p>
+                    <div class="progress-bar-bg"><div class="progress-bar-fill danger" style="width:40%"></div></div>
+                    <p class="kpi-card__meta">Meta: ≥ 8</p>
+                </div>
+                <div class="kpi-card">
+                    <p class="kpi-card__title">Quejas Abiertas</p>
+                    <p class="kpi-card__value danger">18</p>
+                    <div class="progress-bar-bg"><div class="progress-bar-fill danger" style="width:100%"></div></div>
+                    <p class="kpi-card__meta">Límite aceptable: ≤ 2</p>
+                </div>
+            </section>
+
+            <section class="content-grid">
+                <div class="card">
+                    <div class="card__heading">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+                        Diagnóstico
+                    </div>
+                    <div class="diagnostico-text">
+                        <p>Este cliente presenta un escenario de <span class="hl-danger">alta criticidad operativa</span>: el OTIF ha colapsado al 82% y la puntualidad se encuentra en un alarmante 75%, afectando directamente las ventanas de entrega en tiendas retail.</p>
+                        <p>El volumen de <span class="hl-danger">18 quejas activas</span> y la tendencia <span class="hl-warning">crítica por demoras en CEDIS</span> indican un alto riesgo de penalizaciones económicas severas y pérdida inmediata de unidades asignadas si no se destraba el flujo logístico hoy mismo.</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card__heading">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                        Key Findings
+                    </div>
+                    <div class="finding">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                        <p>Caída drástica de puntualidad (75%) originada por severos cuellos de botella y demoras de más de 4 horas en la carga dentro del CEDIS.</p>
+                    </div>
+                    <div class="finding">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                        <p>18 quejas HIGH activas relacionadas con mercancía rechazada en tienda por llegar fuera de ventana de recibo.</p>
+                    </div>
+                    <div class="finding">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                        <p>NPS en zona de detracción (4/10), reflejando una profunda insatisfacción del cliente con la visibilidad y respuesta de nuestra torre de control.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <div class="section-heading">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                    Acciones Sugeridas
+                </div>
+                <div class="actions-grid">
+                    <div class="action-card">
+                        <div class="action-num">1</div>
+                        <span class="action-badge badge-urgente">Urgente</span>
+                        <p>Instalar "War Room" virtual inmediato con gerencia de CEDIS Walmart para destrabar unidades retenidas en rampa.</p>
+                    </div>
+                    <div class="action-card">
+                        <div class="action-num">2</div>
+                        <span class="action-badge badge-urgente">Urgente</span>
+                        <p>Asignar supervisor de guardia dedicado (Implant) físicamente en el CEDIS para agilizar procesos de carga y despacho.</p>
+                    </div>
+                    <div class="action-card">
+                        <div class="action-num">3</div>
+                        <span class="action-badge badge-corto">Corto plazo</span>
+                        <p>Plan de choque para la resolución de las 18 quejas activas y conciliación de penalizaciones por entregas tardías (OTIF).</p>
+                    </div>
+                    <div class="action-card">
+                        <div class="action-num">4</div>
+                        <span class="action-badge badge-corto">Corto plazo</span>
+                        <p>Revisión exhaustiva de la disponibilidad mecánica de las 150 unidades asignadas a la cuenta Última Milla.</p>
+                    </div>
+                    <div class="action-card">
+                        <div class="action-num">5</div>
+                        <span class="action-badge badge-preventivo">Preventivo</span>
+                        <p>Implementar célula en Torre de Control exclusiva para monitoreo GPS proactivo y notificación anticipada de retrasos en retail.</p>
+                    </div>
+                    <div class="action-card">
+                        <div class="action-num">6</div>
+                        <span class="action-badge badge-preventivo">Preventivo</span>
+                        <p>Establecer comité semanal de KPIs con el cliente para recuperar confianza operativa y revisar SLA de ventanas de entrega.</p>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+</body>
+</html>
