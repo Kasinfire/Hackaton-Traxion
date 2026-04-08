@@ -1,74 +1,41 @@
-// Buscador de clientes
-const buscador = document.getElementById("buscador");
-const tarjetas = document.querySelectorAll(".client-card");
-
-buscador.addEventListener("keyup", function () {
-
-    let texto = buscador.value.toLowerCase();
-
-    tarjetas.forEach(function(card){
-
-    let nombre = card.querySelector(".client-card__name").textContent.toLowerCase();
-
-        if(nombre.includes(texto)){
-        card.style.display = "block";
-        }else{
-        card.style.display = "none";
-        }
-    });
-});
-
-/*     GRAFICA DE BARRAS DE LOS SERVICIOS
-
- */
+// ===============================
+// GRAFICA
+// ===============================
 let datos = {
-transporte:88,
-almacen:72,
-coordinacion:95,
-tecnologia:60,
-cliente:80
+  transporte: 88,
+  almacen: 72,
+  coordinacion: 95,
+  tecnologia: 60,
+  cliente: 80
+};
+
+function colorPorcentaje(valor) {
+  if (valor >= 85) return "#28a745";
+  else if (valor >= 70) return "#d98a1e";
+  else return "#d9381e";
 }
 
-function colorPorcentaje(valor){
+function animar() {
+  for (let area in datos) {
+    let barra = document.getElementById(area);
+    if (!barra) continue; // evita errores si no existe
 
-if(valor >= 85){
-return "#28a745"
+    let valor = datos[area];
+
+    barra.style.height = valor + "%";
+    barra.style.background = colorPorcentaje(valor);
+
+    let texto = barra.querySelector(".porcentaje");
+    if (texto) texto.innerText = valor + "%";
+  }
 }
 
-else if(valor >= 70){
-return "#d98a1e"
-}
-
-else{
-return "#d9381e"
-}
-
-}
-
-function animar(){
-
-for(let area in datos){
-
-let barra = document.getElementById(area)
-let valor = datos[area]
-
-barra.style.height = valor + "%"
-barra.style.background = colorPorcentaje(valor)
-
-barra.querySelector(".porcentaje").innerText = valor + "%"
-
-}
-
-}
-
-window.addEventListener("load", animar);
-
-
-// Visualizar tarjetas de clientes
-const contenedor = document.querySelector(".clients__grid");
-
+// ===============================
+// RENDER CLIENTES
+// ===============================
 function renderClientes() {
-  contenedor.innerHTML = ""; // limpia
+  const contenedor = document.querySelector(".clients__grid");
+  contenedor.innerHTML = "";
 
   clientes.forEach(cliente => {
     const card = `
@@ -118,5 +85,40 @@ function renderClientes() {
     contenedor.innerHTML += card;
   });
 }
-renderClientes();
 
+// ===============================
+// INICIO (CUANDO CARGA EL DOM)
+// ===============================
+document.addEventListener("DOMContentLoaded", () => {
+
+  // 1. Renderizar primero
+  renderClientes();
+
+  // 2. Buscador
+  const buscador = document.getElementById("buscador");
+
+  if (buscador) {
+    buscador.addEventListener("input", function () {
+
+      let texto = buscador.value.toLowerCase();
+      const tarjetas = document.querySelectorAll(".client-card");
+
+      tarjetas.forEach(card => {
+        let nombre = card
+          .querySelector(".client-card__name")
+          .textContent
+          .toLowerCase();
+
+        if (nombre.includes(texto)) {
+          card.style.display = "";
+        } else {
+          card.style.display = "none";
+        }
+      });
+    });
+  }
+
+  // 3. Animar gráfica
+  animar();
+
+});
