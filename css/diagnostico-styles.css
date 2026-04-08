@@ -273,3 +273,48 @@ body { background: var(--bg-app); color: var(--text-main); }
     .actions-grid { grid-template-columns: 1fr; }
     .kpi-card__value { font-size: 1.6rem; }
 }
+
+/* --- Estilos para móviles (menos de 768px) --- */
+@media screen and (max-width: 768px) {
+    /* Centrar todo el header y ponerlo en columna */
+    .diagnostico-header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 30px; /* Espacio entre info del cliente y el semáforo */
+    }
+
+    /* Modificar el contenedor del semáforo para que sea central */
+    .semaforo-sidebar {
+        width: 100%;
+        height: auto;
+        border-left: none; /* Quitar el borde lateral que tiene en desktop */
+        padding-left: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px; /* Espacio entre el semáforo visual y el tag de riesgo */
+    }
+
+    /* Hacer el semáforo visual MÁS GRANDE */
+    .semaforo-visual {
+        width: 120px; /* Un poco más ancho */
+        height: 280px; /* Mucho más alto */
+        border-radius: 40px; /* Bordes más redondeados acorde al tamaño */
+        padding: 15px;
+    }
+
+    /* Hacer los círculos del semáforo MÁS GRANDES */
+    .semaforo-visual .semaforo-circle {
+        width: 70px; /* Casi el doble de grande */
+        height: 70px;
+    }
+
+    /* Agrandar el texto del nivel de riesgo */
+    .risk-level-tag {
+        font-size: 1.3rem; /* Texto más grande */
+        width: 90%; /* Que ocupe casi todo el ancho disponible */
+        justify-content: center; /* Centrar el icono y texto */
+    }
+}
