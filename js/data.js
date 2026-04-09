@@ -412,7 +412,7 @@ const clientes = [
     nps: "6/10",
     quejas: "3",
     tendencia: "↓ Alta demanda",
-    diagnostico: "diagnostico-Amazon.html",
+    diagnostico: "diagnostico",
     since: "2021",
     manager: "Fernanda Ruiz",
 

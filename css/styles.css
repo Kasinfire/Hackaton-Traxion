@@ -40,8 +40,6 @@ body { background-color: var(--bg-app); color: var(--text-main); }
 .topbar__logo { display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; }
 .topbar__logo h1 { font-size: 1.5rem; font-weight: 700; letter-spacing: -0.5px; }
 .topbar__subtitle { color: #aaa; font-size: 0.85rem; margin-left: 1rem; }
-.topbar__filters { display: flex; gap: 0.5rem; flex-wrap: wrap; }
-
 /* =========================================
    3. DASHBOARD Y LAYOUT
    ========================================= */
@@ -492,17 +490,22 @@ body { background-color: var(--bg-app); color: var(--text-main); }
 .badge--warning-light { background-color: var(--warning-light); color: var(--warning); }
 .badge--success-light { background-color: var(--success-light); color: var(--success); }
 
+.topbar__filters { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+
 .btn--pill {
+    display: flex;
+    justify-content: space-between;
     padding: 0.4rem 1rem;
-    border-radius: 20px;
-    background: transparent;
+    border-radius: 8px;
     border: 1px solid #444;
-    color: #ccc;
+    color: #ffffff;
     cursor: pointer;
     font-size: 0.85rem;
     white-space: nowrap;
 }
-.btn--pill.active { border-color: white; color: white; }
+
+.btn--pill { background-color: #f1f0f0; border-color: #bbbbbb; color: #000; }
+.btn--pill:hover { background-color: #e2e2e2 !important; color: #000 !important; }
 
 .client-card__actions {
     display: flex;
@@ -543,6 +546,13 @@ body { background-color: var(--bg-app); color: var(--text-main); }
 .search-bar:focus {
     box-shadow: 0 0 0 4px rgba(221,177,157,0.1);
     width: 350px;
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem; /* Espacio entre los botones y el buscador */
+    flex-wrap: wrap;
 }
 
 .text-danger  { color: var(--danger); }
