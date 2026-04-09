@@ -492,6 +492,7 @@ body { background-color: var(--bg-app); color: var(--text-main); }
 
 .topbar__filters { display: flex; gap: 0.5rem; flex-wrap: wrap; }
 
+/* Botón pill base */
 .btn--pill {
     display: flex;
     justify-content: space-between;
@@ -499,13 +500,26 @@ body { background-color: var(--bg-app); color: var(--text-main); }
     border-radius: 8px;
     border: 1px solid #444;
     color: #ffffff;
+    background-color: transparent;
     cursor: pointer;
     font-size: 0.85rem;
     white-space: nowrap;
+    transition: all 0.2s;
 }
+.btn--pill:hover { border-color: #fff; color: #fff; }
+.btn--pill.active { border-color: #fff; color: #fff; }
 
-.btn--pill { background-color: #f1f0f0; border-color: #bbbbbb; color: #000; }
-.btn--pill:hover { background-color: #e2e2e2 !important; color: #000 !important; }
+/* Pill sobre fondo claro (dentro de clients__header u otras secciones claras) */
+.clients__header .btn--pill,
+.header-actions .btn--pill {
+    background-color: #f9f9f9;
+    border-color: #bbbbbb;
+    color: #333;
+}
+.clients__header .btn--pill:hover,
+.header-actions .btn--pill:hover { background-color: #e2e2e2; color: #000; border-color: #999; }
+.clients__header .btn--pill.active,
+.header-actions .btn--pill.active { background-color: #1e1e1e; border-color: #1e1e1e; color: #fff; }
 
 .client-card__actions {
     display: flex;
