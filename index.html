@@ -17,11 +17,6 @@
             <h1>Customer Health Agent</h1>
             <span class="badge badge--brand">EJE 2 - TRAXIÓN</span>
         </div>
-        <div class="topbar__filters">
-            <button class="btn btn--pill active">Todos</button>
-            <button class="btn btn--pill">Alto riesgo</button>
-            <button class="btn btn--pill">Deterioro</button>
-        </div>
     </header>
 
     <main class="dashboard">
@@ -120,6 +115,7 @@
                             <button class="btn-contacto">Contactar con las áreas</button>
                         </a>
                     </div>
+                    
                 </div>
 
                 <div class="panel-area" id="panel-area">
@@ -152,10 +148,19 @@
         </section>
 
         <section class="clients">
-            <div class="clients__header">
+           <div class="clients__header">
                 <h2>Cuentas Clave Monitoreadas</h2>
-                <div class="search-container">
-                    <input type="text" class="search-bar" placeholder="🔍 Buscar cliente" id="buscador">
+                
+                <div class="header-actions">
+                    <div class="topbar__filters">
+                        <button class="btn btn--pill active">Todos</button>
+                        <button class="btn btn--pill">Alto riesgo</button>
+                        <button class="btn btn--pill">Medio</button>
+                    </div> 
+
+                    <div class="search-container">
+                        <input type="text" class="search-bar" placeholder="🔍 Buscar cliente" id="buscador">
+                    </div>
                 </div>
             </div>
             <div class="clients__grid"></div>

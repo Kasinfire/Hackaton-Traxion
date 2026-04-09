@@ -121,7 +121,7 @@ function initFiltros() {
             btn.classList.add('active');
             const t = btn.textContent.trim().toLowerCase();
             const filtered = t === 'alto riesgo' ? clientes.filter(c => c.tipo === 'danger')
-                           : t === 'deterioro'   ? clientes.filter(c => c.tipo === 'warning')
+                           : t === 'medio'   ? clientes.filter(c => c.tipo === 'warning')
                            : clientes;
             renderClients(filtered);
         });
