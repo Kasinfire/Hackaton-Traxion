@@ -7,30 +7,30 @@ function renderCliente(clientId) {
   // ======================
   document.getElementById("client-name").textContent = client.nombre;
   document.getElementById("client-meta").textContent = client.meta;
+  document.title = `Diagnóstico ${client.nombre} - Traxión`;
 
   const [sector, operation] = client.meta.split("·");
   document.getElementById("client-sector").textContent = sector.trim();
   document.getElementById("client-operation").textContent = operation.trim();
 
   // ======================
-  // SEMÁFORO
+  // SEMÁFORO + HERO COLOR
   // ======================
   const riskEl = document.getElementById("client-risk");
 
   riskEl.textContent = client.nivel;
 
-  if (client.nivel === "ALTO") {
-    riskEl.style.color = "var(--danger)";
-    document.querySelector('.hero').style.backgroundColor = "var(--danger)";
-  } else if (client.nivel === "MEDIO") {
-    riskEl.style.color = "var(--warning)";
-    document.querySelector('.hero').style.backgroundColor = "var(--warning)";
-  } else if (client.nivel === "BAJO") {
-    riskEl.style.color = "var(--success)";
-    document.querySelector('.hero').style.backgroundColor = "var(--success)";
-  }
+  const colorMap = {
+    "ALTO":  { css: "var(--danger)",  hex: "#c0392b", cls: "high" },
+    "MEDIO": { css: "var(--warning)", hex: "#d98a1e", cls: "mid"  },
+    "BAJO":  { css: "var(--success)", hex: "#27ae60", cls: "low"  },
+  };
+  const colorInfo = colorMap[client.nivel] || colorMap["MEDIO"];
 
-  riskEl.className = `semaforo__risk ${client.semaforo}`;
+  riskEl.style.color = colorInfo.css;
+  document.querySelector('.hero').style.backgroundColor = colorInfo.hex;
+
+  riskEl.className = `semaforo__risk ${colorInfo.cls}`;
 
   // luces
   document.querySelectorAll(".semaforo__luz").forEach(l => l.classList.remove("on"));
