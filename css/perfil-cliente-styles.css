@@ -206,5 +206,33 @@
 }
 
 .kpi-card__color.danger  { color: var(--danger); }
-#warning { color: var(--warning); }
+.kpi-card__color.warning { color: var(--warning); }
 .kpi-card__color.success { color: var(--success); }
+
+.info-value.danger  { color: var(--danger); background-color: var(--danger-light);}
+.info-value.warning { color: var(--warning); }
+.info-value.success { color: var(--success); }
+
+.info-item {
+  padding: 12px;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+/* 🔴 */
+.info-item.danger {
+  background-color: rgba(220, 53, 69, 0.08);
+  border-left: 4px solid var(--danger);
+}
+
+/* 🟠 */
+.info-item.warning {
+  background-color: rgba(255, 193, 7, 0.12);
+  border-left: 4px solid var(--warning);
+}
+
+/* 🟢 */
+.info-item.success {
+  background-color: rgba(40, 167, 69, 0.08);
+  border-left: 4px solid var(--success);
+}

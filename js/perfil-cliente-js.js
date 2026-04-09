@@ -9,11 +9,25 @@ function renderClientProfile(clientId) {
   document.getElementById("client-since").textContent = client.since;
   document.getElementById("client-kam").textContent = client.manager;
 
-  const riskEl = document.getElementById("client-risk");
-  riskEl.textContent = client.nivel;
+ const riskEl = document.getElementById("client-risk");
+const riskContainer = riskEl.closest(".info-item");
 
-  // opcional: color según tipo
-  riskEl.className = `badge badge--${client.tipo}`;
+// texto
+riskEl.textContent = client.nivel;
+
+// limpiar clases anteriores
+riskContainer.classList.remove("danger", "warning", "success");
+
+// mapa
+const nivelColorMap = {
+  ALTO: "danger",
+  MEDIO: "warning",
+  BAJO: "success"
+};
+
+// aplicar clase al CONTENEDOR
+const color = nivelColorMap[client.nivel] || "warning";
+riskContainer.classList.add(color);
 
   // 📊 KPIs
   function setKPI(id, value, status) {

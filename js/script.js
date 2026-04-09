@@ -88,7 +88,7 @@ function renderClients(list) {
                 <span class="badge badge--${c.tipo}-light">${c.nivel}</span>
             </div>
             <div class="client-card__metrics">
-                <div class="metric"><span class="metric__value text-${c.tipo} kpi-card__value ${c.kpiStatus.otif}">${c.otif}</span><span class="metric__label">OTIF</span></div>
+                <div class="metric"><span class="metric__value text-${c.tipo} kpi-card__value ${c.kpiStatus.otif}">${c.otif}</span><span class="metric__label">NS</span></div>
                 <div class="metric"><span class="metric__value text-${c.tipo} kpi-card__value ${c.kpiStatus.puntual}">${c.puntual}</span><span class="metric__label">Puntual</span></div>
                 <div class="metric"><span class="metric__value text-${c.tipo} kpi-card__value ${c.kpiStatus.nps}">${c.nps}</span><span class="metric__label">NPS</span></div>
                 <div class="metric"><span class="metric__value text-${c.tipo} kpi-card__value ${c.kpiStatus.quejas}">${c.quejas}</span><span class="metric__label">Quejas</span></div>
