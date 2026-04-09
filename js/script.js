@@ -19,7 +19,7 @@ function initBars() {
         if (span) span.textContent = data.valor + '%';
         setTimeout(() => { barra.style.height = data.valor + '%'; }, 100);
     }
-}
+    }
 
 /* ── 2. PANEL LATERAL ── */
 function initPanel() {
