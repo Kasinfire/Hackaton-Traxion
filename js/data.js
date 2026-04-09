@@ -271,7 +271,7 @@ const clientes = [
     },  
     keyFindings: [
       "Caída drástica de puntualidad (75%) originada por severos cuellos de botella y demoras de más de 4 horas en la carga dentro del CEDIS.",
-      "18 quejas HIGH activas relacionadas con mercancía rechazada en tienda por llegar fuera de ventana de recibo.",
+      "18 quejas de ALTA severidad activas relacionadas con mercancía rechazada en tienda por llegar fuera de ventana de recibo.",
       "NPS en zona de detracción (4/10), reflejando una profunda insatisfacción del cliente con la visibilidad y respuesta de nuestra torre de control."
     ],
 
