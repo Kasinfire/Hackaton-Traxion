@@ -179,11 +179,13 @@ body { background: var(--bg-app); color: var(--text-main); }
 .kpi-card__value { font-size: 1.9rem; font-weight: 700; margin-bottom: 0.5rem; line-height: 1; }
 .kpi-card__value.danger  { color: var(--danger); }
 .kpi-card__value.warning { color: var(--warning); }
+.kpi-card__value.success { color: var(--success); }
 .kpi-sub { font-size: 1rem; font-weight: 400; color: #bbb; }
 .progress-bar-bg { height: 4px; background: #f0f0f0; border-radius: 4px; margin-bottom: 0.5rem; overflow: hidden; }
 .progress-bar-fill { height: 4px; border-radius: 4px; }
 .progress-bar-fill.danger  { background: var(--danger); }
 .progress-bar-fill.warning { background: var(--warning); }
+.progress-bar-fill.success { background: var(--success); }
 .kpi-card__meta { font-size: 0.78rem; color: var(--text-muted); }
 
 /* CONTENT GRID */
@@ -211,6 +213,7 @@ body { background: var(--bg-app); color: var(--text-main); }
 .diagnostico-text p + p { margin-top: 1rem; }
 .hl-danger  { color: var(--danger);  font-weight: 600; }
 .hl-warning { color: var(--warning); font-weight: 600; }
+.hl-success { color: var(--success); font-weight: 600; }
 
 .finding {
     display: flex; gap: 0.7rem; align-items: flex-start;

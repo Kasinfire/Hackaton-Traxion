@@ -261,45 +261,45 @@ const clientes = [
     ],
     semaforo: "red",
     kpiStatus: {
-      otif: "danger",
+      otif: "warning",
       puntual: "danger",
       nps: "danger",
-      quejas: "danger"
+      quejas: "danger",
     },
     diagnostico: {
-      summary: "<p>Este cliente presenta un escenario de <span class=\"hl-danger\">alta criticidad operativa</span>: el OTIF ha colapsado al 82% y la puntualidad se encuentra en un alarmante 75%, afectando directamente las ventanas de entrega en tiendas retail.</p> <p>El volumen de <span class=\"hl-danger\">18 quejas activas</span> y la tendencia <span class=\"hl-warning\">crítica por demoras en CEDIS</span> indican un alto riesgo de penalizaciones económicas severas y pérdida inmediata de unidades asignadas si no se destraba el flujo logístico hoy mismo.</p>"
-    },  
+      summary:
+        '<p>Walmart de México presenta un <span class="hl-danger">riesgo alto de churn</span> por deterioro simultáneo en métricas operativas y experiencia: OTIF de 82%, puntualidad de 75%, NPS general de 4/10 y 18 quejas altas abiertas. Los 5 servicios reportan retrasos contra fecha esperada, y 4 de 5 operan con SL por debajo de 80%, lo que confirma una afectación sostenida en cumplimiento.</p><p>El riesgo es <span class="hl-danger">sistémico y multiarea</span> porque los incidentes se concentran en Transporte, Almacén, Coordinación, Atención y Tecnología. El mayor impacto de negocio está en Transporte y Coordinación por demoras urbanas, saturación de CEDIS, planeación tardía y ventanas incumplidas; además, Almacén aporta errores de inventario y picking que elevan el impacto financiero y la fricción operativa.</p>',
+    },
     keyFindings: [
-      "Caída drástica de puntualidad (75%) originada por severos cuellos de botella y demoras de más de 4 horas en la carga dentro del CEDIS.",
-      "18 quejas de ALTA severidad activas relacionadas con mercancía rechazada en tienda por llegar fuera de ventana de recibo.",
-      "NPS en zona de detracción (4/10), reflejando una profunda insatisfacción del cliente con la visibilidad y respuesta de nuestra torre de control."
+      "Los 5 servicios presentan retraso entre fecha esperada y fecha real; además, 4 de 5 tienen SL menor a 80%, con focos críticos en Rutas Centro CDMX (72%), Entrega CEDIS Norte (78%), Planeación Rutas (70%) y Atención Incidencias (78%).",
+      "Existen 18 quejas de severidad ALTA, en su mayoría abiertas, distribuidas en múltiples áreas; la concentración en Transporte, Almacén y Coordinación indica que el problema no es aislado sino recurrente y estructural.",
+      "El bajo NPS general (4/10) y los NPS por servicio entre 3/10 y 5/10 muestran daño directo en percepción del cliente, con riesgo real de escalación comercial si no se corrigen demoras, saturación en CEDIS y fallas de planeación.",
     ],
-
     actions: [
       {
         priority: "URGENTE",
-        text: "Instalar \"War Room\" virtual inmediato con gerencia de CEDIS Walmart para destrabar unidades retenidas en rampa."
+        text: "Implementar en 24-48h una mesa de control diaria para Walmart enfocada en Transporte y Coordinación, revisando puntualidad, cumplimiento de ventanas y asignación de rutas en CDMX y CEDIS Norte.",
       },
       {
         priority: "URGENTE",
-        text: "Asignar supervisor de guardia dedicado (Implant) físicamente en el CEDIS para agilizar procesos de carga y despacho."
+        text: "Rebalancear capacidad operativa en Rutas Centro CDMX y Entrega CEDIS Norte, ajustando flota, ventanas y secuencia de despacho para reducir los retrasos recurrentes y la saturación en recepción.",
+      },
+      {
+        priority: "URGENTE",
+        text: "Ejecutar un plan de contención en Almacén sobre Control Inventario y picking, con conteo cíclico de SKUs críticos, validación previa a embarque y auditoría de diferencias de surtido.",
       },
       {
         priority: "CORTO PLAZO",
-        text: "Plan de choque para la resolución de las 18 quejas activas y conciliación de penalizaciones por entregas tardías (OTIF)."
+        text: "Rediseñar en 3-7 días el proceso de Planeación Rutas, definiendo hora límite de programación, responsable por ventana y control de cambios de última hora para evitar reprogramaciones frecuentes.",
       },
       {
         priority: "CORTO PLAZO",
-        text: "Revisión exhaustiva de la disponibilidad mecánica de las 150 unidades asignadas a la cuenta Última Milla."
+        text: "Establecer un esquema de gestión de incidencias con SLA interno para Atención, priorizando casos abiertos de Walmart, tiempo máximo de respuesta y seguimiento visible por queja hasta cierre.",
       },
       {
         priority: "PREVENTIVO",
-        text: "Implementar célula en Torre de Control exclusiva para monitoreo GPS proactivo y notificación anticipada de retrasos en retail."
+        text: "Crear un tablero semanal de salud del cliente con OTIF, puntualidad, SL por servicio, NPS y aging de quejas por área, para detectar deterioros tempranos y escalar desvíos antes de una inconformidad formal.",
       },
-      {
-        priority: "PREVENTIVO",
-        text: "Establecer comité semanal de KPIs con el cliente para recuperar confianza operativa y revisar SLA de ventanas de entrega."
-      }
     ],
   },
 
@@ -398,6 +398,48 @@ const clientes = [
         statusClass: "badge--danger-light",
       },
     ],
+    semaforo: "red",
+    kpiStatus: {
+      otif: "success",
+      puntual: "warning",
+      nps: "warning",
+      quejas: "danger",
+    },
+    diagnostico: {
+      summary:
+        '<p>General Motors presenta un <span class="hl-danger">riesgo alto de churn</span> impulsado principalmente por incidencias críticas en Transporte que impactan operaciones just-in-time. Aunque los KPIs generales son relativamente estables (OTIF 90%, puntualidad 88%, NPS 7/10), existen retrasos en servicios clave y una tendencia negativa asociada a falta de operadores y capacidad limitada.</p><p>El riesgo se concentra en <span class="hl-danger">Transporte con impacto directo en producción</span>, evidenciado por múltiples quejas ALTA abiertas relacionadas con entregas JIT, disponibilidad de operadores y unidades. Adicionalmente, existen señales de desalineación operativa y fallas de seguimiento en Coordinación y Atención que podrían escalar si no se corrigen rápidamente.</p>',
+    },
+    keyFindings: [
+      "El servicio Transporte Planta presenta retraso (expected vs real) y SL de 88%, lo que impacta directamente operaciones just-in-time sensibles a tiempos.",
+      "Existen 3 quejas de severidad ALTA abiertas en Transporte relacionadas con operadores, capacidad y retrasos, indicando un problema operativo crítico y recurrente.",
+      "La tendencia negativa por falta de operadores y la afectación a producción elevan el riesgo de escalación comercial pese a KPIs generales relativamente estables.",
+    ],
+    actions: [
+      {
+        priority: "URGENTE",
+        text: "Asignar en 24-48h capacidad adicional de operadores certificados en Transporte Planta, incluyendo reasignación interna o contratación temporal para cubrir la demanda crítica JIT.",
+      },
+      {
+        priority: "URGENTE",
+        text: "Ajustar la planeación operativa en Transporte Planta asegurando cobertura de unidades en horas pico y priorización de embarques críticos de autopartes.",
+      },
+      {
+        priority: "URGENTE",
+        text: "Implementar monitoreo en tiempo real de entregas JIT en planta, con alertas tempranas ante retrasos y escalación inmediata a operaciones.",
+      },
+      {
+        priority: "CORTO PLAZO",
+        text: "Sincronizar en 3-7 días la programación entre producción y logística mediante revisión diaria de ventanas de embarque y capacidad disponible.",
+      },
+      {
+        priority: "CORTO PLAZO",
+        text: "Establecer un flujo de seguimiento de incidencias con responsables definidos en Atención para asegurar cierre oportuno de casos abiertos.",
+      },
+      {
+        priority: "PREVENTIVO",
+        text: "Desarrollar un plan estructural de atracción y retención de operadores para operaciones críticas de GM, incluyendo forecast de demanda y cobertura mínima por turno.",
+      },
+    ],
   },
 
   // 🟡 AMAZON
@@ -410,7 +452,7 @@ const clientes = [
     otif: "92%",
     puntual: "91%",
     nps: "6/10",
-    quejas: "3",
+    quejas: "12",
     tendencia: "↓ Alta demanda",
     diagnostico: "diagnostico",
     since: "2021",
@@ -565,18 +607,60 @@ const clientes = [
         statusClass: "badge--danger-light",
       },
     ],
+    semaforo: "yellow",
+    kpiStatus: {
+      otif: "success",
+      puntual: "success",
+      nps: "warning",
+      quejas: "danger",
+    },
+    diagnostico: {
+      summary:
+        '<p>Amazon México presenta un <span class="hl-danger">riesgo alto de churn</span> debido a una alta concentración de quejas críticas en Transporte y deterioro progresivo en múltiples áreas. Aunque los KPIs generales aún se mantienen estables (OTIF 92%, puntualidad 91%), existe presión operativa por alta demanda que ya está generando retrasos en servicios clave y afectación en última milla.</p><p>El riesgo es <span class="hl-danger">multiarea y escalable</span>, con incidencias ALTA abiertas en Transporte (saturación, falta de repartidores y retrasos), junto con fallas en Almacén, Coordinación y Tecnología. La combinación de alta demanda, capacidad insuficiente y errores operativos indica un problema estructural que puede deteriorar rápidamente la experiencia del cliente si no se corrige.</p>',
+    },
+    keyFindings: [
+      "Ambos servicios presentan retraso (expected vs real) y niveles de servicio en rango medio (90% y 92%), indicando presión operativa en última milla y fulfillment.",
+      "Existen múltiples quejas de severidad ALTA abiertas en Transporte (saturación, retrasos y falta de repartidores), evidenciando un cuello de botella crítico en la operación.",
+      "El problema se extiende a varias áreas (Almacén, Coordinación, Tecnología y Atención), mostrando un riesgo sistémico impulsado por alta demanda y planeación insuficiente.",
+    ],
+    actions: [
+      {
+        priority: "URGENTE",
+        text: "Incrementar en 24-48h la capacidad de última milla en zonas urbanas mediante incorporación de repartidores adicionales y expansión temporal de flota en Transporte.",
+      },
+      {
+        priority: "URGENTE",
+        text: "Implementar control diario de capacidad vs demanda en última milla para priorizar rutas críticas y evitar saturación en picos operativos.",
+      },
+      {
+        priority: "URGENTE",
+        text: "Ejecutar revisión inmediata en Fulfillment para validar procesos de picking y preparación, reduciendo errores y tiempos de despacho.",
+      },
+      {
+        priority: "CORTO PLAZO",
+        text: "Ajustar en 3-7 días el modelo de forecast de demanda en Coordinación, integrando volúmenes reales y picos históricos para mejorar planeación operativa.",
+      },
+      {
+        priority: "CORTO PLAZO",
+        text: "Corregir fallas de visibilidad en Tecnología implementando validación de tracking y sincronización de inventario en tiempo real.",
+      },
+      {
+        priority: "PREVENTIVO",
+        text: "Desarrollar un esquema de planeación de capacidad escalable para temporadas de alta demanda, incluyendo contratación anticipada y dimensionamiento dinámico de recursos.",
+      },
+    ],
   },
 
   {
     id: "heineken",
     nombre: "Heineken México",
     meta: "Consumo · Distribución",
-    nivel: "BAJO",
+    nivel: "MEDIO",
     tipo: "warning",
     otif: "91%",
     puntual: "93%",
     nps: "7/10",
-    quejas: "4",
+    quejas: "1",
     tendencia: "↓ Estacionalidad",
     diagnostico: "diagnostico-Heineken.html",
     since: "2020",
@@ -607,6 +691,36 @@ const clientes = [
         severityClass: "badge--success-light",
         status: "ABIERTO",
         statusClass: "badge--danger-light",
+      },
+    ],
+    semaforo: "yellow",
+    kpiStatus: {
+      otif: "success",
+      puntual: "success",
+      nps: "warning",
+      quejas: "success",
+    },
+    diagnostico: {
+      summary:
+        '<p>Heineken México presenta un <span class="hl-success">riesgo bajo de churn</span> con operación estable y desempeño consistente: OTIF de 91%, puntualidad de 93% y NPS de 7/10. El servicio de Distribución Nacional opera sin retrasos y con nivel de servicio alto (98%), lo que indica control operativo sólido en Transporte.</p><p>Las incidencias actuales son <span class="hl-warning">puntuales y de bajo impacto</span>, relacionadas principalmente con variaciones estacionales en Coordinación. No se observan señales de deterioro estructural ni afectación multiarea, por lo que el riesgo se mantiene contenido bajo condiciones actuales.</p>',
+    },
+    keyFindings: [
+      "El servicio de Distribución Nacional cumple sin retrasos y con SL de 98%, reflejando alta confiabilidad operativa en Transporte.",
+      "Solo existe una queja de severidad BAJA asociada a estacionalidad, sin impacto crítico ni acumulación de incidencias.",
+      "La tendencia de variación por demanda estacional representa un riesgo controlado, sin evidencia de afectación en KPIs clave.",
+    ],
+    actions: [
+      {
+        priority: "PREVENTIVO",
+        text: "Ajustar planeación de demanda en Coordinación considerando picos estacionales para asegurar disponibilidad de capacidad en Distribución Nacional.",
+      },
+      {
+        priority: "PREVENTIVO",
+        text: "Monitorear semanalmente variaciones de volumen vs capacidad en Transporte para anticipar posibles desviaciones durante temporadas altas.",
+      },
+      {
+        priority: "PREVENTIVO",
+        text: "Implementar revisión periódica de forecast y alineación con cliente para validar cambios en patrones de consumo y evitar desbalances operativos.",
       },
     ],
   },
@@ -722,6 +836,40 @@ const clientes = [
         statusClass: "badge--danger-light",
       },
     ],
+    semaforo: "green",
+    kpiStatus: {
+      otif: "success",
+      puntual: "success",
+      nps: "success",
+      quejas: "success",
+    },
+    diagnostico: {
+      summary:
+        '<p>Mercado Libre presenta un <span class="hl-success">riesgo bajo de churn</span> con desempeño sólido y consistente en todos los KPIs: OTIF de 96%, puntualidad de 95% y NPS de 8/10. La operación es estable en múltiples áreas, con todos los servicios cumpliendo sin retrasos relevantes y niveles de servicio superiores a 94%.</p><p>Las incidencias actuales son <span class="hl-warning">menores y asociadas a crecimiento</span>, principalmente por expansión de rutas y ajustes operativos en Tecnología y Atención. No se observan fallas estructurales, sino una operación en evolución controlada que requiere ajustes finos para sostener el nivel de servicio.</p>',
+    },
+    keyFindings: [
+      "Los 5 servicios operan sin retrasos significativos y con SL entre 94% y 97%, reflejando consistencia operativa en Transporte, Almacén, Coordinación y Tecnología.",
+      "Las 3 quejas registradas son de severidad BAJA y distribuidas en distintas áreas, sin acumulación crítica ni impacto directo en KPIs.",
+      "La tendencia de crecimiento por nuevas rutas genera ajustes operativos controlados, sin deterioro actual pero con necesidad de alineación preventiva.",
+    ],
+    actions: [
+      {
+        priority: "PREVENTIVO",
+        text: "Optimizar la configuración de nuevas rutas en Transporte validando tiempos, cobertura y balance de carga para evitar desviaciones en última milla.",
+      },
+      {
+        priority: "PREVENTIVO",
+        text: "Ajustar en Tecnología los parámetros de tracking para asegurar precisión en monitoreo conforme crecen los volúmenes y rutas.",
+      },
+      {
+        priority: "PREVENTIVO",
+        text: "Fortalecer en Atención los procesos de soporte a sellers, definiendo tiempos de respuesta y categorización de consultas para mantener el nivel de servicio.",
+      },
+      {
+        priority: "PREVENTIVO",
+        text: "Monitorear semanalmente el impacto de nuevas rutas en KPIs operativos para anticipar saturaciones o desbalances en capacidad.",
+      },
+    ],
   },
 
   {
@@ -803,67 +951,161 @@ const clientes = [
     ],
 
     complaints: [],
+    semaforo: "green",
+    kpiStatus: {
+      otif: "success",
+      puntual: "success",
+      nps: "success",
+      quejas: "success",
+    },
+    diagnostico: {
+      summary:
+        '<p>Nestlé México presenta un <span class="hl-success">riesgo bajo de churn</span> con desempeño sobresaliente en todos los indicadores: OTIF de 99%, puntualidad de 98% y NPS de 9/10. La operación es altamente consistente en todas las áreas, con cumplimiento total de tiempos y niveles de servicio de 99% en cada servicio.</p><p>La operación se encuentra en un estado <span class="hl-success">óptimo y controlado</span>, sin quejas registradas ni desviaciones operativas. La tendencia positiva indica una ejecución madura y estable, particularmente crítica en cadena de frío donde no se observan fallas ni riesgos actuales.</p>',
+    },
+    keyFindings: [
+      "Todos los servicios operan sin retrasos y con SL de 99%, reflejando excelencia operativa en Transporte, Almacén, Coordinación, Tecnología y Atención.",
+      "No existen quejas registradas, lo que confirma estabilidad operativa y ausencia de fricción con el cliente.",
+      "La tendencia positiva y la operación en cadena de frío sin incidentes indican un control robusto en procesos críticos de alto riesgo.",
+    ],
+    actions: [
+      {
+        priority: "PREVENTIVO",
+        text: "Mantener monitoreo continuo de cadena de frío en Transporte y Almacén para asegurar estabilidad en condiciones críticas de temperatura.",
+      },
+      {
+        priority: "PREVENTIVO",
+        text: "Documentar y estandarizar mejores prácticas operativas actuales para replicarlas en otros clientes de características similares.",
+      },
+      {
+        priority: "PREVENTIVO",
+        text: "Implementar revisiones periódicas de indicadores clave para detectar desviaciones mínimas antes de que impacten la operación.",
+      },
+    ],
   },
 ];
-
 
 /* =========================================
    DATOS POR ÁREA (DASHBOARD)
    ========================================= */
 const areaDatos = {
-    transporte: {
-        titulo:  "Transporte",
-        valor:   88,
-        resumen: "Operación por encima del objetivo. Rutas urbanas con leve congestión en horarios pico. 8 unidades con mantenimiento pendiente.",
-        kpis: [
-            { label: "Puntualidad",      valor: "88%",  meta: "Meta ≥90%",   clase: "warning" },
-            { label: "Unidades activas", valor: "142",  meta: "Total: 150",  clase: "" },
-            { label: "Incidencias",      valor: "7",    meta: "Límite ≤3",   clase: "danger" },
-            { label: "Km prom/ruta",     valor: "312",  meta: "Óptimo ≤280", clase: "warning" }
-        ]
-    },
-    almacen: {
-        titulo:  "Almacén",
-        valor:   72,
-        resumen: "Exactitud de inventario crítica (72%). Tiempo de picking duplica el objetivo. Capacidad al 91% genera cuellos de botella.",
-        kpis: [
-            { label: "Exactitud inv.",  valor: "72%",   meta: "Meta ≥95%",   clase: "danger" },
-            { label: "Tiempo picking",  valor: "38min", meta: "Meta ≤20min",  clase: "danger" },
-            { label: "Errores surtido", valor: "14",    meta: "Límite ≤2",   clase: "danger" },
-            { label: "Capacidad",       valor: "91%",   meta: "Óptimo ≤85%", clase: "warning" }
-        ]
-    },
-    coordinacion: {
-        titulo:  "Coordinación Logística",
-        valor:   95,
-        resumen: "Operando justo en el límite del SLA (95%). Sin margen ante eventualidades. Reprogramaciones con tendencia al alza.",
-        kpis: [
-            { label: "Cumpl. SLA",     valor: "95%",   meta: "Meta ≥95%",   clase: "" },
-            { label: "Entregas perf.", valor: "93%",   meta: "Meta ≥92%",   clase: "" },
-            { label: "Reprog. mes",    valor: "3",     meta: "Límite ≤5",   clase: "" },
-            { label: "T. respuesta",   valor: "18min", meta: "Meta ≤20min",  clase: "" }
-        ]
-    },
-    tecnologia: {
-        titulo:  "Tecnología y Monitoreo",
-        valor:   60,
-        resumen: "Uptime crítico en 60%. 22% de la flota sin GPS activo. 22 alertas técnicas abiertas sin responsable asignado.",
-        kpis: [
-            { label: "Uptime",          valor: "60%",  meta: "Meta ≥99%",  clase: "danger" },
-            { label: "Flota con GPS",   valor: "78%",  meta: "Meta ≥95%",  clase: "danger" },
-            { label: "Alertas abiertas",valor: "22",   meta: "Límite ≤5",  clase: "danger" },
-            { label: "T. resolución",   valor: "4.2h", meta: "Meta ≤1h",   clase: "danger" }
-        ]
-    },
-    cliente: {
-        titulo:  "Atención al Cliente",
-        valor:   80,
-        resumen: "NPS por debajo del objetivo (6.8 vs 8.5). 8 escalaciones abiertas sin cierre. Primera respuesta tarda 2.1h, el doble del estándar.",
-        kpis: [
-            { label: "NPS",              valor: "6.8",  meta: "Meta ≥8.5",  clase: "warning" },
-            { label: "Casos cerr./día",  valor: "12",   meta: "Meta ≥15",   clase: "warning" },
-            { label: "Escalaciones",     valor: "8",    meta: "Límite ≤3",  clase: "danger" },
-            { label: "T. 1ra respuesta", valor: "2.1h", meta: "Meta ≤1h",   clase: "danger" }
-        ]
-    }
+  transporte: {
+    titulo: "Transporte",
+    valor: 88,
+    resumen:
+      "Operación por encima del objetivo. Rutas urbanas con leve congestión en horarios pico. 8 unidades con mantenimiento pendiente.",
+    kpis: [
+      {
+        label: "Puntualidad",
+        valor: "88%",
+        meta: "Meta ≥90%",
+        clase: "warning",
+      },
+      {
+        label: "Unidades activas",
+        valor: "142",
+        meta: "Total: 150",
+        clase: "",
+      },
+      { label: "Incidencias", valor: "7", meta: "Límite ≤3", clase: "danger" },
+      {
+        label: "Km prom/ruta",
+        valor: "312",
+        meta: "Óptimo ≤280",
+        clase: "warning",
+      },
+    ],
+  },
+  almacen: {
+    titulo: "Almacén",
+    valor: 72,
+    resumen:
+      "Exactitud de inventario crítica (72%). Tiempo de picking duplica el objetivo. Capacidad al 91% genera cuellos de botella.",
+    kpis: [
+      {
+        label: "Exactitud inv.",
+        valor: "72%",
+        meta: "Meta ≥95%",
+        clase: "danger",
+      },
+      {
+        label: "Tiempo picking",
+        valor: "38min",
+        meta: "Meta ≤20min",
+        clase: "danger",
+      },
+      {
+        label: "Errores surtido",
+        valor: "14",
+        meta: "Límite ≤2",
+        clase: "danger",
+      },
+      {
+        label: "Capacidad",
+        valor: "91%",
+        meta: "Óptimo ≤85%",
+        clase: "warning",
+      },
+    ],
+  },
+  coordinacion: {
+    titulo: "Coordinación Logística",
+    valor: 95,
+    resumen:
+      "Operando justo en el límite del SLA (95%). Sin margen ante eventualidades. Reprogramaciones con tendencia al alza.",
+    kpis: [
+      { label: "Cumpl. SLA", valor: "95%", meta: "Meta ≥95%", clase: "" },
+      { label: "Entregas perf.", valor: "93%", meta: "Meta ≥92%", clase: "" },
+      { label: "Reprog. mes", valor: "3", meta: "Límite ≤5", clase: "" },
+      { label: "T. respuesta", valor: "18min", meta: "Meta ≤20min", clase: "" },
+    ],
+  },
+  tecnologia: {
+    titulo: "Tecnología y Monitoreo",
+    valor: 60,
+    resumen:
+      "Uptime crítico en 60%. 22% de la flota sin GPS activo. 22 alertas técnicas abiertas sin responsable asignado.",
+    kpis: [
+      { label: "Uptime", valor: "60%", meta: "Meta ≥99%", clase: "danger" },
+      {
+        label: "Flota con GPS",
+        valor: "78%",
+        meta: "Meta ≥95%",
+        clase: "danger",
+      },
+      {
+        label: "Alertas abiertas",
+        valor: "22",
+        meta: "Límite ≤5",
+        clase: "danger",
+      },
+      {
+        label: "T. resolución",
+        valor: "4.2h",
+        meta: "Meta ≤1h",
+        clase: "danger",
+      },
+    ],
+  },
+  cliente: {
+    titulo: "Atención al Cliente",
+    valor: 80,
+    resumen:
+      "NPS por debajo del objetivo (6.8 vs 8.5). 8 escalaciones abiertas sin cierre. Primera respuesta tarda 2.1h, el doble del estándar.",
+    kpis: [
+      { label: "NPS", valor: "6.8", meta: "Meta ≥8.5", clase: "warning" },
+      {
+        label: "Casos cerr./día",
+        valor: "12",
+        meta: "Meta ≥15",
+        clase: "warning",
+      },
+      { label: "Escalaciones", valor: "8", meta: "Límite ≤3", clase: "danger" },
+      {
+        label: "T. 1ra respuesta",
+        valor: "2.1h",
+        meta: "Meta ≤1h",
+        clase: "danger",
+      },
+    ],
+  },
 };
