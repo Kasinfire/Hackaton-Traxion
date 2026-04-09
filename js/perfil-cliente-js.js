@@ -16,10 +16,26 @@ function renderClientProfile(clientId) {
   riskEl.className = `badge badge--${client.tipo}`;
 
   // 📊 KPIs
-  document.getElementById("kpi-otif").textContent = client.otif;
-  document.getElementById("kpi-puntualidad").textContent = client.puntual;
-  document.getElementById("kpi-nps").textContent = client.nps;
-  document.getElementById("kpi-quejas").textContent = client.quejas;
+  function setKPI(id, value, status) {
+  const el = document.getElementById(id);
+
+  // quitar colores anteriores
+  el.classList.remove("success", "warning", "danger");
+
+  // aplicar nuevo color
+  el.classList.add(status);
+
+  // poner valor
+  el.textContent = value;
+}
+
+// usarlo
+setKPI("kpi-otif", client.otif, client.kpiStatus.otif);
+setKPI("kpi-puntualidad", client.puntual, client.kpiStatus.puntual);
+setKPI("kpi-nps", client.nps, client.kpiStatus.nps);
+setKPI("kpi-quejas", client.quejas, client.kpiStatus.quejas);
+
+
 
   // =========================
   // 🧩 SERVICIOS

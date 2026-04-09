@@ -204,3 +204,7 @@
         font-size: 1.6rem;
     }
 }
+
+.kpi-card__color.danger  { color: var(--danger); }
+#warning { color: var(--warning); }
+.kpi-card__color.success { color: var(--success); }
