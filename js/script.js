@@ -98,7 +98,7 @@ function renderClients(list) {
             </div>
             <div class="client-card__actions">
                 <a href="perfil-cliente.html?id=${c.id}" class="btn--outline-full">Ver Perfil</a>
-                <a href="${c.diagnostico}" class="btn--outline-full btn--primary">Diagnóstico de IA</a>
+                <a href="diagnostico.html?id=${c.id}" class="btn--outline-full btn--primary">Diagnóstico de IA</a>
             </div>
         </article>
     `).join('');
