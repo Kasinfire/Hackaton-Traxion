@@ -11,22 +11,21 @@
 
     <header class="topbar">
         <div>
-            <img class="logo" src="https://traxion.global/hubfs/traxion-global-sitio-mar24/Nuevos%20Logos%20REDIMENSI%C3%93N/Logos%20TRAXION%20-%20No%20tilde/SVG-500x150_17-TRAXION%20ESP%20GRIS.svg" alt=Logo">
+            <img class="logo" src="https://traxion.global/hubfs/traxion-global-sitio-mar24/Nuevos%20Logos%20REDIMENSI%C3%93N/Logos%20TRAXION%20-%20No%20tilde/SVG-500x150_17-TRAXION%20ESP%20GRIS.svg" alt="Logo">
         </div>
         <div class="topbar__logo">
             <h1>Customer Health Agent</h1>
             <span class="badge badge--brand">EJE 2 - TRAXIÓN</span>
         </div>
-     
         <div class="topbar__filters">
             <button class="btn btn--pill active">Todos</button>
             <button class="btn btn--pill">Alto riesgo</button>
-            <button class="btn btn--pill">Deterior</button>
+            <button class="btn btn--pill">Deterioro</button>
         </div>
     </header>
 
     <main class="dashboard">
-        
+
         <section class="kpi-summary">
             <div class="kpi-card">
                 <p class="kpi-card__title">CLIENTES EN RIESGO</p>
@@ -49,98 +48,120 @@
                 <p class="kpi-card__subtitle">En tendencia positiva</p>
             </div>
         </section>
+
         <section class="Logistic">
             <section class="graphics">
-
-            <h2>Rendimiento del Sistema Logístico</h2>
-            <br>
+                <h2>Rendimiento del Sistema Logístico</h2>
+                <br>
                 <div class="grafica">
-
                     <div class="meta"><span>85%</span></div>
 
-                    <div class="grupo-barra">
-                        <div class="barra" id="transporte"><span class="porcentaje"></span></div>
-                        <span class="titulo-barra">Transporte</span>
-                    </div>
+                    <a class="enlace-barra" data-area="transporte">
+                        <div class="grupo-barra">
+                            <div class="barra" id="transporte"><span class="porcentaje"></span></div>
+                            <span class="titulo-barra">Transporte</span>
+                        </div>
+                    </a>
 
-                    <div class="grupo-barra">
-                        <div class="barra" id="almacen"><span class="porcentaje"></span></div>
-                        <span class="titulo-barra">Almacén</span>
-                    </div>
+                    <a class="enlace-barra" data-area="almacen">
+                        <div class="grupo-barra">
+                            <div class="barra" id="almacen"><span class="porcentaje"></span></div>
+                            <span class="titulo-barra">Almacén</span>
+                        </div>
+                    </a>
 
-                    <div class="grupo-barra">
-                        <div class="barra" id="coordinacion"><span class="porcentaje"></span></div>
-                        <span class="titulo-barra">Coordinación logística</span>
-                    </div>
+                    <a class="enlace-barra" data-area="coordinacion">
+                        <div class="grupo-barra">
+                            <div class="barra" id="coordinacion"><span class="porcentaje"></span></div>
+                            <span class="titulo-barra">Coordinación logística</span>
+                        </div>
+                    </a>
 
-                    <div class="grupo-barra">
-                        <div class="barra" id="tecnologia"><span class="porcentaje"></span></div>
-                        <span class="titulo-barra">Tecnología y monitoreo</span>
-                    </div>
+                    <a class="enlace-barra" data-area="tecnologia">
+                        <div class="grupo-barra">
+                            <div class="barra" id="tecnologia"><span class="porcentaje"></span></div>
+                            <span class="titulo-barra">Tecnología y monitoreo</span>
+                        </div>
+                    </a>
 
-                    <div class="grupo-barra">
-                        <div class="barra" id="cliente"><span class="porcentaje"></span></div>
-                        <span class="titulo-barra">Atención al cliente</span>
-                    </div>
+                    <a class="enlace-barra" data-area="cliente">
+                        <div class="grupo-barra">
+                            <div class="barra" id="cliente"><span class="porcentaje"></span></div>
+                            <span class="titulo-barra">Atención al cliente</span>
+                        </div>
+                    </a>
                 </div>
 
                 <div class="leyenda">
-                    <div class="estado">
-                        <span class="color verde"></span>
-                        Óptimo ≥85%
-                    </div>
-
-                    <div class="estado">
-                        <span class="color amarillo"></span>
-                        Medio 70–84%
-                    </div>
-
-                    <div class="estado">
-                        <span class="color rojo"></span>
-                        Crítico &lt;70%
-                    </div>
+                    <div class="estado"><span class="color verde"></span>Óptimo ≥85%</div>
+                    <div class="estado"><span class="color amarillo"></span>Medio 70–84%</div>
+                    <div class="estado"><span class="color rojo"></span>Crítico &lt;70%</div>
                 </div>
             </section>
+
             <section class="panel-analisis">
-                <p class="panel-analisis__eyebrow">AGENTE AI</p>
-                <h3>Análisis de Rendimiento</h3>
-                <p>
-                El sistema logístico muestra un desempeño general estable. 
-                Las áreas de <b>transporte</b> y <b>coordinación logística</b> superan el objetivo 
-                establecido del 85%, indicando una operación eficiente.
 
-                Sin embargo, <b>tecnología y monitoreo</b> presenta un nivel inferior al esperado,
-                lo que podría afectar la visibilidad y control de los procesos logísticos.
-                </p>
+                <div class="panel-default" id="panel-default">
+                    <p class="panel-analisis__eyebrow">AGENTE AI</p>
+                    <h3>Análisis de Rendimiento</h3>
+                    <p>
+                        El sistema logístico muestra un desempeño general estable.
+                        Las áreas de <b>transporte</b> y <b>coordinación logística</b> superan el objetivo
+                        establecido del 85%, indicando una operación eficiente.<br><br>
+                        Sin embargo, <b>tecnología y monitoreo</b> presenta un nivel inferior al esperado,
+                        lo que podría afectar la visibilidad y control de los procesos logísticos.
+                    </p>
+                    <p style="font-size:0.8rem; color:var(--text-muted); margin-top:-0.75rem; display:flex; align-items:center; gap:6px;">
+                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5"/></svg>
+                        Haz clic en una barra para ver el detalle del área
+                    </p>
+                    <div class="botones">
+                        <a href="contacto_areas.html">
+                            <button class="btn-contacto">Contactar con las áreas</button>
+                        </a>
+                    </div>
+                </div>
 
-                <div class="botones">
+                <div class="panel-area" id="panel-area">
+                    <div class="panel-area__header">
+                        <div>
+                            <p class="panel-analisis__eyebrow" id="pa-eyebrow">ÁREA</p>
+                            <p class="panel-area__titulo" id="pa-titulo">—</p>
+                        </div>
+                        <button class="panel-area__cerrar" id="btn-cerrar-panel" title="Cerrar">✕</button>
+                    </div>
 
-                    <a href="contacto_areas.html">
-                        <button class="btn-contacto">
-                            Contactar con las áreas
-                        </button>
+                    <div class="panel-area__rendimiento">
+                        <span class="panel-area__valor" id="pa-valor">—</span>
+                        <div class="panel-area__barra-bg">
+                            <div class="panel-area__barra-fill" id="pa-barra-fill"></div>
+                        </div>
+                    </div>
+
+                    <div class="panel-area__kpis" id="pa-kpis"></div>
+
+                    <p class="panel-area__resumen" id="pa-resumen"></p>
+
+                    <a class="btn-diagnostico-completo" id="pa-btn-link" href="#">
+                        Ver diagnóstico completo
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
                     </a>
-
                 </div>
 
             </section>
-
         </section>
-        
+
         <section class="clients">
             <div class="clients__header">
                 <h2>Cuentas Clave Monitoreadas</h2>
                 <div class="search-container">
-
-            <input type="text" class="search-bar" placeholder="🔍 Buscar cliente" id="buscador">  
-
+                    <input type="text" class="search-bar" placeholder="🔍 Buscar cliente" id="buscador">
+                </div>
             </div>
-            </div>
-
             <div class="clients__grid"></div>
-
         </section>
     </main>
+
     <script src="js/data.js"></script>
     <script src="js/script.js"></script>
 </body>

@@ -1,124 +1,138 @@
-// ===============================
-// GRAFICA
-// ===============================
-let datos = {
-  transporte: 88,
-  almacen: 72,
-  coordinacion: 95,
-  tecnologia: 60,
-  cliente: 80
-};
+/* =========================================
+   SCRIPT.JS — Dashboard principal (index.html)
+   Requiere: data.js cargado primero
+   ========================================= */
 
-function colorPorcentaje(valor) {
-  if (valor >= 85) return "#28a745";
-  else if (valor >= 70) return "#d98a1e";
-  else return "#d9381e";
+function colorPorValor(v) {
+    if (v >= 85) return '#28a745';
+    if (v >= 70) return '#d98a1e';
+    return '#d9381e';
 }
 
-function animar() {
-  for (let area in datos) {
-    let barra = document.getElementById(area);
-    if (!barra) continue; // evita errores si no existe
-
-    let valor = datos[area];
-
-    barra.style.height = valor + "%";
-    barra.style.background = colorPorcentaje(valor);
-
-    let texto = barra.querySelector(".porcentaje");
-    if (texto) texto.innerText = valor + "%";
-  }
+/* ── 1. BARRAS ── */
+function initBars() {
+    for (const [key, data] of Object.entries(areaDatos)) {
+        const barra = document.getElementById(key);
+        if (!barra) continue;
+        const span = barra.querySelector('.porcentaje');
+        barra.style.backgroundColor = colorPorValor(data.valor);
+        if (span) span.textContent = data.valor + '%';
+        setTimeout(() => { barra.style.height = data.valor + '%'; }, 100);
+    }
 }
 
-// ===============================
-// RENDER CLIENTES
-// ===============================
-function renderClientes() {
-  const contenedor = document.querySelector(".clients__grid");
-  contenedor.innerHTML = "";
+/* ── 2. PANEL LATERAL ── */
+function initPanel() {
+    const panelDefault = document.getElementById('panel-default');
+    const panelArea    = document.getElementById('panel-area');
+    if (!panelDefault || !panelArea) return;
 
-  clientes.forEach(cliente => {
-    const card = `
-      <article class="client-card card--${cliente.tipo}">
-        <div class="client-card__header">
-          <div class="client-card__info">
-            <h3 class="client-card__name">${cliente.nombre}</h3>
-            <p class="client-card__meta">${cliente.meta}</p>
-          </div>
-          <span class="badge badge--${cliente.tipo}-light">${cliente.nivel}</span>
-        </div>
+    function abrirPanel(areaKey) {
+        const d = areaDatos[areaKey];
+        if (!d) return;
 
-        <div class="client-card__metrics">
-          <div class="metric">
-            <span class="metric__value text-${cliente.tipo}">${cliente.otif}</span>
-            <span class="metric__label">OTIF</span>
-          </div>
-          <div class="metric">
-            <span class="metric__value text-${cliente.tipo}">${cliente.puntual}</span>
-            <span class="metric__label">Puntual</span>
-          </div>
-          <div class="metric">
-            <span class="metric__value text-${cliente.tipo}">${cliente.nps}</span>
-            <span class="metric__label">NPS</span>
-          </div>
-          <div class="metric">
-            <span class="metric__value text-${cliente.tipo}">${cliente.quejas}</span>
-            <span class="metric__label">Quejas</span>
-          </div>
-        </div>
+        document.querySelectorAll('.enlace-barra').forEach(el => el.classList.remove('activa'));
+        document.querySelector(`.enlace-barra[data-area="${areaKey}"]`)?.classList.add('activa');
 
-        <div class="client-card__trend">
-          <span class="text-${cliente.tipo} badge-trend">${cliente.tendencia}</span>
-        </div>
+        document.getElementById('pa-eyebrow').textContent = 'RENDIMIENTO DEL ÁREA';
+        document.getElementById('pa-titulo').textContent  = d.titulo;
+        document.getElementById('pa-valor').textContent   = d.valor + '%';
+        document.getElementById('pa-valor').style.color   = colorPorValor(d.valor);
+        document.getElementById('pa-resumen').textContent = d.resumen;
 
-        <div class="client-card__actions">
-          <a href="perfil-cliente.html?id=${cliente.id}" class="btn btn--outline-full">
-            Perfil Cliente
-          </a>
-          <a href="${cliente.diagnostico}" class="btn btn--outline-full btn--primary">
-            Analizar con IA →
-          </a>
-        </div>
-      </article>
-    `;
+        const fill = document.getElementById('pa-barra-fill');
+        fill.style.width = '0%';
+        fill.style.background = colorPorValor(d.valor);
+        setTimeout(() => { fill.style.width = d.valor + '%'; }, 50);
 
-    contenedor.innerHTML += card;
-  });
-}
+        document.getElementById('pa-kpis').innerHTML = d.kpis.map(k => `
+            <div class="panel-kpi">
+                <p class="panel-kpi__label">${k.label}</p>
+                <p class="panel-kpi__valor ${k.clase}">${k.valor}</p>
+                <p class="panel-kpi__meta">${k.meta}</p>
+            </div>
+        `).join('');
 
-// ===============================
-// INICIO (CUANDO CARGA EL DOM)
-// ===============================
-document.addEventListener("DOMContentLoaded", () => {
+        document.getElementById('pa-btn-link').href = `diagnostico-area.html?area=${areaKey}`;
+        panelDefault.classList.add('hidden');
+        panelArea.classList.add('visible');
+    }
 
-  // 1. Renderizar primero
-  renderClientes();
+    function cerrarPanel() {
+        panelDefault.classList.remove('hidden');
+        panelArea.classList.remove('visible');
+        document.querySelectorAll('.enlace-barra').forEach(el => el.classList.remove('activa'));
+    }
 
-  // 2. Buscador
-  const buscador = document.getElementById("buscador");
-
-  if (buscador) {
-    buscador.addEventListener("input", function () {
-
-      let texto = buscador.value.toLowerCase();
-      const tarjetas = document.querySelectorAll(".client-card");
-
-      tarjetas.forEach(card => {
-        let nombre = card
-          .querySelector(".client-card__name")
-          .textContent
-          .toLowerCase();
-
-        if (nombre.includes(texto)) {
-          card.style.display = "";
-        } else {
-          card.style.display = "none";
-        }
-      });
+    document.querySelectorAll('.enlace-barra').forEach(el => {
+        el.addEventListener('click', (e) => {
+            e.preventDefault();
+            el.classList.contains('activa') ? cerrarPanel() : abrirPanel(el.dataset.area);
+        });
     });
-  }
 
-  // 3. Animar gráfica
-  animar();
+    document.getElementById('btn-cerrar-panel')?.addEventListener('click', cerrarPanel);
+}
 
+/* ── 3. TARJETAS DE CLIENTES ── */
+function renderClients(list) {
+    const grid = document.querySelector('.clients__grid');
+    if (!grid) return;
+    grid.innerHTML = list.map(c => `
+        <article class="client-card card--${c.tipo}">
+            <div class="client-card__header">
+                <div class="client-card__info">
+                    <h3 class="client-card__name">${c.nombre}</h3>
+                    <p class="client-card__meta">${c.meta}</p>
+                </div>
+                <span class="badge badge--${c.tipo}-light">${c.nivel}</span>
+            </div>
+            <div class="client-card__metrics">
+                <div class="metric"><span class="metric__value text-${c.tipo}">${c.otif}</span><span class="metric__label">OTIF</span></div>
+                <div class="metric"><span class="metric__value text-${c.tipo}">${c.puntual}</span><span class="metric__label">Puntual</span></div>
+                <div class="metric"><span class="metric__value text-${c.tipo}">${c.nps}</span><span class="metric__label">NPS</span></div>
+                <div class="metric"><span class="metric__value text-${c.tipo}">${c.quejas}</span><span class="metric__label">Quejas</span></div>
+            </div>
+            <div class="client-card__trend">
+                <span class="text-${c.tipo} badge-trend">${c.tendencia}</span>
+            </div>
+            <div class="client-card__actions">
+                <a href="perfil-cliente.html?id=${c.id}" class="btn--outline-full">Ver Perfil</a>
+                <a href="${c.diagnostico}" class="btn--outline-full btn--primary">Diagnóstico</a>
+            </div>
+        </article>
+    `).join('');
+}
+
+/* ── 4. BUSCADOR ── */
+function initBuscador() {
+    document.getElementById('buscador')?.addEventListener('input', (e) => {
+        const term = e.target.value.toLowerCase();
+        renderClients(clientes.filter(c => c.nombre.toLowerCase().includes(term)));
+    });
+}
+
+/* ── 5. FILTROS TOPBAR ── */
+function initFiltros() {
+    const btns = document.querySelectorAll('.topbar__filters .btn--pill');
+    btns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            btns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            const t = btn.textContent.trim().toLowerCase();
+            const filtered = t === 'alto riesgo' ? clientes.filter(c => c.tipo === 'danger')
+                           : t === 'deterioro'   ? clientes.filter(c => c.tipo === 'warning')
+                           : clientes;
+            renderClients(filtered);
+        });
+    });
+}
+
+/* ── INIT ── */
+document.addEventListener('DOMContentLoaded', () => {
+    initBars();
+    initPanel();
+    renderClients(clientes);
+    initBuscador();
+    initFiltros();
 });

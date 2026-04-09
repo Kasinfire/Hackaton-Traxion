@@ -386,3 +386,65 @@ complaints: [
   }
 
 ];
+
+
+/* =========================================
+   DATOS POR ÁREA (DASHBOARD)
+   ========================================= */
+const areaDatos = {
+    transporte: {
+        titulo:  "Transporte",
+        valor:   88,
+        resumen: "Operación por encima del objetivo. Rutas urbanas con leve congestión en horarios pico. 8 unidades con mantenimiento pendiente.",
+        kpis: [
+            { label: "Puntualidad",      valor: "88%",  meta: "Meta ≥90%",   clase: "warning" },
+            { label: "Unidades activas", valor: "142",  meta: "Total: 150",  clase: "" },
+            { label: "Incidencias",      valor: "7",    meta: "Límite ≤3",   clase: "danger" },
+            { label: "Km prom/ruta",     valor: "312",  meta: "Óptimo ≤280", clase: "warning" }
+        ]
+    },
+    almacen: {
+        titulo:  "Almacén",
+        valor:   72,
+        resumen: "Exactitud de inventario crítica (72%). Tiempo de picking duplica el objetivo. Capacidad al 91% genera cuellos de botella.",
+        kpis: [
+            { label: "Exactitud inv.",  valor: "72%",   meta: "Meta ≥95%",   clase: "danger" },
+            { label: "Tiempo picking",  valor: "38min", meta: "Meta ≤20min",  clase: "danger" },
+            { label: "Errores surtido", valor: "14",    meta: "Límite ≤2",   clase: "danger" },
+            { label: "Capacidad",       valor: "91%",   meta: "Óptimo ≤85%", clase: "warning" }
+        ]
+    },
+    coordinacion: {
+        titulo:  "Coordinación Logística",
+        valor:   95,
+        resumen: "Operando justo en el límite del SLA (95%). Sin margen ante eventualidades. Reprogramaciones con tendencia al alza.",
+        kpis: [
+            { label: "Cumpl. SLA",     valor: "95%",   meta: "Meta ≥95%",   clase: "" },
+            { label: "Entregas perf.", valor: "93%",   meta: "Meta ≥92%",   clase: "" },
+            { label: "Reprog. mes",    valor: "3",     meta: "Límite ≤5",   clase: "" },
+            { label: "T. respuesta",   valor: "18min", meta: "Meta ≤20min",  clase: "" }
+        ]
+    },
+    tecnologia: {
+        titulo:  "Tecnología y Monitoreo",
+        valor:   60,
+        resumen: "Uptime crítico en 60%. 22% de la flota sin GPS activo. 22 alertas técnicas abiertas sin responsable asignado.",
+        kpis: [
+            { label: "Uptime",          valor: "60%",  meta: "Meta ≥99%",  clase: "danger" },
+            { label: "Flota con GPS",   valor: "78%",  meta: "Meta ≥95%",  clase: "danger" },
+            { label: "Alertas abiertas",valor: "22",   meta: "Límite ≤5",  clase: "danger" },
+            { label: "T. resolución",   valor: "4.2h", meta: "Meta ≤1h",   clase: "danger" }
+        ]
+    },
+    cliente: {
+        titulo:  "Atención al Cliente",
+        valor:   80,
+        resumen: "NPS por debajo del objetivo (6.8 vs 8.5). 8 escalaciones abiertas sin cierre. Primera respuesta tarda 2.1h, el doble del estándar.",
+        kpis: [
+            { label: "NPS",              valor: "6.8",  meta: "Meta ≥8.5",  clase: "warning" },
+            { label: "Casos cerr./día",  valor: "12",   meta: "Meta ≥15",   clase: "warning" },
+            { label: "Escalaciones",     valor: "8",    meta: "Límite ≤3",  clase: "danger" },
+            { label: "T. 1ra respuesta", valor: "2.1h", meta: "Meta ≤1h",   clase: "danger" }
+        ]
+    }
+};
