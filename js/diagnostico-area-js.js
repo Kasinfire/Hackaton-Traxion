@@ -1,34 +1,40 @@
 function renderArea(areaId) {
   const area = areaDatos[areaId];
   if (!area) return;
-
+ 
   // ======================
   // HEADER
   // ======================
   document.getElementById("area-name").textContent = area.titulo;
-
+ 
   // ======================
-  // SEMÁFORO
+  // SEMÁFORO + HERO COLOR
   // ======================
   const riskEl = document.getElementById("area-risk");
-
-riskEl.textContent = area.nivel;
-
-if (area.nivel === "ALTO") {
-  riskEl.style.color = "var(--danger)";
-} else if (area.nivel === "MEDIO") {
-  riskEl.style.color = "var(--warning)";
-} else if (area.nivel === "BAJO") {
-  riskEl.style.color = "var(--success)";
-}
-  riskEl.className = `semaforo__risk ${area.semaforo}`;
-
+  const heroEl = document.getElementById("hero-section");
+  const riskTagEl = document.getElementById("area-risk-tag");
+ 
+  riskEl.textContent = area.nivel;
+ 
+  const colorMap = {
+    "ALTO":  { css: "var(--danger)",  hex: "#c0392b", cls: "high" },
+    "MEDIO": { css: "var(--warning)", hex: "#d98a1e", cls: "mid"  },
+    "BAJO":  { css: "var(--success)", hex: "#27ae60", cls: "low"  },
+  };
+  const colorInfo = colorMap[area.nivel] || colorMap["MEDIO"];
+ 
+  riskEl.style.color = colorInfo.css;
+  riskEl.className = `semaforo__risk ${colorInfo.cls}`;
+ 
+  if (heroEl)    heroEl.style.backgroundColor = colorInfo.hex;
+  if (riskTagEl) riskTagEl.textContent = `Riesgo: ${area.nivel}`;
+ 
   // luces (si las tienes)
   document.querySelectorAll(".semaforo__luz").forEach(l => l.classList.remove("on"));
   if (area.semaforo === "red") document.getElementById("luz-roja")?.classList.add("on");
   if (area.semaforo === "yellow") document.getElementById("luz-amarilla")?.classList.add("on");
   if (area.semaforo === "green") document.getElementById("luz-verde")?.classList.add("on");
-
+ 
   // ======================
   // KPIs
   // ======================
@@ -36,46 +42,46 @@ if (area.nivel === "ALTO") {
   document.getElementById("kpi-puntual").textContent = area.puntual;
   document.getElementById("kpi-nps").textContent = area.nps;
   document.getElementById("kpi-quejas").textContent = area.quejas;
-
+ 
   // colores KPI
   document.getElementById("kpi-otif").className = `kpi-card__value ${area.kpiStatus.otif}`;
   document.getElementById("kpi-puntual").className = `kpi-card__value ${area.kpiStatus.puntual}`;
   document.getElementById("kpi-nps").className = `kpi-card__value ${area.kpiStatus.nps}`;
   document.getElementById("kpi-quejas").className = `kpi-card__value ${area.kpiStatus.quejas}`;
-
+ 
   // BARRAS KPI
 // ======================
-
+ 
 // OTIF
 document.getElementById("bar-otif").style.width = area.otif;
 document.getElementById("bar-otif").className = `progress-bar-fill ${area.kpiStatus.otif}`;
-
+ 
 // Puntualidad
 document.getElementById("bar-puntual").style.width = area.puntual;
 document.getElementById("bar-puntual").className = `progress-bar-fill ${area.kpiStatus.puntual}`;
-
+ 
 // NPS (convertir a %)
 const npsValue = parseInt(area.nps); // "4/10" → 4
 document.getElementById("bar-nps").style.width = (npsValue * 10) + "%";
 document.getElementById("bar-nps").className = `progress-bar-fill ${area.kpiStatus.nps}`;
-
+ 
 // Quejas (escala visual)
 const quejasValue = parseInt(area.quejas);
 document.getElementById("bar-quejas").style.width = Math.min(quejasValue * 5, 100) + "%";
 document.getElementById("bar-quejas").className = `progress-bar-fill ${area.kpiStatus.quejas}`;
-
+ 
   // ======================
   // DIAGNÓSTICO
   // ======================
   document.getElementById("diagnostico").innerHTML =
     `<p>${area.diagnostico.summary}</p>`;
-
+ 
   // ======================
   // FINDINGS
   // ======================
   const findingsEl = document.getElementById("findings");
   findingsEl.innerHTML = "";
-
+ 
   area.keyFindings.forEach(f => {
     findingsEl.innerHTML += `
       <div class="finding">
@@ -84,20 +90,20 @@ document.getElementById("bar-quejas").className = `progress-bar-fill ${area.kpiS
       </div>
     `;
   });
-
+ 
   // ======================
   // ACCIONES
   // ======================
   const actionsEl = document.getElementById("actions");
   actionsEl.innerHTML = "";
-
+ 
   area.actions.forEach((a, i) => {
-
+ 
     const badgeClass =
       a.priority === "URGENTE" ? "badge-urgente" :
       a.priority === "CORTO PLAZO" ? "badge-corto" :
       "badge-preventivo";
-
+ 
     actionsEl.innerHTML += `
       <div class="action-card">
         <div class="action-num">${i + 1}</div>
@@ -111,5 +117,5 @@ document.getElementById("bar-quejas").className = `progress-bar-fill ${area.kpiS
 }
 const params = new URLSearchParams(window.location.search);
 const areaId = params.get("area") || "transporte";
-
+ 
 renderArea(areaId);

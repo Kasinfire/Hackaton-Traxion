@@ -17,18 +17,22 @@ function renderCliente(clientId) {
   // ======================
   const riskEl = document.getElementById("client-risk");
 
-riskEl.textContent = client.nivel;
+  riskEl.textContent = client.nivel;
 
-if (client.nivel === "ALTO") {
-  riskEl.style.color = "var(--danger)";
-} else if (client.nivel === "MEDIO") {
-  riskEl.style.color = "var(--warning)";
-} else if (client.nivel === "BAJO") {
-  riskEl.style.color = "var(--success)";
-}
+  if (client.nivel === "ALTO") {
+    riskEl.style.color = "var(--danger)";
+    document.querySelector('.hero').style.backgroundColor = "var(--danger)";
+  } else if (client.nivel === "MEDIO") {
+    riskEl.style.color = "var(--warning)";
+    document.querySelector('.hero').style.backgroundColor = "var(--warning)";
+  } else if (client.nivel === "BAJO") {
+    riskEl.style.color = "var(--success)";
+    document.querySelector('.hero').style.backgroundColor = "var(--success)";
+  }
+
   riskEl.className = `semaforo__risk ${client.semaforo}`;
 
-  // luces (si las tienes)
+  // luces
   document.querySelectorAll(".semaforo__luz").forEach(l => l.classList.remove("on"));
   if (client.semaforo === "red") document.getElementById("luz-roja")?.classList.add("on");
   if (client.semaforo === "yellow") document.getElementById("luz-amarilla")?.classList.add("on");
@@ -49,31 +53,30 @@ if (client.nivel === "ALTO") {
   document.getElementById("kpi-quejas").className = `kpi-card__value ${client.kpiStatus.quejas}`;
 
   // BARRAS KPI
-// ======================
+  // ======================
 
-// OTIF
-document.getElementById("bar-otif").style.width = client.otif;
-document.getElementById("bar-otif").className = `progress-bar-fill ${client.kpiStatus.otif}`;
+  // OTIF
+  document.getElementById("bar-otif").style.width = client.otif;
+  document.getElementById("bar-otif").className = `progress-bar-fill ${client.kpiStatus.otif}`;
 
-// Puntualidad
-document.getElementById("bar-puntual").style.width = client.puntual;
-document.getElementById("bar-puntual").className = `progress-bar-fill ${client.kpiStatus.puntual}`;
+  // Puntualidad
+  document.getElementById("bar-puntual").style.width = client.puntual;
+  document.getElementById("bar-puntual").className = `progress-bar-fill ${client.kpiStatus.puntual}`;
 
-// NPS (convertir a %)
-const npsValue = parseInt(client.nps); // "4/10" → 4
-document.getElementById("bar-nps").style.width = (npsValue * 10) + "%";
-document.getElementById("bar-nps").className = `progress-bar-fill ${client.kpiStatus.nps}`;
+  // NPS (convertir a %)
+  const npsValue = parseInt(client.nps); // "4/10" → 4
+  document.getElementById("bar-nps").style.width = (npsValue * 10) + "%";
+  document.getElementById("bar-nps").className = `progress-bar-fill ${client.kpiStatus.nps}`;
 
-// Quejas (escala visual)
-const quejasValue = parseInt(client.quejas);
-document.getElementById("bar-quejas").style.width = Math.min(quejasValue * 5, 100) + "%";
-document.getElementById("bar-quejas").className = `progress-bar-fill ${client.kpiStatus.quejas}`;
+  // Quejas (escala visual)
+  const quejasValue = parseInt(client.quejas);
+  document.getElementById("bar-quejas").style.width = Math.min(quejasValue * 5, 100) + "%";
+  document.getElementById("bar-quejas").className = `progress-bar-fill ${client.kpiStatus.quejas}`;
 
   // ======================
   // DIAGNÓSTICO
   // ======================
-  document.getElementById("diagnostico").innerHTML =
-    `<p>${client.diagnostico.summary}</p>`;
+  document.getElementById("diagnostico").innerHTML = `<p>${client.diagnostico.summary}</p>`;
 
   // ======================
   // FINDINGS
@@ -97,7 +100,6 @@ document.getElementById("bar-quejas").className = `progress-bar-fill ${client.kp
   actionsEl.innerHTML = "";
 
   client.actions.forEach((a, i) => {
-
     const badgeClass =
       a.priority === "URGENTE" ? "badge-urgente" :
       a.priority === "CORTO PLAZO" ? "badge-corto" :
@@ -109,11 +111,12 @@ document.getElementById("bar-quejas").className = `progress-bar-fill ${client.kp
         <span class="action-badge ${badgeClass}">
           ${a.priority.toUpperCase()}
         </span>
-        <p>${a.text}</strong></p>
+        <p>${a.text}</p>
       </div>
     `;
   });
 }
+
 const params = new URLSearchParams(window.location.search);
 const clientId = params.get("id") || "walmart";
 

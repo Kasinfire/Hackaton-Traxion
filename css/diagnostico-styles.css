@@ -53,97 +53,120 @@ body { background: var(--bg-app); color: var(--text-main); }
 .btn--pill:hover { border-color: white; color: white; }
 .btn--pill.active { border-color: white; color: white; }
 
-/* ── HERO — oscuro, texto centrado, sin semáforo ── */
+/* ── HERO ── */
 .hero {
     background: var(--brand-dark);
-    padding: 3rem 2rem 4rem; /* Ajustado para que respire más */
+    padding: 3rem 2rem 4rem;
     text-align: center;
 }
 .hero__title  { font-size: 2.2rem; font-weight: 700; color: #fff; margin-bottom: 0.4rem; }
-.hero__meta   { color: #aaa; font-size: 0.95rem; margin-bottom: 1.25rem; }
+.hero__meta   { color: rgba(255,255,255,0.65); font-size: 0.95rem; margin-bottom: 1.25rem; }
 .hero__tags   { display: flex; justify-content: center; gap: 0.75rem; flex-wrap: wrap; }
+
+/* Tag base — outline blanco siempre visible */
 .hero__tag {
     padding: 0.35rem 1rem; border-radius: 20px;
-    border: 1px solid #444; color: #ccc; font-size: 0.82rem;
+    border: 1.5px solid rgba(255,255,255,0.45);
+    color: #fff;
+    font-size: 0.82rem;
+    background: rgba(255,255,255,0.12);
+    backdrop-filter: blur(4px);
+    font-weight: 500;
 }
 
-/* ── BODY WRAPPER — semáforo a la izq, contenido a la derecha ── */
+/* Tags sólidos (sector / operación) — fondo blanco semitransparente más oscuro */
+.hero__tag--solid {
+    background: rgba(255,255,255,0.22);
+    border-color: rgba(255,255,255,0.7);
+    font-weight: 700;
+    letter-spacing: 0.3px;
+}
+
+/* Tag de nivel de riesgo en área */
+.hero__tag--risk {
+    background: rgba(0,0,0,0.25);
+    border-color: rgba(255,255,255,0.8);
+    font-weight: 700;
+    font-size: 0.85rem;
+    letter-spacing: 0.5px;
+}
+
+/* ── BODY WRAPPER ── */
 .body-wrap {
-    display: flex;
-    align-items: flex-start;
-    gap: 3rem; /* Separación entre semáforo y contenido */
-    max-width: 1280px;
-    margin: 0 auto; /* Centra todo el layout en la pantalla */
-    padding: 3rem 2rem;
+    display: grid;
+    grid-template-columns: 160px 1fr;
+    align-items: start;
+    gap: 1.5rem;
+    padding: 2rem 2rem;
 }
 
 /* ── SEMÁFORO SIDEBAR ── */
 .semaforo-sidebar {
-    flex-shrink: 0;
-    width: 180px;
+    position: static;
+    top: 80px;
+    align-self: center;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 0.75rem;
-    align-self: center;
+    gap: 1rem;
 }
 
+/* Contenedor del semáforo — grande, sin ::before/::after */
 .semaforo {
-    width: 100px;         
-    background: #111;
-    border-radius: 60px;  
-    padding: 24px 18px;   
+    position: relative;          /* para que los tornillos sean relativos a él */
+    background: #1a1a1a;
+    border-radius: 28px;
+    padding: 24px 22px;
     display: flex;
     flex-direction: column;
-    gap: 18px;            
-    align-items: center;  
-    border: 2px solid #2e2e2e;
-    position: relative;
+    gap: 22px;
+    box-shadow: 0 6px 28px rgba(0,0,0,0.45);
+    width: 110px;                /* más ancho */
 }
 
-/* tornillos */
-.semaforo::before,
-.semaforo::after {
-    content: '';
-    width: 12px; height: 12px;
+/* Tornillos — usando span dentro del HTML en lugar de pseudo-elementos */
+.semaforo__bolt {
+    width: 10px;
+    height: 10px;
     border-radius: 50%;
-    background: #1a1a1a;
+    background: #2a2a2a;
     border: 1.5px solid #3a3a3a;
-    position: absolute;
-    left: 50%; transform: translateX(-50%);
+    margin: 0 auto;
+    display: block;
 }
-.semaforo::before { top: -7px; }
-.semaforo::after  { bottom: -7px; }
 
+/* Luces grandes */
 .semaforo__luz {
-    width: 56px; 
-    height: 56px; 
+    width: 68px;
+    height: 68px;
     border-radius: 50%;
+    margin: 0 auto;
+    transition: box-shadow 0.4s ease, background 0.3s ease;
 }
 
-/* apagadas */
-.semaforo__luz.red    { background: #3a1a14; }
-.semaforo__luz.yellow { background: #2e2312; }
-.semaforo__luz.green  { background: #122615; }
+/* Apagadas */
+.semaforo__luz.red    { background: #3d0000; }
+.semaforo__luz.yellow { background: #3d2e00; }
+.semaforo__luz.green  { background: #003000; }
 
-/* activas */
-.semaforo__luz.red.on    { background: #d9381e; box-shadow: 0 0 20px 6px rgba(217,56,30,.4); }
-.semaforo__luz.yellow.on { background: #d98a1e; box-shadow: 0 0 20px 6px rgba(217,138,30,.4); }
-.semaforo__luz.green.on  { background: #28a745; box-shadow: 0 0 20px 6px rgba(40,167,69,.4); }
+/* Encendidas */
+.semaforo__luz.red.on    { background: #e53935; box-shadow: 0 0 28px 10px rgba(229,57,53,0.7); }
+.semaforo__luz.yellow.on { background: #f9a825; box-shadow: 0 0 28px 10px rgba(249,168,37,0.7); }
+.semaforo__luz.green.on  { background: #43a047; box-shadow: 0 0 28px 10px rgba(67,160,71,0.7); }
 
 .semaforo__label {
-    font-size: 0.75rem; 
+    font-size: 0.7rem;
     letter-spacing: 1px;
-    color: var(--text-muted); 
-    text-transform: uppercase; 
+    color: var(--text-muted);
+    text-transform: uppercase;
     text-align: center;
 }
 
-.semaforo__risk { 
-    font-size: 2rem;
-    font-weight: 800; 
-    text-align: center; 
+.semaforo__risk {
+    font-size: 1.6rem;
+    font-weight: 800;
+    text-align: center;
     line-height: 1;
 }
 
@@ -152,9 +175,9 @@ body { background: var(--bg-app); color: var(--text-main); }
 .semaforo__risk.low  { color: var(--success); }
 
 /* ── MAIN CONTENT ── */
-.main { 
-    flex: 1; 
-    min-width: 0; 
+.main {
+    flex: 1;
+    min-width: 0;
 }
 
 /* KPI ROW */
@@ -262,11 +285,24 @@ body { background: var(--bg-app); color: var(--text-main); }
 
 /* ── RESPONSIVE ── */
 @media (max-width: 900px) {
-    .body-wrap { flex-direction: column; padding: 1rem; }
-    .semaforo-sidebar { flex-direction: row; width: 100%; justify-content: center; padding: 1rem 0 0; position: static; }
-    .semaforo-sidebar .semaforo { width: 50px; padding: 10px 8px; gap: 8px; margin-bottom: 0; }
-    .semaforo__luz { width: 28px; height: 28px; }
-    .semaforo__risk { font-size: 1.5rem; }
+    .body-wrap {
+        grid-template-columns: 1fr;
+        padding: 1rem;
+    }
+    .semaforo-sidebar {
+        flex-direction: column;
+        width: 100%;
+        justify-content: center;
+        padding: 1rem 0 0;
+        position: static;
+    }
+    .semaforo {
+        width: 70px;
+        padding: 14px 12px;
+        gap: 12px;
+    }
+    .semaforo__luz { width: 40px; height: 40px; }
+    .semaforo__risk { font-size: 1.3rem; }
     .kpi-row { grid-template-columns: repeat(2, 1fr); }
     .content-grid { grid-template-columns: 1fr; }
     .actions-grid { grid-template-columns: repeat(2, 1fr); }
@@ -275,49 +311,4 @@ body { background: var(--bg-app); color: var(--text-main); }
     .hero__title { font-size: 1.6rem; }
     .actions-grid { grid-template-columns: 1fr; }
     .kpi-card__value { font-size: 1.6rem; }
-}
-
-/* --- Estilos para móviles (menos de 768px) --- */
-@media screen and (max-width: 768px) {
-    /* Centrar todo el header y ponerlo en columna */
-    .diagnostico-header {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        gap: 30px; /* Espacio entre info del cliente y el semáforo */
-    }
-
-    /* Modificar el contenedor del semáforo para que sea central */
-    .semaforo-sidebar {
-        width: 100%;
-        height: auto;
-        border-left: none; /* Quitar el borde lateral que tiene en desktop */
-        padding-left: 0;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 20px; /* Espacio entre el semáforo visual y el tag de riesgo */
-    }
-
-    /* Hacer el semáforo visual MÁS GRANDE */
-    .semaforo-visual {
-        width: 120px; /* Un poco más ancho */
-        height: 280px; /* Mucho más alto */
-        border-radius: 40px; /* Bordes más redondeados acorde al tamaño */
-        padding: 15px;
-    }
-
-    /* Hacer los círculos del semáforo MÁS GRANDES */
-    .semaforo-visual .semaforo-circle {
-        width: 70px; /* Casi el doble de grande */
-        height: 70px;
-    }
-
-    /* Agrandar el texto del nivel de riesgo */
-    .risk-level-tag {
-        font-size: 1.3rem; /* Texto más grande */
-        width: 90%; /* Que ocupe casi todo el ancho disponible */
-        justify-content: center; /* Centrar el icono y texto */
-    }
 }

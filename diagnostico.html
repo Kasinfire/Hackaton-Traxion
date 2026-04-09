@@ -1,4 +1,5 @@
-
+Diagnostico · HTML
+ 
 <!doctype html>
 <html lang="es">
   <head>
@@ -11,7 +12,7 @@
     />
     <link rel="stylesheet" href="css/diagnostico-styles.css" />
   </head>
-
+ 
   <body>
     <header class="topbar">
       <div class="topbar__logo">
@@ -68,19 +69,19 @@
         </button>
       </div>
     </header>
-
+ 
     <!-- ================= HERO ================= -->
-    <div class="hero">
+    <div class="hero" id="hero-section">
       <h1 class="hero__title" id="client-name"></h1>
       <p class="hero__meta" id="client-meta"></p>
-
+ 
       <div class="hero__tags">
-        <span class="hero__tag" id="client-sector"></span>
-        <span class="hero__tag" id="client-operation"></span>
+        <span class="hero__tag hero__tag--solid" id="client-sector"></span>
+        <span class="hero__tag hero__tag--solid" id="client-operation"></span>
         <span class="hero__tag">Último análisis: 20 de diciembre de 2025</span>
       </div>
     </div>
-
+ 
     <div class="body-wrap">
       <!-- ================= SEMÁFORO ================= -->
       <div class="semaforo-sidebar">
@@ -89,11 +90,11 @@
           <div id="luz-amarilla" class="semaforo__luz yellow"></div>
           <div id="luz-verde" class="semaforo__luz green"></div>
         </div>
-
+ 
         <p class="semaforo__label">Nivel de Riesgo</p>
         <p id="client-risk" class="semaforo__risk"></p>
       </div>
-
+ 
       <main class="main">
         <!-- ================= KPIs ================= -->
         <section class="kpi-row">
@@ -105,7 +106,7 @@
             </div>
             <p class="kpi-card__meta">Meta: ≥ 95%</p>
           </div>
-
+ 
           <div class="kpi-card">
             <p class="kpi-card__title">Puntualidad</p>
             <p id="kpi-puntual" class="kpi-card__value"></p>
@@ -114,7 +115,7 @@
             </div>
             <p class="kpi-card__meta">Meta: ≥ 92%</p>
           </div>
-
+ 
           <div class="kpi-card">
             <p class="kpi-card__title">NPS</p>
             <p id="kpi-nps" class="kpi-card__value"></p>
@@ -123,7 +124,7 @@
             </div>
             <p class="kpi-card__meta">Meta: ≥ 8</p>
           </div>
-
+ 
           <div class="kpi-card">
             <p class="kpi-card__title">Quejas Abiertas</p>
             <p id="kpi-quejas" class="kpi-card__value"></p>
@@ -133,20 +134,20 @@
             <p class="kpi-card__meta">Límite aceptable: ≤ 2</p>
           </div>
         </section>
-
+ 
         <!-- ================= DIAGNÓSTICO + FINDINGS ================= -->
         <section class="content-grid">
           <div class="card">
             <div class="card__heading">Diagnóstico</div>
             <div id="diagnostico" class="diagnostico-text"></div>
           </div>
-
+ 
           <div class="card">
             <div class="card__heading">Hallazgos Clave</div>
             <div id="findings"></div>
           </div>
         </section>
-
+ 
         <!-- ================= ACCIONES ================= -->
         <section>
           <div class="section-heading"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> Acciones Sugeridas</div>
@@ -154,7 +155,7 @@
         </section>
       </main>
     </div>
-
+ 
     <!-- ================= JS ================= -->
     <script src="js/data.js"></script>
     <script src="js/diagnostico-js.js"></script>
