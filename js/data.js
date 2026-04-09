@@ -985,6 +985,38 @@ const clientes = [
 const areaDatos = {
   transporte: {
     titulo: "Transporte",
+    nivel: "ALTO",
+    semaforo: "red",
+    otif: "87%",
+    puntual: "82%",
+    nps: "5/10",
+    quejas: "26",
+    "kpiStatus": {
+    "otif": "warning",
+    "puntual": "danger",
+    "nps": "danger",
+    "quejas": "danger"
+    },
+    diagnostico: {
+    "summary": "<p>El área de <span class=\"hl-danger\">Transporte presenta deterioro estructural</span> impulsado por retrasos recurrentes, saturación operativa y falta de capacidad en múltiples clientes (Walmart, Amazon, GM).</p><p>Existe una <span class=\"hl-danger\">alta concentración de quejas ALTA abiertas</span> relacionadas con última milla, disponibilidad de operadores y cumplimiento de ventanas, impactando directamente entregas y operaciones críticas como JIT.</p>"
+  },
+
+  keyFindings: [
+    "Retrasos consistentes en última milla y rutas urbanas en múltiples clientes",
+    "Problemas de capacidad (flota y operadores) recurrentes en GM y Amazon",
+    "Impacto directo en entregas, CEDIS y producción (caso GM JIT)"
+  ],
+
+  actions: [
+    {
+      "priority": "URGENTE",
+      "text": "Reasignar flota y operadores en rutas críticas (CDMX, última milla y plantas GM) para estabilizar cumplimiento en 24-48h."
+    },
+    {
+      "priority": "CORTO PLAZO",
+      "text": "Implementar planeación dinámica de capacidad considerando picos de demanda en e-commerce y consumo."
+    }
+  ],
     valor: 62,
     resumen:
       "Área con mayor deterioro sistémico, afectada por capacidad insuficiente, saturación y retrasos recurrentes en última milla y rutas críticas. Impacta directamente entregas, producción (JIT) y experiencia del cliente.",
@@ -1012,6 +1044,38 @@ const areaDatos = {
   },
   almacen: {
     titulo: "Almacén",
+    nivel: "MEDIO",
+    semaforo: "yellow",
+    otif: "90%",
+    puntual: "89%",
+    nps: "6/10",
+    quejas: "10",
+    "kpiStatus": {
+    "otif": "success",
+    "puntual": "warning",
+    "nps": "warning",
+    "quejas": "danger"
+    },
+    diagnostico: {
+    "summary": "<p>El área de <span class=\"hl-warning\">Almacén presenta presión operativa moderada</span> con errores recurrentes en picking, inventario y preparación de pedidos en clientes como Walmart y Amazon.</p><p>Aunque existen operaciones de alto desempeño (Nestlé, Mercado Libre), la presencia de <span class=\"hl-warning\">fallas en control de inventario y surtido</span> genera impacto financiero y fricción operativa.</p>"
+  },
+
+  keyFindings: [
+    "Errores de picking y diferencias de inventario en Walmart y Amazon",
+    "Demoras en preparación de pedidos en fulfillment",
+    "Operaciones altamente estables en Nestlé y Mercado Libre compensan parcialmente el riesgo"
+  ],
+
+  actions: [
+    {
+      "priority": "CORTO PLAZO",
+      "text": "Implementar auditorías de picking y validación previa a embarque en centros con mayor incidencia."
+    },
+    {
+      "priority": "PREVENTIVO",
+      "text": "Estandarizar mejores prácticas de control de inventario observadas en Nestlé para replicarlas en otros clientes."
+    }
+  ],
     valor: 72,
     resumen:
       "Operación funcional pero con inconsistencias en picking, inventario y preparación en algunos clientes. El riesgo es moderado y principalmente financiero, no crítico.",
@@ -1040,6 +1104,38 @@ const areaDatos = {
   coordinacion: {
     titulo: "Coordinación Logística",
     valor: 65,
+    nivel: "ALTO",
+    otif: "88%",
+    puntual: "85%",
+    nps: "5/10",
+    quejas: "12",
+    "kpiStatus": {
+    "otif": "warning",
+    "puntual": "warning",
+    "nps": "danger",
+    "quejas": "danger"
+    },
+    semaforo: "red",
+    diagnostico: {
+    "summary": "<p>El área de <span class=\"hl-danger\">Coordinación presenta fallas sistémicas</span> relacionadas con planeación tardía, forecast inexacto y desalineación entre áreas en clientes como Walmart, Amazon y GM.</p><p>Se observa una <span class=\"hl-danger\">alta frecuencia de reprogramaciones y mala asignación de rutas</span>, lo que genera inestabilidad operativa y amplifica los problemas en Transporte y Almacén.</p>"
+  },
+
+  keyFindings: [
+    "Planeación de rutas tardía y cambios de última hora en Walmart",
+    "Forecast incorrecto y desalineación demanda-capacidad en Amazon",
+    "Desincronización producción-logística en GM"
+  ],
+
+  actions: [
+    {
+      "priority": "URGENTE",
+      "text": "Definir ventanas de planeación obligatorias y responsables por cliente para evitar asignaciones tardías."
+    },
+    {
+      "priority": "CORTO PLAZO",
+      "text": "Recalibrar modelos de forecast integrando demanda real y picos históricos por cliente."
+    }
+  ],
     resumen:
       "Principal fuente de desalineación sistémica: forecast impreciso, planeación tardía y cambios constantes que amplifican problemas en Transporte y Almacén.",
     kpis: [
@@ -1066,6 +1162,38 @@ const areaDatos = {
   },
   tecnologia: {
     titulo: "Tecnología y Monitoreo",
+    nivel: "MEDIO",
+    semaforo: "yellow",
+    otif: "92%",
+    puntual: "91%",
+    nps: "7/10",
+    quejas: "4",
+    "kpiStatus": {
+    "otif": "success",
+    "puntual": "success",
+    "nps": "warning",
+    "quejas": "warning"
+    },
+    diagnostico: {
+    "summary": "<p>El área de <span class=\"hl-warning\">Tecnología y monitoreo presenta inconsistencias moderadas</span> en visibilidad, tracking y sincronización de datos en clientes como Walmart y Amazon.</p><p>Aunque existen operaciones maduras (Nestlé y Mercado Libre), las <span class=\"hl-warning\">fallas en trazabilidad y datos incorrectos</span> afectan la toma de decisiones y percepción del cliente.</p>"
+  },
+
+  keyFindings: [
+    "Falta de visibilidad y trazabilidad en pedidos (Walmart)",
+    "Errores en tracking y sincronización de inventario en Amazon",
+    "Plataformas robustas y estables en Mercado Libre y Nestlé"
+  ],
+
+  actions: [
+    {
+      "priority": "CORTO PLAZO",
+      "text": "Corregir integraciones de tracking e inventario en clientes con incidencias para mejorar visibilidad en tiempo real."
+    },
+    {
+      "priority": "PREVENTIVO",
+      "text": "Homologar estándares tecnológicos tomando como referencia las soluciones de tracking avanzado de Nestlé y Mercado Libre."
+    }
+  ],
     valor: 84,
     resumen:
       "Capacidades sólidas en clientes maduros, pero con fallas de visibilidad, tracking e integración en operaciones de alto volumen que afectan la toma de decisiones.",
@@ -1094,6 +1222,38 @@ const areaDatos = {
   cliente: {
     titulo: "Atención al Cliente",
     valor: 87,
+    nivel: "BAJO",
+    semaforo: "green",
+    otif: "91%",
+    puntual: "90%",
+    nps: "7/10",
+    quejas: "2",
+    "kpiStatus": {
+    "otif": "success",
+    "puntual": "success",
+    "nps": "warning",
+    "quejas": "success"
+    },
+    diagnostico: {
+    "summary": "<p>El área de <span class=\"hl-warning\">Atención presenta oportunidades de mejora</span> en tiempos de respuesta y cierre de incidencias, particularmente en Walmart y Amazon.</p><p>Se identifican <span class=\"hl-warning\">casos abiertos sin seguimiento oportuno</span> y escalaciones sin cierre, lo que impacta directamente la percepción del cliente pese a operaciones estables en otras áreas.</p>"
+  },
+
+  keyFindings: [
+    "Casos abiertos y escalaciones sin cierre en múltiples clientes",
+    "Tiempos de respuesta lentos en atención de incidencias",
+    "Operación estable en clientes con bajo volumen de incidencias (Nestlé, Heineken)"
+  ],
+
+  actions: [
+    {
+      "priority": "CORTO PLAZO",
+      "text": "Implementar SLA internos de atención y seguimiento con responsables claros por cliente."
+    },
+    {
+      "priority": "PREVENTIVO",
+      "text": "Crear tablero de control de incidencias con aging y prioridad para asegurar cierre oportuno."
+    }
+  ],
     resumen:
       "Área reactiva con problemas de seguimiento y cierre de incidencias, generando fricción en percepción aunque no siempre impacto operativo directo.",
     kpis: [

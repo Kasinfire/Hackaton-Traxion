@@ -26,7 +26,7 @@ if (client.nivel === "ALTO") {
 } else if (client.nivel === "BAJO") {
   riskEl.style.color = "var(--success)";
 }
-  riskEl.className = `semaforo__risk ${client.tipo}`;
+  riskEl.className = `semaforo__risk ${client.semaforo}`;
 
   // luces (si las tienes)
   document.querySelectorAll(".semaforo__luz").forEach(l => l.classList.remove("on"));

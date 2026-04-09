@@ -1,290 +1,155 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Diagnóstico de Área - Traxión</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/diagnostico-styles.css">
-</head>
-<body>
 
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Diagnóstico Walmart - Traxión</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/diagnostico-styles.css" />
+  </head>
+
+  <body>
     <header class="topbar">
-        <div class="topbar__logo">
-            <h1>Customer Health Agent</h1>
-            <span class="badge badge--brand">EJE 2 - TRAXIÓN</span>
-        </div>
-        <div class="topbar__filters">
-            <a href="index.html" class="btn btn--pill" style="text-decoration:none;display:flex;align-items:center;gap:6px;">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
-                    <polyline points="9 22 9 12 15 12 15 22"></polyline>
-                </svg>
-                Inicio
-            </a>
-        </div>
+      <div class="topbar__logo">
+        <h1>Customer Health Agent</h1>
+        <span class="badge badge--brand">EJE 2 - TRAXIÓN</span>
+      </div>
+      <div class="topbar__filters">
+        <a
+          href="index.html"
+          class="btn btn--pill"
+          style="
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+          "
+        >
+          <svg
+            width="14"
+            height="14"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+            <polyline points="9 22 9 12 15 12 15 22"></polyline>
+          </svg>
+          Inicio
+        </a>
+        <button
+          class="btn btn--pill active"
+          style="display: flex; align-items: center; gap: 6px"
+        >
+          <svg
+            width="14"
+            height="14"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <polyline points="23 4 23 10 17 10"></polyline>
+            <polyline points="1 20 1 14 7 14"></polyline>
+            <path
+              d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"
+            ></path>
+          </svg>
+          Re-run Analysis
+        </button>
+      </div>
     </header>
 
-    <!-- HERO dinámico -->
+    <!-- ================= HERO ================= -->
     <div class="hero">
-        <h1 class="hero__title" id="area-title">Cargando...</h1>
-        <p class="hero__meta" id="area-meta"></p>
-        <div class="hero__tags" id="area-tags"></div>
+      <h1 class="hero__title" id="area-name"></h1>
     </div>
 
     <div class="body-wrap">
-
-        <!-- SEMÁFORO dinámico -->
-        <div class="semaforo-sidebar">
-            <div class="semaforo">
-                <div class="semaforo__luz red"   id="luz-red"></div>
-                <div class="semaforo__luz yellow" id="luz-yellow"></div>
-                <div class="semaforo__luz green"  id="luz-green"></div>
-            </div>
-            <p class="semaforo__label">Rendimiento</p>
-            <p class="semaforo__risk" id="semaforo-nivel">—</p>
+      <!-- ================= SEMÁFORO ================= -->
+      <div class="semaforo-sidebar">
+        <div class="semaforo">
+          <div id="luz-roja" class="semaforo__luz red"></div>
+          <div id="luz-amarilla" class="semaforo__luz yellow"></div>
+          <div id="luz-verde" class="semaforo__luz green"></div>
         </div>
 
-        <main class="main">
+        <p class="semaforo__label">Nivel de Riesgo</p>
+        <p id="area-risk" class="semaforo__risk"></p>
+      </div>
 
-            <!-- KPIs -->
-            <section class="kpi-row" id="kpi-row"></section>
+      <main class="main">
+        <!-- ================= KPIs ================= -->
+        <section class="kpi-row">
+          <div class="kpi-card">
+            <p class="kpi-card__title">NS</p>
+            <p id="kpi-otif" class="kpi-card__value"></p>
+            <div class="progress-bar-bg">
+              <div id="bar-otif" class="progress-bar-fill"></div>
+            </div>
+            <p class="kpi-card__meta">Meta: ≥ 95%</p>
+          </div>
 
-            <!-- Diagnóstico + Findings -->
-            <section class="content-grid">
-                <div class="card">
-                    <div class="card__heading">
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
-                        Diagnóstico del Área
-                    </div>
-                    <div class="diagnostico-text" id="diagnostico-texto"></div>
-                </div>
-                <div class="card">
-                    <div class="card__heading">
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-                        Key Findings
-                    </div>
-                    <div id="findings-container"></div>
-                </div>
-            </section>
+          <div class="kpi-card">
+            <p class="kpi-card__title">Puntualidad</p>
+            <p id="kpi-puntual" class="kpi-card__value"></p>
+            <div class="progress-bar-bg">
+              <div id="bar-puntual" class="progress-bar-fill"></div>
+            </div>
+            <p class="kpi-card__meta">Meta: ≥ 92%</p>
+          </div>
 
-            <!-- Acciones -->
-            <section>
-                <div class="section-heading">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-                    Acciones Sugeridas
-                </div>
-                <div class="actions-grid" id="acciones-grid"></div>
-            </section>
+          <div class="kpi-card">
+            <p class="kpi-card__title">NPS</p>
+            <p id="kpi-nps" class="kpi-card__value"></p>
+            <div class="progress-bar-bg">
+              <div id="bar-nps" class="progress-bar-fill"></div>
+            </div>
+            <p class="kpi-card__meta">Meta: ≥ 8</p>
+          </div>
 
-        </main>
+          <div class="kpi-card">
+            <p class="kpi-card__title">Quejas Abiertas</p>
+            <p id="kpi-quejas" class="kpi-card__value"></p>
+            <div class="progress-bar-bg">
+              <div id="bar-quejas" class="progress-bar-fill"></div>
+            </div>
+            <p class="kpi-card__meta">Límite aceptable: ≤ 2</p>
+          </div>
+        </section>
+
+        <!-- ================= DIAGNÓSTICO + FINDINGS ================= -->
+        <section class="content-grid">
+          <div class="card">
+            <div class="card__heading">Diagnóstico</div>
+            <div id="diagnostico" class="diagnostico-text"></div>
+          </div>
+
+          <div class="card">
+            <div class="card__heading">Hallazgos Clave</div>
+            <div id="findings"></div>
+          </div>
+        </section>
+
+        <!-- ================= ACCIONES ================= -->
+        <section>
+          <div class="section-heading"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> Acciones Sugeridas</div>
+          <div id="actions" class="actions-grid"></div>
+        </section>
+      </main>
     </div>
 
-    <script>
-    // =============================================
-    // DATOS POR ÁREA
-    // =============================================
-    const areas = {
-        transporte: {
-            titulo: "Área de Transporte",
-            meta: "Flota · Rutas · Última Milla",
-            tags: ["Operación de Flota", "Gestión de Rutas"],
-            valor: 88,
-            kpis: [
-                { titulo: "Puntualidad de Flota", valor: "88%",  meta: "Meta: ≥ 90%",  clase: "warning" },
-                { titulo: "Unidades Activas",     valor: "142",  meta: "Total: 150",   clase: "" },
-                { titulo: "Incidencias Viales",   valor: "7",    meta: "Límite: ≤ 3",  clase: "danger" },
-                { titulo: "Km Promedio/Ruta",     valor: "312",  meta: "Óptimo: ≤ 280", clase: "warning" }
-            ],
-            diagnostico: `El área de transporte opera <span class="hl-warning">por debajo del objetivo del 90% de puntualidad</span>, con 88% registrado en el último mes. Las rutas urbanas de alta congestión concentran la mayoría de los retrasos.<br><br>Se detectan <span class="hl-danger">7 incidencias viales activas</span> y un incremento en el kilómetro promedio por ruta, lo que sugiere ineficiencias en la asignación de unidades.`,
-            findings: [
-                "Retrasos acumulados en rutas CDMX por congestión vial en horarios pico (8–10am y 6–8pm).",
-                "7 unidades con mantenimiento pendiente que reducen la capacidad operativa efectiva.",
-                "Km promedio por ruta creció 11% respecto al mes anterior por desvíos no optimizados."
-            ],
-            acciones: [
-                { num:1, badge:"badge-urgente", label:"Urgente",      texto:"Revisar disponibilidad mecánica de las 8 unidades con alertas activas y habilitar unidades de respaldo." },
-                { num:2, badge:"badge-urgente", label:"Urgente",      texto:"Reasignar rutas congestionadas usando datos históricos de tráfico para reducir km promedio." },
-                { num:3, badge:"badge-corto",   label:"Corto plazo",  texto:"Implementar despacho con ventana de salida anticipada en 30 min para rutas con historial de retraso." },
-                { num:4, badge:"badge-corto",   label:"Corto plazo",  texto:"Activar alertas tempranas en Torre de Control para incidencias viales en tiempo real." },
-                { num:5, badge:"badge-preventivo", label:"Preventivo", texto:"Establecer mantenimiento preventivo quincenal para las 150 unidades de la flota asignada." },
-                { num:6, badge:"badge-preventivo", label:"Preventivo", texto:"Revisar y actualizar los SLAs de puntualidad con cada cuenta clave afectada." }
-            ]
-        },
-        almacen: {
-            titulo: "Área de Almacén",
-            meta: "Inventario · Picking · Recepción",
-            tags: ["Control de Inventario", "Fulfillment"],
-            valor: 72,
-            kpis: [
-                { titulo: "Exactitud de Inventario", valor: "72%",  meta: "Meta: ≥ 95%", clase: "danger" },
-                { titulo: "Tiempo Picking",          valor: "38min", meta: "Meta: ≤ 20min", clase: "danger" },
-                { titulo: "Errores de Surtido",      valor: "14",   meta: "Límite: ≤ 2",  clase: "danger" },
-                { titulo: "Capacidad Utilizada",     valor: "91%",  meta: "Óptimo: ≤ 85%", clase: "warning" }
-            ],
-            diagnostico: `El área de almacén presenta <span class="hl-danger">niveles críticos de exactitud de inventario (72%)</span>, muy por debajo del estándar operativo del 95%. El tiempo de picking duplica el objetivo, impactando directamente los tiempos de entrega.<br><br>La <span class="hl-danger">capacidad utilizada al 91%</span> genera cuellos de botella en recepción y afecta la velocidad de despacho.`,
-            findings: [
-                "Exactitud de inventario en 72%, causando rechazos de pedido y re-picking que duplican el tiempo de operación.",
-                "14 errores de surtido activos, la mayoría en SKUs de alta rotación mal ubicados en las posiciones del almacén.",
-                "Capacidad al 91%: los CEDIS reciben mercancía nueva sin haber despachado los pedidos pendientes del día anterior."
-            ],
-            acciones: [
-                { num:1, badge:"badge-urgente", label:"Urgente",      texto:"Realizar ciclo de conteo físico de los 50 SKUs de mayor rotación para corregir discrepancias de inventario." },
-                { num:2, badge:"badge-urgente", label:"Urgente",      texto:"Liberar espacio en CEDIS despachando los pedidos en espera antes de aceptar nuevas recepciones." },
-                { num:3, badge:"badge-corto",   label:"Corto plazo",  texto:"Rediseñar la distribución de posiciones para colocar SKUs A (alta rotación) en zonas de acceso inmediato." },
-                { num:4, badge:"badge-corto",   label:"Corto plazo",  texto:"Capacitar al equipo de picking en escaneo de verificación antes de confirmar cada pedido." },
-                { num:5, badge:"badge-preventivo", label:"Preventivo", texto:"Implementar ciclos de conteo diario rotativo (10% del inventario/día) para mantener exactitud ≥ 95%." },
-                { num:6, badge:"badge-preventivo", label:"Preventivo", texto:"Integrar alertas automáticas de capacidad al 80% para anticipar saturación en CEDIS." }
-            ]
-        },
-        coordinacion: {
-            titulo: "Coordinación Logística",
-            meta: "Planeación · SLA · Control",
-            tags: ["Planeación de Rutas", "Gestión de SLA"],
-            valor: 95,
-            kpis: [
-                { titulo: "Cumplimiento SLA",    valor: "95%",  meta: "Meta: ≥ 95%",  clase: "" },
-                { titulo: "Entregas Perfectas",  valor: "93%",  meta: "Meta: ≥ 92%",  clase: "" },
-                { titulo: "Reprogramaciones",    valor: "3",    meta: "Límite: ≤ 5",  clase: "" },
-                { titulo: "Tiempo de Respuesta", valor: "18min",meta: "Meta: ≤ 20min", clase: "" }
-            ],
-            diagnostico: `La coordinación logística opera <span class="hl-warning">en el límite del objetivo de SLA (95%)</span>, con desempeño estable pero sin margen de maniobra ante eventualidades. Las entregas perfectas superan el mínimo requerido.<br><br>El volumen de reprogramaciones se mantiene controlado, aunque la tendencia mensual muestra un <span class="hl-warning">incremento gradual</span> que requiere atención preventiva.`,
-            findings: [
-                "Cumplimiento SLA exactamente en el umbral (95%): cualquier incidencia adicional compromete el indicador.",
-                "3 reprogramaciones este mes, dentro del límite, pero con tendencia al alza vs. meses anteriores.",
-                "Tiempo de respuesta en 18 min promedio, cerca del límite de 20 min en casos de alta demanda simultánea."
-            ],
-            acciones: [
-                { num:1, badge:"badge-corto",   label:"Corto plazo",  texto:"Revisar las causas raíz de las 3 reprogramaciones para evitar que se conviertan en patrones recurrentes." },
-                { num:2, badge:"badge-corto",   label:"Corto plazo",  texto:"Establecer un buffer de tiempo del 10% en rutas con historial de variación para proteger el SLA." },
-                { num:3, badge:"badge-preventivo", label:"Preventivo", texto:"Implementar un semáforo de riesgo SLA en tiempo real en la Torre de Control para anticipar brechas." },
-                { num:4, badge:"badge-preventivo", label:"Preventivo", texto:"Revisar capacidad de respuesta del equipo de coordinación en horarios pico para reducir tiempo de reacción." },
-                { num:5, badge:"badge-preventivo", label:"Preventivo", texto:"Realizar reunión semanal de forecast con las cuentas clave para anticipar volúmenes y ajustar planeación." },
-                { num:6, badge:"badge-preventivo", label:"Preventivo", texto:"Documentar los protocolos de reprogramación para reducir tiempos de decisión ante eventualidades." }
-            ]
-        },
-        tecnologia: {
-            titulo: "Tecnología y Monitoreo",
-            meta: "Sistemas · Visibilidad · GPS",
-            tags: ["Monitoreo en Tiempo Real", "Sistemas Logísticos"],
-            valor: 60,
-            kpis: [
-                { titulo: "Uptime de Sistemas",    valor: "60%",  meta: "Meta: ≥ 99%",  clase: "danger" },
-                { titulo: "Unidades con GPS",      valor: "78%",  meta: "Meta: ≥ 95%",  clase: "danger" },
-                { titulo: "Alertas sin Atender",   valor: "22",   meta: "Límite: ≤ 5",  clase: "danger" },
-                { titulo: "Tiempo Resolución",     valor: "4.2h", meta: "Meta: ≤ 1h",   clase: "danger" }
-            ],
-            diagnostico: `El área de tecnología presenta <span class="hl-danger">indicadores críticos en todas las dimensiones</span>. El uptime de sistemas en 60% es inaceptable para una operación logística de alto volumen, generando puntos ciegos que impactan visibilidad y control.<br><br>Solo el <span class="hl-danger">78% de las unidades transmiten GPS activo</span>, dejando sin trazabilidad a 33 vehículos. Las 22 alertas sin atender acumulan un tiempo de resolución promedio de 4.2 horas.`,
-            findings: [
-                "Uptime del 60%: los sistemas de TMS y visibilidad presentan caídas recurrentes, especialmente en horario nocturno.",
-                "22% de la flota sin GPS activo por equipos dañados o desconectados sin reemplazo programado.",
-                "22 alertas técnicas abiertas con más de 4 horas de antigüedad sin asignación de responsable."
-            ],
-            acciones: [
-                { num:1, badge:"badge-urgente", label:"Urgente",      texto:"Diagnóstico inmediato de las caídas recurrentes del TMS e identificación de los módulos críticos afectados." },
-                { num:2, badge:"badge-urgente", label:"Urgente",      texto:"Asignar técnico de campo para reemplazo o reparación de los 33 dispositivos GPS con falla activa." },
-                { num:3, badge:"badge-urgente", label:"Urgente",      texto:"Triaje y asignación de las 22 alertas abiertas con responsable y tiempo máximo de resolución (< 2h)." },
-                { num:4, badge:"badge-corto",   label:"Corto plazo",  texto:"Contratar soporte técnico externo para restaurar uptime a ≥ 99% en los próximos 5 días hábiles." },
-                { num:5, badge:"badge-preventivo", label:"Preventivo", texto:"Implementar monitoreo 24/7 del uptime con alertas automáticas al equipo de TI ante caídas mayores a 5 min." },
-                { num:6, badge:"badge-preventivo", label:"Preventivo", texto:"Establecer inventario de GPS de repuesto y protocolo de sustitución en menos de 24 horas por unidad." }
-            ]
-        },
-        cliente: {
-            titulo: "Atención al Cliente",
-            meta: "Soporte · NPS · Escalaciones",
-            tags: ["Gestión de Quejas", "Satisfacción del Cliente"],
-            valor: 80,
-            kpis: [
-                { titulo: "NPS Promedio",           valor: "6.8",  meta: "Meta: ≥ 8.5",  clase: "warning" },
-                { titulo: "Casos Cerrados/Día",     valor: "12",   meta: "Meta: ≥ 15",   clase: "warning" },
-                { titulo: "Escalaciones Abiertas",  valor: "8",    meta: "Límite: ≤ 3",  clase: "danger" },
-                { titulo: "Tiempo 1ra Respuesta",   valor: "2.1h", meta: "Meta: ≤ 1h",   clase: "danger" }
-            ],
-            diagnostico: `El área de atención al cliente opera <span class="hl-warning">por debajo del NPS objetivo (6.8 vs 8.5)</span>, reflejando insatisfacción acumulada por tiempos de respuesta elevados y baja tasa de cierre de casos.<br><br>Las <span class="hl-danger">8 escalaciones abiertas superan el límite aceptable</span>, y el tiempo promedio de primera respuesta de 2.1 horas duplica el estándar, impactando directamente la percepción del cliente.`,
-            findings: [
-                "NPS de 6.8: los clientes califican negativamente la velocidad de respuesta y la falta de seguimiento proactivo.",
-                "8 escalaciones abiertas sin cierre, algunas con más de 72 horas de antigüedad sin actualización al cliente.",
-                "Tiempo de primera respuesta de 2.1h vs objetivo de 1h, principalmente por volumen alto en horario matutino."
-            ],
-            acciones: [
-                { num:1, badge:"badge-urgente", label:"Urgente",      texto:"Contactar a los clientes con escalaciones de más de 48h para dar actualización de estado y fecha de cierre." },
-                { num:2, badge:"badge-urgente", label:"Urgente",      texto:"Reforzar el equipo de atención en horario 8–11am (pico de volumen) para reducir tiempo de primera respuesta." },
-                { num:3, badge:"badge-corto",   label:"Corto plazo",  texto:"Implementar plantillas de respuesta rápida para los 5 tipos de caso más frecuentes." },
-                { num:4, badge:"badge-corto",   label:"Corto plazo",  texto:"Establecer SLA interno de cierre máximo de 24h por caso, con escalación automática al supervisor a las 12h." },
-                { num:5, badge:"badge-preventivo", label:"Preventivo", texto:"Lanzar encuesta NPS post-caso para identificar los puntos de dolor específicos por tipo de cliente." },
-                { num:6, badge:"badge-preventivo", label:"Preventivo", texto:"Crear dashboard semanal de NPS por cuenta clave para que el KAM pueda anticipar riesgos de relación." }
-            ]
-        }
-    };
-
-    // =============================================
-    // RENDER
-    // =============================================
-    const params = new URLSearchParams(window.location.search);
-    const areaKey = params.get('area') || 'transporte';
-    const data = areas[areaKey] || areas['transporte'];
-
-    // Semáforo
-    const valor = data.valor;
-    let nivelLabel, nivelClass, luzOn;
-    if (valor >= 85) {
-        nivelLabel = 'ÓPTIMO'; nivelClass = 'low'; luzOn = 'green';
-    } else if (valor >= 70) {
-        nivelLabel = 'MEDIO';  nivelClass = 'mid'; luzOn = 'yellow';
-    } else {
-        nivelLabel = 'CRÍTICO'; nivelClass = 'high'; luzOn = 'red';
-    }
-    document.getElementById('luz-red').classList.toggle('on', luzOn === 'red');
-    document.getElementById('luz-yellow').classList.toggle('on', luzOn === 'yellow');
-    document.getElementById('luz-green').classList.toggle('on', luzOn === 'green');
-    const nivelEl = document.getElementById('semaforo-nivel');
-    nivelEl.textContent = nivelLabel;
-    nivelEl.className = `semaforo__risk ${nivelClass}`;
-
-    // Hero
-    document.title = `${data.titulo} - Traxión`;
-    document.getElementById('area-title').textContent = data.titulo;
-    document.getElementById('area-meta').textContent = data.meta;
-    document.getElementById('area-tags').innerHTML = data.tags
-        .map(t => `<span class="hero__tag">${t}</span>`).join('');
-
-    // KPIs
-    const kpiRow = document.getElementById('kpi-row');
-    kpiRow.innerHTML = data.kpis.map(k => `
-        <div class="kpi-card">
-            <p class="kpi-card__title">${k.titulo}</p>
-            <p class="kpi-card__value ${k.clase}">${k.valor}</p>
-            <div class="progress-bar-bg">
-                <div class="progress-bar-fill ${k.clase}" style="width:${parseFloat(k.valor) || 50}%"></div>
-            </div>
-            <p class="kpi-card__meta">${k.meta}</p>
-        </div>
-    `).join('');
-
-    // Diagnóstico
-    document.getElementById('diagnostico-texto').innerHTML = `<p>${data.diagnostico}</p>`;
-
-    // Findings
-    document.getElementById('findings-container').innerHTML = data.findings.map(f => `
-        <div class="finding">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <circle cx="12" cy="12" r="10"/>
-                <line x1="12" y1="8" x2="12" y2="12"/>
-                <line x1="12" y1="16" x2="12.01" y2="16"/>
-            </svg>
-            <p>${f}</p>
-        </div>
-    `).join('');
-
-    // Acciones
-    document.getElementById('acciones-grid').innerHTML = data.acciones.map(a => `
-        <div class="action-card">
-            <div class="action-num">${a.num}</div>
-            <span class="action-badge ${a.badge}">${a.label}</span>
-            <p>${a.texto}</p>
-        </div>
-    `).join('');
-    </script>
-
-</body>
+    <!-- ================= JS ================= -->
+    <script src="js/data.js"></script>
+    <script src="js/diagnostico-area-js.js"></script>
+  </body>
 </html>
