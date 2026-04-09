@@ -267,9 +267,8 @@ const clientes = [
       quejas: "danger"
     },
     diagnostico: {
-      summary: "Este cliente presenta un escenario de alta criticidad operativa: el OTIF ha colapsado al 82% y la puntualidad se encuentra en un alarmante 75%, afectando directamente las ventanas de entrega en tiendas retail. <br>El volumen de 18 quejas activas y la tendencia crítica por demoras en CEDIS indican un alto riesgo de penalizaciones económicas severas y pérdida inmediata de unidades asignadas si no se destraba el flujo logístico hoy mismo."
-    },
-
+      summary: "<p>Este cliente presenta un escenario de <span class=\"hl-danger\">alta criticidad operativa</span>: el OTIF ha colapsado al 82% y la puntualidad se encuentra en un alarmante 75%, afectando directamente las ventanas de entrega en tiendas retail.</p> <p>El volumen de <span class=\"hl-danger\">18 quejas activas</span> y la tendencia <span class=\"hl-warning\">crítica por demoras en CEDIS</span> indican un alto riesgo de penalizaciones económicas severas y pérdida inmediata de unidades asignadas si no se destraba el flujo logístico hoy mismo.</p>"
+    },  
     keyFindings: [
       "Caída drástica de puntualidad (75%) originada por severos cuellos de botella y demoras de más de 4 horas en la carga dentro del CEDIS.",
       "18 quejas HIGH activas relacionadas con mercancía rechazada en tienda por llegar fuera de ventana de recibo.",
@@ -278,27 +277,27 @@ const clientes = [
 
     actions: [
       {
-        priority: "urgent",
-        text: "Instalar War Room virtual inmediato con gerencia de CEDIS Walmart para destrabar unidades retenidas en rampa."
+        priority: "URGENTE",
+        text: "Instalar \"War Room\" virtual inmediato con gerencia de CEDIS Walmart para destrabar unidades retenidas en rampa."
       },
       {
-        priority: "urgent",
+        priority: "URGENTE",
         text: "Asignar supervisor de guardia dedicado (Implant) físicamente en el CEDIS para agilizar procesos de carga y despacho."
       },
       {
-        priority: "short_term",
+        priority: "CORTO PLAZO",
         text: "Plan de choque para la resolución de las 18 quejas activas y conciliación de penalizaciones por entregas tardías (OTIF)."
       },
       {
-        priority: "short_term",
+        priority: "CORTO PLAZO",
         text: "Revisión exhaustiva de la disponibilidad mecánica de las 150 unidades asignadas a la cuenta Última Milla."
       },
       {
-        priority: "preventive",
+        priority: "PREVENTIVO",
         text: "Implementar célula en Torre de Control exclusiva para monitoreo GPS proactivo y notificación anticipada de retrasos en retail."
       },
       {
-        priority: "preventive",
+        priority: "PREVENTIVO",
         text: "Establecer comité semanal de KPIs con el cliente para recuperar confianza operativa y revisar SLA de ventanas de entrega."
       }
     ],

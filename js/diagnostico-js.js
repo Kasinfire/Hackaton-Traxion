@@ -16,7 +16,16 @@ function renderCliente(clientId) {
   // SEMÁFORO
   // ======================
   const riskEl = document.getElementById("client-risk");
-  riskEl.textContent = client.nivel;
+
+riskEl.textContent = client.nivel;
+
+if (client.nivel === "ALTO") {
+  riskEl.style.color = "var(--danger)";
+} else if (client.nivel === "MEDIO") {
+  riskEl.style.color = "var(--warning)";
+} else if (client.nivel === "BAJO") {
+  riskEl.style.color = "var(--success)";
+}
   riskEl.className = `semaforo__risk ${client.tipo}`;
 
   // luces (si las tienes)
@@ -39,6 +48,27 @@ function renderCliente(clientId) {
   document.getElementById("kpi-nps").className = `kpi-card__value ${client.kpiStatus.nps}`;
   document.getElementById("kpi-quejas").className = `kpi-card__value ${client.kpiStatus.quejas}`;
 
+  // BARRAS KPI
+// ======================
+
+// OTIF
+document.getElementById("bar-otif").style.width = client.otif;
+document.getElementById("bar-otif").className = `progress-bar-fill ${client.kpiStatus.otif}`;
+
+// Puntualidad
+document.getElementById("bar-puntual").style.width = client.puntual;
+document.getElementById("bar-puntual").className = `progress-bar-fill ${client.kpiStatus.puntual}`;
+
+// NPS (convertir a %)
+const npsValue = parseInt(client.nps); // "4/10" → 4
+document.getElementById("bar-nps").style.width = (npsValue * 10) + "%";
+document.getElementById("bar-nps").className = `progress-bar-fill ${client.kpiStatus.nps}`;
+
+// Quejas (escala visual)
+const quejasValue = parseInt(client.quejas);
+document.getElementById("bar-quejas").style.width = Math.min(quejasValue * 5, 100) + "%";
+document.getElementById("bar-quejas").className = `progress-bar-fill ${client.kpiStatus.quejas}`;
+
   // ======================
   // DIAGNÓSTICO
   // ======================
@@ -54,7 +84,8 @@ function renderCliente(clientId) {
   client.keyFindings.forEach(f => {
     findingsEl.innerHTML += `
       <div class="finding">
-        <p>${f}</p>
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>  
+      <p>${f}</p>
       </div>
     `;
   });
@@ -68,8 +99,8 @@ function renderCliente(clientId) {
   client.actions.forEach((a, i) => {
 
     const badgeClass =
-      a.priority === "urgent" ? "badge-urgente" :
-      a.priority === "short_term" ? "badge-corto" :
+      a.priority === "URGENTE" ? "badge-urgente" :
+      a.priority === "CORTO PLAZO" ? "badge-corto" :
       "badge-preventivo";
 
     actionsEl.innerHTML += `
@@ -78,7 +109,7 @@ function renderCliente(clientId) {
         <span class="action-badge ${badgeClass}">
           ${a.priority.toUpperCase()}
         </span>
-        <p><strong>${a.text}</strong></p>
+        <p>${a.text}</strong></p>
       </div>
     `;
   });
