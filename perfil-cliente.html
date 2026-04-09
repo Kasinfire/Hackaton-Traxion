@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil Cliente - Traxión</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/perfil-cliente-styles.css">
+</head>
+<body>
+
+    <header class="topbar">
+        <div>
+            <img class="logo" src="https://traxion.global/hubfs/traxion-global-sitio-mar24/Nuevos%20Logos%20REDIMENSI%C3%93N/Logos%20TRAXION%20-%20No%20tilde/SVG-500x150_17-TRAXION%20ESP%20GRIS.svg" alt="Logo">
+        </div>
+        <div class="topbar__logo">
+            <h1>Customer Health Agent</h1>
+            <span class="badge badge--brand">EJE 2 - TRAXIÓN</span>
+        </div>
+        <div class="topbar__filters">
+            <a href="index.html" class="btn btn--pill" style="text-decoration: none; display: flex; align-items: center; gap: 6px;">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                    <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                </svg>
+                Inicio
+            </a>
+        </div>
+    </header>
+
+    <div class="profile-header">
+        <h1 class="profile-title" id="client-name">Cargando...</h1>
+        <p class="profile-meta" id="client-meta">...</p>
+
+        <div class="info-grid">
+            <div class="info-item">
+                <p class="info-label">Sector</p>
+                <p class="info-value" id="client-sector">-</p>
+            </div>
+            <div class="info-item">
+                <p class="info-label">Cliente desde</p>
+                <p class="info-value" id="client-since">-</p>
+            </div>
+            <div class="info-item">
+                <p class="info-label">Key Account Manager</p>
+                <p class="info-value" id="client-kam">-</p>
+            </div>
+            <div class="info-item">
+                <p class="info-label">Nivel de Riesgo Actual</p>
+                <p class="info-value" id="client-risk">-</p>
+            </div>
+        </div>
+    </div>
+
+    <main class="dashboard dashboard--profile">
+
+        <section class="kpi-summary profile-kpis">
+            <div class="kpi-card">
+                <p class="kpi-card__title">NS</p>
+                <p id="kpi-otif" class="kpi-card__value kpi-card__color">-</p>
+                <p class="kpi-card__subtitle">Meta: ≥ 90%</p>
+            </div>
+            <div class="kpi-card">
+                <p class="kpi-card__title">Puntualidad</p>
+                <p class="kpi-card__value" id="kpi-puntualidad">-</p>
+                <p class="kpi-card__subtitle">Meta: ≥ 90%</p>
+            </div>
+            <div class="kpi-card">
+                <p class="kpi-card__title">NPS</p>
+                <p class="kpi-card__value" id="kpi-nps">-</p>
+                <p class="kpi-card__subtitle">Meta: ≥ 8</p>
+            </div>
+            <div class="kpi-card">
+                <p class="kpi-card__title">Quejas Abiertas</p>
+                <p class="kpi-card__value" id="kpi-quejas">-</p>
+                <p class="kpi-card__subtitle">Límite aceptable: ≤ 3</p>
+            </div>
+        </section>
+
+        <section class="data-section">
+            <h2 class="section-title">Servicios Operativos</h2>
+            <div class="table-wrapper">
+                <table class="data-table table-servicios">
+                    <thead>
+                        <tr>
+                            <th>Servicio</th>
+                            <th>Descripción</th>
+                            <th>Área</th>
+                            <th>F. Esperada</th>
+                            <th>F. Real</th>
+                            <th>NS</th>
+                            <th>NPS</th>
+                        </tr>
+                    </thead>
+                    <tbody id="services-tbody">
+                        </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="data-section">
+            <h2 class="section-title">Registro de Quejas Abiertas <span class="badge badge--danger-light" style="font-size:0.75rem;vertical-align:middle;" id="complaints-total"></span></h2>
+            <div class="table-wrapper">
+                <table class="data-table table-quejas">
+                    <thead>
+                        <tr>
+                            <th>Título de Queja</th>
+                            <th>Descripción del Incidente</th>
+                            <th>Área</th>
+                            <th>Fecha</th>
+                            <th>Severidad</th>
+                            <th>Estado</th>
+                        </tr>
+                    </thead>
+                    <tbody id="complaints-tbody">
+                        </tbody>
+                </table>
+            </div>
+            <p class="table-footer-note" id="complaints-note"></p>
+        </section>
+
+    </main>
+
+    <script src="js/data.js"></script>
+    <script src="js/perfil-cliente-js.js"></script>
+</body>
+</html>

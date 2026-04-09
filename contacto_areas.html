@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto por Área - Traxión</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css"> 
+    <link rel="stylesheet" href="css/contacto_areas_style.css">
+</head>
+<body>
+    <header class="topbar">
+        <div>
+            <img class="logo" src="https://traxion.global/hubfs/traxion-global-sitio-mar24/Nuevos%20Logos%20REDIMENSI%C3%93N/Logos%20TRAXION%20-%20No%20tilde/SVG-500x150_17-TRAXION%20ESP%20GRIS.svg" alt="Logo">
+        </div>
+        <div class="topbar__logo">
+            <h1>Customer Health Agent</h1>
+            <span class="badge badge--brand">EJE 2 - TRAXIÓN</span>
+        </div>
+        <div class="topbar__filters">
+            <a href="index.html" style="text-decoration:none;">
+                <button class="btn btn--pill active">← Volver</button>
+            </a>
+        </div>
+    </header>
+
+    <div class="contacto-container">
+
+        <!-- FORMULARIO -->
+        <div class="contacto-card">
+            <div class="contacto-card__header">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+                Enviar Mensaje
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">Nombre</label>
+                <input type="text" id="inputNombre" class="form-input" placeholder="Tu nombre completo">
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">Correo electrónico</label>
+                <input type="email" id="inputCorreo" class="form-input" placeholder="ejemplo@empresa.com">
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">Área</label>
+                <select id="areaSelect" class="form-input">
+                    <option value="" selected disabled>— Elija un área —</option>
+                    <option value="Transporte">Transporte</option>
+                    <option value="Logística">Logística</option>
+                    <option value="Tecnología">Tecnología y monitoreo</option>
+                    <option value="Atención al cliente">Atención al cliente</option>
+                    <option value="Almacén">Almacén</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">Mensaje</label>
+                <textarea id="inputMensaje" class="form-input form-textarea" placeholder="Escribe tu mensaje..."></textarea>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">Nivel de urgencia</label>
+                <div class="urgency-group">
+                    <label class="chip chip--low">
+                        <input type="radio" name="urgency" value="baja" checked>
+                        <span>Baja</span>
+                    </label>
+                    <label class="chip chip--medium">
+                        <input type="radio" name="urgency" value="media">
+                        <span>Media</span>
+                    </label>
+                    <label class="chip chip--high">
+                        <input type="radio" name="urgency" value="alta">
+                        <span>Alta</span>
+                    </label>
+                    <label class="chip chip--critical">
+                        <input type="radio" name="urgency" value="critica">
+                        <span>Crítica</span>
+                    </label>
+                </div>
+            </div>
+
+            <button class="btn-send btn-primary" id="btnEnviar">Enviar mensaje</button>
+        </div>
+
+        <!-- OPCIONES DE CONTACTO DIRECTO -->
+        <div class="contacto-card">
+            <div class="contacto-card__header">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.15 12 19.79 19.79 0 0 1 1.07 3.38 2 2 0 0 1 3.06 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.09 8.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21 16z"></path></svg>
+                Contacto Directo por Área
+            </div>
+            <p class="contacto-card__subtitle">
+                Selecciona un área en el formulario para ver los datos de contacto específicos, o usa los canales generales.
+            </p>
+
+            <div id="contactInfo">
+                <div class="contact-option">
+                    <div class="contact-option__icon">✉️</div>
+                    <div>
+                        <h4 class="contact-option__title">Correo general</h4>
+                        <p class="contact-option__value">contacto@traxion.com</p>
+                    </div>
+                </div>
+                <div class="contact-option">
+                    <div class="contact-option__icon">📞</div>
+                    <div>
+                        <h4 class="contact-option__title">Llamada telefónica</h4>
+                        <p class="contact-option__value">+52 55 1234 5678</p>
+                    </div>
+                </div>
+                <div class="contact-option">
+                    <div class="contact-option__icon">💬</div>
+                    <div>
+                        <h4 class="contact-option__title">WhatsApp</h4>
+                        <p class="contact-option__value">Disponible 24/7</p>
+                    </div>
+                </div>
+                <div class="contact-option">
+                    <div class="contact-option__icon">🌐</div>
+                    <div>
+                        <h4 class="contact-option__title">Portal web</h4>
+                        <p class="contact-option__value"><a class="contacto-link" href="#">www.traxion.com/contacto</a></p>
+                    </div>
+                </div>
+            </div>
+
+            <button class="btn-secondary-contacto">Abrir portal web</button>
+        </div>
+
+    </div>
+
+    <script src="js/contacto_areas.js"></script>
+</body>
+</html>

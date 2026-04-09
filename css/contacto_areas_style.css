@@ -1,0 +1,297 @@
+/* =========================================
+   CONTACTO POR ÁREA - ESTILOS ESPECÍFICOS
+   (Requiere css/styles.css cargado primero)
+   ========================================= */
+
+/* --- LAYOUT PRINCIPAL --- */
+.contacto-container {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 1.5rem;
+    max-width: 1100px;
+    margin: 2.5rem auto;
+    padding: 0 2rem;
+    align-items: start;
+}
+
+/* --- CARD CONTENEDOR --- */
+.contacto-card {
+    background: var(--bg-card);
+    border-radius: 14px;
+    padding: 1.75rem;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border-color);
+}
+
+.contacto-card__header {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.6px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.85rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.contacto-card__header svg {
+    color: var(--brand-orange);
+    flex-shrink: 0;
+}
+
+.contacto-card__subtitle {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    margin-bottom: 1.25rem;
+    line-height: 1.55;
+}
+
+/* --- GRUPOS DE FORMULARIO --- */
+.form-group {
+    margin-bottom: 1.1rem;
+}
+
+.form-label {
+    display: block;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--text-main);
+    margin-bottom: 0.4rem;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+}
+
+.form-input {
+    width: 100%;
+    padding: 0.7rem 0.9rem;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-family: 'Inter', sans-serif;
+    color: var(--text-main);
+    background: var(--bg-app);
+    transition: border-color 0.2s, box-shadow 0.2s;
+    outline: none;
+    appearance: none;
+    -webkit-appearance: none;
+}
+
+.form-input:focus {
+    border-color: var(--brand-orange);
+    box-shadow: 0 0 0 3px rgba(217, 90, 30, 0.12);
+    background: white;
+}
+
+.form-input::placeholder {
+    color: #bbb;
+}
+
+/* Select con flecha personalizada */
+select.form-input {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23888' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.85rem center;
+    padding-right: 2.25rem;
+    cursor: pointer;
+}
+
+.form-textarea {
+    resize: vertical;
+    min-height: 110px;
+}
+
+/* --- CHIPS DE URGENCIA --- */
+.urgency-group {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.chip {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.45rem 0.9rem;
+    border-radius: 20px;
+    border: 1.5px solid var(--border-color);
+    cursor: pointer;
+    font-size: 0.82rem;
+    font-weight: 600;
+    transition: all 0.2s ease;
+    user-select: none;
+    background: var(--bg-app);
+    color: var(--text-muted);
+}
+
+.chip input[type="radio"] {
+    display: none;
+}
+
+/* Estados seleccionados con CSS puro */
+.chip--low:has(input:checked)      { border-color: var(--success); background: var(--success-light); color: var(--success); }
+.chip--medium:has(input:checked)   { border-color: #888; background: #f0f0f0; color: #555; }
+.chip--high:has(input:checked)     { border-color: var(--warning); background: var(--warning-light); color: var(--warning); }
+.chip--critical:has(input:checked) { border-color: var(--danger); background: var(--danger-light); color: var(--danger); }
+
+.chip:hover { border-color: #aaa; background: #f5f5f5; }
+
+/* --- BOTÓN ENVIAR --- */
+.btn-send {
+    width: 100%;
+    padding: 0.85rem 1.25rem;
+    margin-top: 0.5rem;
+    background: var(--brand-dark);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    font-family: 'Inter', sans-serif;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+}
+
+.btn-send:hover {
+    background: #333;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.btn-send:active {
+    transform: translateY(0);
+}
+
+/* --- OPCIONES DE CONTACTO --- */
+.contact-option {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.85rem 1rem;
+    border-radius: 10px;
+    border: 1px solid var(--border-color);
+    margin-bottom: 0.65rem;
+    transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+.contact-option:hover {
+    background: var(--bg-app);
+    border-color: #ccc;
+}
+
+.contact-option__icon {
+    font-size: 1.3rem;
+    width: 36px;
+    text-align: center;
+    flex-shrink: 0;
+}
+
+.contact-option__title {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    margin-bottom: 0.15rem;
+}
+
+.contact-option__value {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text-main);
+}
+
+.contacto-link {
+    color: var(--brand-orange);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.contacto-link:hover {
+    text-decoration: underline;
+}
+
+/* --- BOTÓN SECUNDARIO --- */
+.btn-secondary-contacto {
+    width: 100%;
+    margin-top: 1rem;
+    padding: 0.75rem 1rem;
+    background: transparent;
+    color: var(--text-main);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    font-family: 'Inter', sans-serif;
+    cursor: pointer;
+    transition: background 0.2s, border-color 0.2s;
+}
+
+.btn-secondary-contacto:hover {
+    background: #f0f0f0;
+    border-color: #bbb;
+}
+
+/* --- TOAST / NOTIFICACIÓN --- */
+.toast {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    padding: 14px 20px;
+    border-radius: 10px;
+    color: white;
+    font-weight: 600;
+    font-size: 0.875rem;
+    font-family: 'Inter', sans-serif;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+    z-index: 9999;
+    animation: toastIn 0.3s ease;
+}
+
+@keyframes toastIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* --- BADGE CRÍTICO FLOTANTE --- */
+.critical-badge {
+    position: fixed;
+    top: 80px;
+    right: 24px;
+    background: var(--danger);
+    color: white;
+    padding: 10px 16px;
+    border-radius: 20px;
+    font-weight: 700;
+    font-size: 0.82rem;
+    box-shadow: 0 4px 12px rgba(217, 56, 30, 0.35);
+    z-index: 9998;
+    animation: toastIn 0.3s ease;
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 900px) {
+    .contacto-container {
+        grid-template-columns: 1fr;
+        padding: 0 1.25rem;
+        margin: 1.5rem auto;
+    }
+}
+
+@media (max-width: 600px) {
+    .contacto-container {
+        padding: 0 1rem;
+    }
+    .contacto-card {
+        padding: 1.25rem;
+    }
+    .urgency-group {
+        gap: 0.4rem;
+    }
+    .chip {
+        padding: 0.4rem 0.75rem;
+        font-size: 0.78rem;
+    }
+}
