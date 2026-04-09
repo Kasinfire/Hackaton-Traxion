@@ -591,3 +591,7 @@ body { background-color: var(--bg-app); color: var(--text-main); }
     .client-card { padding: 16px; }
     .btn--outline-full { font-size: 0.78rem; padding: 0.6rem 0.4rem; }
 }
+
+.kpi-card__value.danger  { color: var(--danger); }
+.kpi-card__value.warning { color: var(--warning); }
+.kpi-card__value.success { color: var(--success); }
