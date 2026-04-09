@@ -25,7 +25,7 @@ body { background: var(--bg-app); color: var(--text-main); }
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 2rem;
+    padding: 1rem 10rem; /* Igualado al padding de styles.css */
     background-color: var(--brand-dark);
     color: white;
     position: sticky;
@@ -98,6 +98,9 @@ body { background: var(--bg-app); color: var(--text-main); }
     align-items: start;
     gap: 1.5rem;
     padding: 2rem 2rem;
+    /* Agregamos estas dos líneas para alinear con el dashboard: */
+    max-width: 1280px;
+    margin: 0 auto;
 }
 
 /* ── SEMÁFORO SIDEBAR ── */
