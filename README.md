@@ -23,20 +23,23 @@ Este proyecto es un **Dashboard Interactivo** diseñado para el Eje 2 del Hackat
 
 ```text
 Hackaton-Traxion
-├── index.html                 # Dashboard principal
-├── perfil-cliente.html        # Vista detallada por cliente
-├── diagnostico.html           # Diagnóstico general de cliente
-├── diagnostico-area.html      # Diagnóstico específico por área logística
-├── contacto_areas.html        # Portal de escalamiento e incidencias
+├── index.html                      # Dashboard principal
+├── perfil-cliente.html             # Vista detallada por cliente
+├── diagnostico.html                # Diagnóstico general de cliente
+├── diagnostico-area.html           # Diagnóstico específico por área 
+├── contacto_areas.html             # Portal de escalamiento e incidencias
 ├── css
-│   ├── styles.css             # Estilos globales y del layout principal
-│   ├── diagnostico-styles.css # Estilos para las vistas de diagnóstico
-│   ├── perfil-cliente-styles.css
-│   └── contacto_areas_style.css
+│   ├── styles.css                  # Estilos globales y del layout principal
+│   ├── diagnostico-styles.css      # Estilos para las vistas de diagnóstico
+│   ├── perfil-cliente-styles.css   # Estilos para perfil completo de cliente
+│   └── contacto_areas_style.css    # Estilos para contecto por área
 └── js
-    ├── data.js                # Base de datos local (JSON simulado de clientes y áreas)
-    ├── script.js              # Lógica principal del Dashboard (gráficas, buscador, panel)
-    └── perfil-cliente-js.js   # Lógica específica para inyectar datos del cliente
+    ├── data.js                     # Base de datos local (JSON simulado de clientes y áreas)
+    ├── script.js                   # Lógica principal del Dashboard (gráficas, buscador, panel)
+    ├── diagnostico-js.js           # Lógica específica para diagnóstico por cliente
+    ├── diagnostico-area-js.js      # Lógica específica para diagnóstico por área
+    ├── contacto_areas.js           # Lógica específica para formulario de contacto de áreas
+    └── perfil-cliente-js.js        # Lógica específica para inyectar datos del cliente
 ```
 
 ## Cómo ejecutar el proyecto localmente
